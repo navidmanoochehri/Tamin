@@ -1,0 +1,1618 @@
+﻿@page "/Assessment"
+
+@using System.IO;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx;
+@using Telerik.Windows.Documents.Spreadsheet.Model;
+@using System.Collections;
+@using System;
+@using System.Collections.Generic;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Txt;
+@using Telerik.Windows.Documents.Spreadsheet.Utilities;
+@using System.Linq;
+@using Telerik.Documents.Common.Model;
+@using System.Collections.ObjectModel;
+@using Tamin.DocumentProcessing;
+@using Telerik.DataSource;
+@using Telerik.DataSource.Extensions;
+@using Tamin.Data;
+@using Tamin.Data.Models;
+
+
+@inject IVendorData _dbVendorData
+@inject IActivityData _dbActivityData
+@inject IAssessmentFCData _dbAssessmentFCData
+@inject IAssessmentFSData _dbAssessmentFSData
+@inject IAssessmentSCData _dbAssessmentSCData
+@inject IAssessmentSSData _dbAssessmentSSData
+@inject IINAssessmentFCData _dbINAssessmentFC
+@inject IINAssessmentFSData _dbINAssessmentFS
+@inject IINAssessmentSCData _dbINAssessmentSC
+@inject IINAssessmentSSData _dbINAssessmentSS
+@inject IProjectsData _dbProjectsData
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
+
+<style>
+    .k-filter-menu-container .k-widget.k-dropdown,
+    .k-filter-menu-container .k-state-empty:nth-of-type(2n),
+    .k-filter-menu-container .k-datepicker:nth-of-type(2n),
+    .k-filter-menu-container .k-numerictextbox:nth-of-type(2n) {
+        display: none;
+    }
+
+    .k-grid .k-header .k-link,
+    .k-grid .k-header {
+        text-align: center;
+    }
+
+    .k-filter-menu-container .k-widget.k-dropdown:first-of-type {
+        display: block;
+    }
+
+    .k-window .k-edit-form-container {
+        height: 350px;
+        width: 500px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .k-grid tbody tr {
+        line-height: 30px;
+        white-space: nowrap;
+    }
+
+    .k-grid tbody td {
+        padding: 2px;
+        white-space: nowrap;
+    }
+
+    div.smallerFont,
+    div.smallerFont .k-filtercell * {
+        font-size: 12px;
+    }
+
+        div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
+            width: calc(8px + 2em) !important;
+        }
+
+    .myDiv {
+        text-align: left;
+    }
+</style>
+
+<AuthorizeView Roles="Admin">
+    <Authorized Context="Auth">
+
+        @if (GridData == null)
+        {
+            <h3>
+                <em>بارگزاری....</em>
+            </h3>
+        }
+        else
+        {
+            <br />
+            <h1 style="font-family:'Vazir';text-align-last:center">ارزیابی و شاخص ها</h1>
+            <br />
+            <div>
+
+                <a href="/Charts/powerbi/Grade%20Table?rs:Command=Render&rc:Toolbar=false" target="_blank" title="گزارش"><img src="/images/icons8_chart_32px.png" /></a>
+                <a href="/DataSetting" title="تنظیم داده ها"><img src="/images/icons8_settings_32px_1.png" /></a>
+                <a @onclick="Show" style="cursor:pointer">
+                    <img src="/images/icons8_bell_32px_1.png" id="Image1" alt="">
+                    <lable for="" style="border-radius:100px; background-color:orangered;color:snow; font-family: 'Yekan'; font-weight: bold; font-size:12px; padding:1px 3px 0px 2px; margin: -20px; text-align:center; vertical-align:top;">
+
+                        @{
+
+                            var datenow = (DateTime.Today.AddMonths(-6)).ToString("yyyy/MM/dd");
+                            var datedisable = (DateTime.Today.AddMonths(-12)).ToString("yyyy/MM/dd");
+
+                            var IdFC = GridFC.GroupBy(x => x.Id, id => id.Id).Select(i => i.Last()).ToList();
+                            var IdFS = GridFS.GroupBy(x => x.Id, id => id.Id).Select(i => i.Last()).ToList();
+                            var IdSC = GridSC.GroupBy(x => x.Id, id => id.Id).Select(i => i.Last()).ToList();
+                            var IdSS = GridSS.GroupBy(x => x.Id, id => id.Id).Select(i => i.Last()).ToList();
+
+                            var NFCSC = IdFC.Where(i => !IdSC.Contains(i)).ToList();
+                            var NFSSS = IdFS.Where(i => !IdSS.Contains(i)).ToList();
+                            var CFCSC = IdFC.Where(i => IdSC.Contains(i)).ToList();
+                            var CFSSS = IdFS.Where(i => IdSS.Contains(i)).ToList();
+
+                            var dateFC = GridFC.Where(x => NFCSC.Contains(x.Id)).GroupBy(id => id.Id, date => date.MDate).Select(g => g.Last()).ToList();
+                            var dateFS = GridFS.Where(x => NFSSS.Contains(x.Id)).GroupBy(id => id.Id, date => date.MDate).Select(g => g.Last()).ToList();
+                            var dateSC = GridSC.Where(x => CFCSC.Contains(x.Id)).GroupBy(id => id.Id, date => date.MDate).Select(g => g.Last()).ToList();
+                            var dateSS = GridSS.Where(x => CFSSS.Contains(x.Id)).GroupBy(id => id.Id, date => date.MDate).Select(g => g.Last()).ToList();
+
+                            dateFS.RemoveAll(item => item == null);
+                            dateFC.RemoveAll(item => item == null);
+                            dateSC.RemoveAll(item => item == null);
+                            dateSS.RemoveAll(item => item == null);
+
+                            var datecountFC = dateFC.Where(x => x.CompareTo(datenow) <= 0 && x.CompareTo(datedisable) >= 0 ).ToList();
+                            var datecountFS = dateFS.Where(x => x.CompareTo(datenow) <= 0 && x.CompareTo(datedisable) >= 0 ).ToList();
+                            var datecountSC = dateSC.Where(x => x.CompareTo(datenow) <= 0 && x.CompareTo(datedisable) >= 0 ).ToList();
+                            var datecountSS = dateSS.Where(x => x.CompareTo(datenow) <= 0 && x.CompareTo(datedisable) >= 0 ).ToList();
+
+                            var sum = datecountFC.Count() + datecountFS.Count() + datecountSC.Count() + datecountSS.Count();
+                            @sum
+
+
+                        }
+
+                    </lable>
+                </a>
+            </div>
+            <br />
+            <TelerikWindow Width="400px" Height="500px" Centered="true" @bind-Visible="@isVisible3" Modal="true" Class="k-rtl">
+                <WindowTitle>
+
+                </WindowTitle>
+                <WindowContent>
+                    @{
+                        var MainGrid = GridData.ToList();
+
+                        var iFC = GridFC.Where(x => NFCSC.Contains(x.Id)).GroupBy(id => id.Id, x => new { x.Id, x.MDate }).Select(g => g.Last()).ToList();
+                        var iFS = GridFS.Where(x => NFSSS.Contains(x.Id)).GroupBy(id => id.Id, x => new { x.Id, x.MDate }).Select(g => g.Last()).ToList();
+                        var iSC = GridSC.Where(x => CFCSC.Contains(x.Id)).GroupBy(id => id.Id, x => new { x.Id, x.MDate }).Select(g => g.Last()).ToList();
+                        var iSS = GridSS.Where(x => CFSSS.Contains(x.Id)).GroupBy(id => id.Id, x => new { x.Id, x.MDate }).Select(g => g.Last()).ToList();
+
+                        iFC.RemoveAll(item => item.MDate == null);
+                        var IDFC = iFC.Where(x => x.MDate.CompareTo(datenow) <= 0 && x.MDate.CompareTo(datedisable) >= 0).Select(i => i.Id).ToList();
+                        iFS.RemoveAll(item => item.MDate == null);
+                        var IDFS = iFS.Where(x => x.MDate.CompareTo(datenow) <= 0 && x.MDate.CompareTo(datedisable) >= 0).Select(i => i.Id).ToList();
+                        iSC.RemoveAll(item => item.MDate == null);
+                        var IDSC = iSC.Where(x => x.MDate.CompareTo(datenow) <= 0 && x.MDate.CompareTo(datedisable) >= 0).Select(i => i.Id).ToList();
+                        iSS.RemoveAll(item => item.MDate == null);
+                        var IDSS = iSS.Where(x => x.MDate.CompareTo(datenow) <= 0 && x.MDate.CompareTo(datedisable) >= 0).Select(i => i.Id).ToList();
+
+
+                        var SelectsFC = MainGrid.Where(x => IDFC.Contains(x.Id)).Select(i => new { i.Id, i.Name }).ToList();
+                        var SelectsFS = MainGrid.Where(x => IDFS.Contains(x.Id)).Select(i => new { i.Id, i.Name }).ToList();
+                        var SelectsSC = MainGrid.Where(x => IDSC.Contains(x.Id)).Select(i => new { i.Id, i.Name }).ToList();
+                        var SelectsSS = MainGrid.Where(x => IDSS.Contains(x.Id)).Select(i => new { i.Id, i.Name }).ToList();
+
+                        var D = SelectsSC.Concat(SelectsSS).Concat(SelectsFC).Concat(SelectsFS);
+
+
+
+                    }
+                    <TelerikGrid Data="@D" AutoGenerateColumns="true">
+
+                    </TelerikGrid>
+                </WindowContent>
+                <WindowActions>
+                    <WindowAction Name="Close"></WindowAction>
+                </WindowActions>
+            </TelerikWindow>
+            <div style="text-align-last:center">
+                <TelerikGrid Data="@GridData" SelectionMode="@selectionMode" @bind-SelectedItems="@SelectedItems" Pageable="true" Resizable="true" Reorderable="true" PageSize="20" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                             OnStateInit="@((GridStateEventArgs<VendorInPut> args) => OnStateInitHandler(args))">
+                    <GridColumns>
+                        
+                        <GridColumn Field="@nameof(VendorInPut.EditDate)" Title="تاریخ ویرایش" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Date)" Title="تاریخ ثبت" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Groups)" Title="گروه کاری" Editable="true" Width="120px"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Activities)" Title="زمینه های فعالیت" Width="160px" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Projects)" Title="پروژه ها" Width="150px" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Address)" Title="نشانی دفتر مرکزی" Editable="true" Width="0"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.NatioalId)" Title="شماره ملی " Width="0" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Fax)" Title="فکس" Editable="true" Width="0"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.ManagerName)" Title="نام مدیرعامل" Width="0" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.RegistrationNo)" Title="شماره ثبت" Width="0" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.PostalCode)" Title="کدپستی" Editable="true" Width="0"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.VendorListResume)" Title="عضو وندور لیست؟" Editable="true" Width="0"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.ActivityDescription)" Title="شرح فعالیت" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Description)" Title="توضیحات" Editable="true" Width="0"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.CooperationResume)" Title="سابقه همکاری" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.WebSite)" Title="وبسایت" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.EconomicCode)" Title="کد اقتصادی" Editable="true" Width="0"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.EMail)" Title="رایانامه" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Phone)" Title="شماره تماس" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Name)" Title="نام شرکت" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Id)" Title="ID" Editable="false"></GridColumn>
+
+                    </GridColumns>
+
+                </TelerikGrid>
+
+                @{
+
+                    var G = SelectedItems.Select(t => t.Groups);
+
+                    if (G.ElementAtOrDefault(0) == "کالایی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
+                    {
+                        <br />
+                        <br />
+                        <div><h4>جدول امتیاز ارزیابی اولیه کالایی</h4></div>
+
+                        var TFC = GridINFC.Select(t => t.Title).ToList();
+                        var NFC = GridINFC.Select(n => n.Score).ToList();
+                        var vendorID = SelectedItems.Select(v => v.Id).FirstOrDefault();
+
+                        <TelerikGrid Data="@GridFC.Where(t => (t.Id==vendorID))"
+                                     Height="200px" Resizable="true"
+                                     OnUpdate="@UpdateHandlerFC" OnEdit="@EditHandlerFC" OnDelete="@DeleteHandlerFC" OnCreate="@CreateHandlerFC" OnCancel="@CancelHandlerFC">
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                                @{
+                                    var g = GridFC.Where(t => (t.Id == vendorID)).Select(s => s.Grade).Max();
+                                    var d = GridFC.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+                                    var e = GridSC.Where(e => (e.Id == vendorID)).Select(s => s.MDate).Max();
+
+                                    if (g == "A")
+                                    {
+                                        <img src="/images/icons8_1st_place_medal_64px.png" />
+                                    }
+                                    else if (g == "B")
+                                    {
+                                        <img src="/images/icons8_2nd_place_medal_64px.png" />
+                                    }
+                                    else if (g == "C")
+                                    {
+                                        <img src="/images/icons8_3rd_place_medal_64px.png" />
+                                    }
+                                    if (d!=null && e==null)
+                                    {
+
+                                     if (d.CompareTo(datedisable)>=0)
+                                          {
+
+                                            <h3> وضعیت: فعال</h3>
+
+                                    } else
+                                          {
+
+                                            <h3>وضعیت :غیر فعال</h3>
+                                    }
+
+                                    }
+                                }
+                            </GridToolBar>
+                            <GridColumns>
+
+                                <GridColumn Field=@nameof(AssessmentFC.Image) Title="مدال">
+
+                                    <Template>
+
+                                        @{
+                                            
+                                            var G = (context as AssessmentFC).Grade;
+
+                                                    if (G == "A")
+                                                    {
+                                                     <img src="/images/icons8_1st_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "B")
+                                                    {
+                                                        <img src="/images/icons8_2nd_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "C")
+                                                    {
+                                                        <img src="/images/icons8_3rd_place_medal_32px.png" />
+                                                    }
+                                        }
+                                    </Template>
+
+                                </GridColumn>
+
+                                <GridColumn Field=@nameof(AssessmentFC.Grade) Title="رتبه" />
+                                <GridColumn Field=@nameof(AssessmentFC.Sum) Title="امتیاز کل %" />
+                                <GridColumn Field=@nameof(AssessmentFC.MDate) Title="تاریخ ارزیابی" />
+                                <GridColumn Field=@nameof(AssessmentFC.Comment) Title="توضیحات" />
+                                <GridColumn Field=@nameof(AssessmentFC.Project) Title="(پروژه(ها">
+                                    <EditorTemplate>
+                                        @{
+
+                                            <TelerikMultiSelect @bind-Value="@project"
+                                                                Data="@GridPJ.Select(a => a.Title).ToList()"
+                                                                Placeholder="پروژه ها"
+                                                                Width="200px" />
+                                        }
+                                    </EditorTemplate>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentFC.Financial) Editable="true" Title=@string.Concat(TFC.ElementAtOrDefault(2)," ( ",NFC.ElementAtOrDefault(2)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFC.Vendorlist) Editable="true" Title=@string.Concat(TFC.ElementAtOrDefault(0)," ( ",NFC.ElementAtOrDefault(0)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFC.Price) Editable="true" Title=@string.Concat(TFC.ElementAtOrDefault(1)," ( ",NFC.ElementAtOrDefault(1)," ) ") />
+
+                                <GridCommandColumn Width="200px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true"></GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit"></GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete"></GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    }
+
+
+                    if (G.ElementAtOrDefault(0) == "خدماتی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
+                    {
+                        <br />
+                        <br />
+                        <div><h4>جدول امتیاز ارزیابی اولیه خدماتی</h4></div>
+
+                        var TFS = GridINFS.Select(t => t.Title).ToList();
+                        var NFS = GridINFS.Select(n => n.Score).ToList();
+                        var vendorID = SelectedItems.Select(v => v.Id).FirstOrDefault();
+
+
+                        <TelerikGrid Data="@GridFS.Where(t => (t.Id==vendorID))"
+                                     Height="200px" Resizable="true"
+                                     OnUpdate="@UpdateHandlerFS" OnEdit="@EditHandlerFS" OnDelete="@DeleteHandlerFS" OnCreate="@CreateHandlerFS" OnCancel="@CancelHandlerFS">
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+
+                                @{
+                                    var g = GridFS.Where(t => (t.Id == vendorID)).Select(s => s.Grade).Max();
+                                    var d = GridFS.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+                                    var e = GridSS.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+
+                                    if (g == "A")
+                                    {
+                                        <img src="/images/icons8_1st_place_medal_64px.png" />
+                                    }
+                                    else if (g == "B")
+                                    {
+                                        <img src="/images/icons8_2nd_place_medal_64px.png" />
+                                    }
+                                    else if (g == "C")
+                                    {
+                                        <img src="/images/icons8_3rd_place_medal_64px.png" />
+                                    }
+                                    if (d!=null && e==null)
+                                    {
+
+                                     if (d.CompareTo(datedisable)>=0)
+                                          {
+
+                                            <h3> وضعیت: فعال</h3>
+
+                                    } else
+                                          {
+
+                                            <h3>وضعیت :غیر فعال</h3>
+                                    }
+
+                                    }
+                                 
+                                }
+                            </GridToolBar>
+                            <GridColumns>
+
+                                <GridColumn Field=@nameof(AssessmentFS.Grade) Title="رتبه" />
+                                <GridColumn Field=@nameof(AssessmentFS.Sum) Title="امتیاز کل %" />
+                                <GridColumn Field=@nameof(AssessmentFS.MDate) Title="تاریخ ارزیابی" />
+                                <GridColumn Field=@nameof(AssessmentFS.Comment) Title="توضیحات" />
+                                <GridColumn Field=@nameof(AssessmentFS.Project) Title="(پروژه(ها">
+                                    <EditorTemplate>
+                                        @{
+
+                                            <TelerikMultiSelect @bind-Value="@project"
+                                                                Data="@GridPJ.Select(a => a.Title).ToList()"
+                                                                Placeholder="پروژه ها"
+                                                                Width="200px" />
+                                        }
+                                    </EditorTemplate>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentFS.Technical) Editable="true" Title=@string.Concat(TFS.ElementAtOrDefault(3)," ( ",NFS.ElementAtOrDefault(3)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFS.Financial) Editable="true" Title=@string.Concat(TFS.ElementAtOrDefault(2)," ( ",NFS.ElementAtOrDefault(2)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFS.CustomerOrientation) Editable="true" Title=@string.Concat(TFS.ElementAtOrDefault(1)," ( ",NFS.ElementAtOrDefault(1)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFS.Price) Editable="true" Title=@string.Concat(TFS.ElementAtOrDefault(0)," ( ",NFS.ElementAtOrDefault(0)," ) ") />
+                                <GridCommandColumn Width="200px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true"></GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit"></GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete"></GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+
+                        </TelerikGrid>
+                    }
+
+                    if (G.ElementAtOrDefault(0) == "کالایی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
+                    {
+                        <br />
+                        <br />
+
+                        <div><h4>جدول امتیاز ارزیابی دوره ای کالایی</h4></div>
+
+                        var TSC = GridINSC.Select(t => t.Title).ToList();
+                        var NSC = GridINSC.Select(n => n.Score).ToList();
+                        var vendorID = SelectedItems.Select(v => v.Id).FirstOrDefault();
+
+
+                        <TelerikGrid Data="@GridSC.Where(t => (t.Id==vendorID))"
+                                     Height="200px" Resizable="true"
+                                     OnUpdate="@UpdateHandlerSC" OnEdit="@EditHandlerSC" OnDelete="@DeleteHandlerSC" OnCreate="@CreateHandlerSC" OnCancel="@CancelHandlerSC">
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                                @{
+                                    var g = GridSC.Where(t => (t.Id == vendorID)).Select(s => s.Grade).Max();
+                                    var d = GridSC.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+                                    
+                                    if (g == "A")
+                                    {
+                                        <img src="/images/icons8_1st_place_medal_64px.png" />
+                                    }
+                                    else if (g == "B")
+                                    {
+                                        <img src="/images/icons8_2nd_place_medal_64px.png" />
+                                    }
+                                    else if (g == "C")
+                                    {
+                                        <img src="/images/icons8_3rd_place_medal_64px.png" />
+                                    }
+
+                                    if (d!=null)
+                                    {
+
+                                     if (d.CompareTo(datedisable)>=0)
+                                          {
+
+                                            <h3> وضعیت: فعال</h3>
+
+                                    } else
+                                          {
+
+                                            <h3>وضعیت :غیر فعال</h3>
+                                    }
+
+                                    }
+
+                                }
+                            </GridToolBar>
+                            <GridColumns>
+
+                                <GridColumn Field=@nameof(AssessmentSC.Image) Title="مدال">
+
+                                    <Template>
+                                        @{
+                                                    var G = (context as AssessmentSC).Grade;
+
+                                                    if (G == "A")
+                                                    {
+                                                        <img src="/images/icons8_1st_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "B")
+                                                    {
+                                                        <img src="/images/icons8_2nd_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "C")
+                                                    {
+                                                        <img src="/images/icons8_3rd_place_medal_32px.png" />
+                                                    }
+                                        }
+                                    </Template>
+
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentSC.Grade) Title="رتبه" />
+                                <GridColumn Field=@nameof(AssessmentSC.Sum) Title="امتیاز کل %" />
+                                <GridColumn Field=@nameof(AssessmentSC.Comment) Title="توضیحات" />
+                                <GridColumn Field=@nameof(AssessmentSC.MDate) Title="تاریخ ارزیابی" />
+                                <GridColumn Field=@nameof(AssessmentSC.Project) Title="(پروژه(ها">
+                                    <EditorTemplate>
+                                        @{
+
+                                            <TelerikMultiSelect @bind-Value="@project"
+                                                                Data="@GridPJ.Select(a => a.Title).ToList()"
+                                                                Placeholder="پروژه ها"
+                                                                Width="200px" />
+                                        }
+                                    </EditorTemplate>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentSC.Quality) Editable="true" Title=@string.Concat(TSC.ElementAtOrDefault(0)," ( ",NSC.ElementAtOrDefault(0)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSC.Vendorlist) Editable="true" Title=@string.Concat(TSC.ElementAtOrDefault(1)," ( ",NSC.ElementAtOrDefault(1)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSC.Price) Editable="true" Title=@string.Concat(TSC.ElementAtOrDefault(2)," ( ",NSC.ElementAtOrDefault(2)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSC.Delivery) Editable="true" Title=@string.Concat(TSC.ElementAtOrDefault(3)," ( ",NSC.ElementAtOrDefault(3)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSC.CustomerOrientation) Editable="true" Title=@string.Concat(TSC.ElementAtOrDefault(4)," ( ",NSC.ElementAtOrDefault(4)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSC.Financial) Editable="true" Title=@string.Concat(TSC.ElementAtOrDefault(5)," ( ",NSC.ElementAtOrDefault(5)," ) ") />
+
+                                <GridCommandColumn Width="200px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true"></GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit"></GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete"></GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+
+                                </GridCommandColumn>
+
+                            </GridColumns>
+                        </TelerikGrid>
+                    }
+                    if (G.ElementAtOrDefault(0) == "خدماتی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
+                    {
+                        <br />
+                        <br />
+                        <div><h4>جدول امتیاز ارزیابی دوره ای خدماتی</h4></div>
+
+                        var TSS = GridINSS.Select(t => t.Title).ToList();
+                        var NSS = GridINSS.Select(n => n.Score).ToList();
+                        var vendorID = SelectedItems.Select(v => v.Id).FirstOrDefault();
+
+
+                        <TelerikGrid Data="@GridSS.Where(t => (t.Id==vendorID))" Height="200px" Resizable="true"
+                                     OnUpdate="@UpdateHandlerSS" OnEdit="@EditHandlerSS" OnDelete="@DeleteHandlerSS" OnCreate="@CreateHandlerSS" OnCancel="@CancelHandlerSS">
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                                @{
+                                    var g = GridSS.Where(t => (t.Id == vendorID)).Select(s => s.Grade).Max();
+                                    var d = GridSS.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+                                    if (g == "A")
+                                    {
+                                        <img src="/images/icons8_1st_place_medal_64px.png" />
+                                    }
+                                    else if (g == "B")
+                                    {
+                                        <img src="/images/icons8_2nd_place_medal_64px.png" />
+                                    }
+                                    else if (g == "C")
+                                    {
+                                        <img src="/images/icons8_3rd_place_medal_64px.png" />
+                                    }
+
+                                    if (d!=null)
+                                    {
+
+                                     if (d.CompareTo(datedisable)>=0)
+                                          {
+
+                                            <h3> وضعیت: فعال</h3>
+
+                                    } else
+                                          {
+
+                                            <h3>وضعیت :غیر فعال</h3>
+                                    }
+
+                                    }
+                                }
+                            </GridToolBar>
+                            <GridColumns>
+
+                                <GridColumn Field=@nameof(AssessmentSS.Image) Title="مدال">
+
+                                    <Template>
+                                        @{
+                                                    var G = (context as AssessmentSS).Grade;
+
+                                                    if (G == "A")
+                                                    {
+                                                <img src="/images/icons8_1st_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "B")
+                                                    {
+                                                <img src="/images/icons8_2nd_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "C")
+                                                    {
+                                                <img src="/images/icons8_3rd_place_medal_32px.png" />
+                                                    }
+                                        }
+                                    </Template>
+
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentSS.Grade) Title="رتبه" />
+                                <GridColumn Field=@nameof(AssessmentSS.Sum) Title="امتیاز کل %" />
+                                <GridColumn Field=@nameof(AssessmentSS.MDate) Title="تاریخ ارزیابی" />
+                                <GridColumn Field=@nameof(AssessmentSS.Comment) Title="توضیحات" />
+                                <GridColumn Field=@nameof(AssessmentSS.Project) Title="(پروژه(ها">
+                                    <EditorTemplate>
+                                        @{
+
+                                            <TelerikMultiSelect @bind-Value="@project"
+                                                                Data="@GridPJ.Select(a => a.Title).ToList()"
+                                                                Placeholder="پروژه ها"
+                                                                Width="200px" />
+                                        }
+                                    </EditorTemplate>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentSS.Quality) Editable="true" Title=@string.Concat(TSS.ElementAtOrDefault(0)," ( ",NSS.ElementAtOrDefault(0)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSS.Price) Editable="true" Title=@string.Concat(TSS.ElementAtOrDefault(1)," ( ",NSS.ElementAtOrDefault(1)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSS.Delivery) Editable="true" Title=@string.Concat(TSS.ElementAtOrDefault(2)," ( ",NSS.ElementAtOrDefault(2)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSS.CustomerOrientation) Editable="true" Title=@string.Concat(TSS.ElementAtOrDefault(3)," ( ",NSS.ElementAtOrDefault(3)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSS.Financial) Editable="true" Title=@string.Concat(TSS.ElementAtOrDefault(4)," ( ",NSS.ElementAtOrDefault(4)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSS.Technical) Editable="true" Title=@string.Concat(TSS.ElementAtOrDefault(5)," ( ",NSS.ElementAtOrDefault(5)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSS.HSE_QC) Editable="true" Title=@string.Concat(" ( ",NSS.ElementAtOrDefault(6)," ) ",TSS.ElementAtOrDefault(6)) />
+
+                                <GridCommandColumn Width="200px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true"></GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit"></GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete"></GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+
+                                </GridCommandColumn>
+
+                            </GridColumns>
+                        </TelerikGrid>
+                    }
+
+                }
+                <TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible" Modal="true">
+                    <WindowTitle>
+                        <strong>توجه</strong>
+                    </WindowTitle>
+                    <WindowContent>
+
+                        آیا اطمینان برای حذف کردن دارید؟
+                        <br /><br />
+
+                        <TelerikButton OnClick="@(async() => await Confirm())" Primary="true" Icon="delete">بلی</TelerikButton>
+                        <TelerikButton OnClick="@(async() => await CloseWindow())">خیر</TelerikButton>
+
+                    </WindowContent>
+                    <WindowActions>
+                        <WindowAction Name="Close"></WindowAction>
+                    </WindowActions>
+                </TelerikWindow>
+
+                <TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible2" Modal="true">
+                    <WindowTitle>
+                        <strong>توجه</strong>
+                    </WindowTitle>
+                    <WindowContent>
+                        خارج از محدوده حد امتیاز
+                    </WindowContent>
+                    <WindowActions>
+                        <WindowAction Name="Close"></WindowAction>
+                    </WindowActions>
+                </TelerikWindow>
+
+
+            </div>
+            <br />
+            <br />
+
+            <div class="text-center center">
+                <a class="k-button k-primary" href="index" style="font-size:22px">بازگشت</a>
+            </div>
+
+            <br />
+            <br />
+            <br />
+
+        }
+    </Authorized>
+    <NotAuthorized>
+        <div class="alert alert-danger text-center centered" style="width:100%;font-size:22px;top:50px">شما مجوز دسترسی به این صفحه را ندارید</div>
+        <div class="text-center centered" style="width:100%; height:100%">
+            <br />
+            <br />
+            <br />
+            <a class="k-button k-primary" href="\index" style="font-size:22px;top:200px">بازگشت</a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+@code {
+
+    GridSelectionMode selectionMode { get; set; } = GridSelectionMode.Multiple;
+    bool ShowSelectAll
+    => selectionMode == GridSelectionMode.Multiple;
+    public bool DeleteConfirm { get; set; }
+    public bool isVisible { get; set; }
+    public bool isVisible2 { get; set; }
+    public bool isVisible3 { get; set; } = false;
+
+
+    bool ExportAllPages { get; set; }
+    public IEnumerable<VendorInPut> GridData = new List<VendorInPut>();
+    public IEnumerable<AssessmentFC> GridFC = new List<AssessmentFC>();
+    public IEnumerable<AssessmentFS> GridFS = new List<AssessmentFS>();
+    public IEnumerable<AssessmentSC> GridSC = new List<AssessmentSC>();
+    public IEnumerable<AssessmentSS> GridSS = new List<AssessmentSS>();
+    public IList<INAssessmentFC> GridINFC = new List<INAssessmentFC>();
+    public IList<INAssessmentFS> GridINFS = new List<INAssessmentFS>();
+    public IList<INAssessmentSC> GridINSC = new List<INAssessmentSC>();
+    public IList<INAssessmentSS> GridINSS = new List<INAssessmentSS>();
+    public List<Projects> GridPJ = new List<Projects>();
+    public List<string> project = new List<string>();
+    public IEnumerable<VendorInPut> SelectedItems { get; set; } = new List<VendorInPut>();
+
+
+
+    async Task show()
+    {
+        isVisible3 = false;
+        await OnInitializedAsync();
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+
+    {
+
+
+        await LoadData();
+
+    }
+
+    async Task LoadData()
+    {
+        GridINFC = await _dbINAssessmentFC.GetINAssessmentFC();
+        GridINFS = await _dbINAssessmentFS.GetINAssessmentFS();
+        GridINSC = await _dbINAssessmentSC.GetINAssessmentSC();
+        GridINSS = await _dbINAssessmentSS.GetINAssessmentSS();
+        var vendors = await _dbVendorData.GetVendors();
+        GridData = new ObservableCollection<VendorInPut>(vendors);
+        var FC = await _dbAssessmentFCData.GetAssessmentFC();
+        GridFC = new ObservableCollection<AssessmentFC>(FC);
+        var FS = await _dbAssessmentFSData.GetAssessmentFS();
+        GridFS = new ObservableCollection<AssessmentFS>(FS);
+        var SC = await _dbAssessmentSCData.GetAssessmentSC();
+        GridSC = new ObservableCollection<AssessmentSC>(SC);
+        var SS = await _dbAssessmentSSData.GetAssessmentSS();
+        GridSS = new ObservableCollection<AssessmentSS>(SS);
+        GridPJ = await _dbProjectsData.GetProjects();
+    }
+    async Task OnStateInitHandler(GridStateEventArgs<VendorInPut> args)
+    {
+        var state = new GridState<VendorInPut>
+        {
+            SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
+{
+                new Telerik.DataSource.SortDescriptor{ Member = "Date", SortDirection = Telerik.DataSource.ListSortDirection.Descending }
+            },
+
+        };
+
+        args.GridState = state;
+        await LoadData();
+    }
+    public async Task ShowWindow()
+    {
+        isVisible = true;
+        StateHasChanged();
+        await OnInitializedAsync();
+    }
+
+    public async Task Confirm()
+    {
+        DeleteConfirm = true;
+        isVisible = false;
+        await OnInitializedAsync();
+        StateHasChanged();
+
+    }
+
+    public async Task CloseWindow()
+    {
+        DeleteConfirm = false;
+        isVisible = false;
+        await OnInitializedAsync();
+        StateHasChanged();
+
+    }
+
+    private void Show()
+    {
+        isVisible3 = true;
+    }
+
+
+    void EditHandlerFC(GridCommandEventArgs args)
+    {
+
+        AssessmentFC item = (AssessmentFC)args.Item;
+        var C = GridINFC.ToList();
+        
+        if (item.Financial==0) {
+            C.RemoveAll(r=>r.Id==3);
+        }
+        if (item.Price==0) {
+            C.RemoveAll(r=>r.Id==2);
+        }
+    
+        if (item.Vendorlist==0) {
+           C.RemoveAll(r=>r.Id==1);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.Vendorlist), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+    
+
+
+    }
+
+    async Task UpdateHandlerFC(GridCommandEventArgs args)
+    {
+        AssessmentFC item = (AssessmentFC)args.Item;
+        var C = GridINFC.ToList();
+        
+        if (item.Financial==0) {
+            C.RemoveAll(r=>r.Id==3);
+        }
+        if (item.Price==0) {
+            C.RemoveAll(r=>r.Id==2);
+        }
+    
+        if (item.Vendorlist==0) {
+           C.RemoveAll(r=>r.Id==1);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.Vendorlist), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+        var NFC = GridINFC.Select(n => n.Score).ToList();
+
+        if (0 <= item.Price && item.Price <= NFC.ElementAtOrDefault(1) && 0 <= item.Financial && item.Financial <= NFC.ElementAtOrDefault(2) && 0 <= item.Vendorlist && item.Vendorlist <= NFC.ElementAtOrDefault(0))
+        {
+
+            await _dbAssessmentFCData.UpdateAssessmentFC(item);
+            DateTime dateAndTime = DateTime.Now;
+            item.Date = (dateAndTime.ToString());
+            await _dbAssessmentFCData.UpdateAssessmentFC(item);
+
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+        await OnInitializedAsync();
+    }
+
+    private async Task DeleteHandlerFC(GridCommandEventArgs args)
+    {
+        await ShowWindow();
+
+        await Task.Delay(4000);
+
+        StateHasChanged();
+
+        if (DeleteConfirm)
+        {
+            AssessmentFC item = (AssessmentFC)args.Item;
+            await _dbAssessmentFCData.DeleteAssessmentFC(item);
+        }
+
+        DeleteConfirm = false;
+        await OnInitializedAsync();
+
+    }
+
+    private async Task CreateHandlerFC(GridCommandEventArgs args)
+    {
+        AssessmentFC item = (AssessmentFC)args.Item;
+        var C = GridINFC.ToList();
+        
+        if (item.Financial==0) {
+            C.RemoveAll(r=>r.Id==3);
+        }
+        if (item.Price==0) {
+            C.RemoveAll(r=>r.Id==2);
+        }
+    
+        if (item.Vendorlist==0) {
+           C.RemoveAll(r=>r.Id==1);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.Vendorlist), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+        DateTime dateAndTime = DateTime.Now;
+        item.Date = (dateAndTime.ToString());
+
+        item.Id = SelectedItems.Select(a => a.Id).FirstOrDefault();
+
+        var NFC = GridINFC.Select(n => n.Score).ToList();
+
+        if (0 <= item.Price && item.Price <= NFC.ElementAtOrDefault(1) && 0 <= item.Financial && item.Financial <= NFC.ElementAtOrDefault(2) && 0 <= item.Vendorlist && item.Vendorlist <= NFC.ElementAtOrDefault(0))
+        {
+            await _dbAssessmentFCData.InsertAssessmentFC(item);
+            await OnInitializedAsync();
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+
+    }
+
+    private async Task CancelHandlerFC(GridCommandEventArgs args)
+    {
+
+        AssessmentFC item = (AssessmentFC)args.Item;
+        await OnInitializedAsync();
+
+    }
+    void EditHandlerFS(GridCommandEventArgs args)
+    {
+        AssessmentFS item = (AssessmentFS)args.Item;
+        var C = GridINFS.ToList();
+        
+        if (item.Financial==0) {
+            C.RemoveAll(r=>r.Id ==3);
+        }
+        if (item.Price==0) {
+            C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.Technical==0) {
+           C.RemoveAll(r=>r.Id ==4);
+        }
+        if (item.CustomerOrientation ==0) {
+           C.RemoveAll(r=>r.Id ==2);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Technical), (C.Select(c=>c.Score).Sum()));
+        
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+
+    }
+
+    async Task UpdateHandlerFS(GridCommandEventArgs args)
+    {
+        AssessmentFS item = (AssessmentFS)args.Item;
+        var C = GridINFS.ToList();
+        
+        if (item.Financial==0) {
+            C.RemoveAll(r=>r.Id ==3);
+        }
+        if (item.Price==0) {
+            C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.Technical==0) {
+           C.RemoveAll(r=>r.Id ==4);
+        }
+        if (item.CustomerOrientation ==0) {
+           C.RemoveAll(r=>r.Id ==2);
+        }
+        
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Technical), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+        var NFS = GridINFS.Select(n => n.Score).ToList();
+        if (0 <= item.Price && item.Price <= NFS.ElementAtOrDefault(0) && 0 <= item.Financial && item.Financial <= NFS.ElementAtOrDefault(2) && 0 <= item.CustomerOrientation && item.CustomerOrientation <= NFS.ElementAtOrDefault(1) && 0 <= item.Technical && item.Technical <= NFS.ElementAtOrDefault(3))
+        {
+            await _dbAssessmentFSData.UpdateAssessmentFS(item);
+            DateTime dateAndTime = DateTime.Now;
+            item.Date = (dateAndTime.ToString());
+            await _dbAssessmentFSData.UpdateAssessmentFS(item);
+
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+        await OnInitializedAsync();
+    }
+
+    private async Task DeleteHandlerFS(GridCommandEventArgs args)
+    {
+        await ShowWindow();
+
+        await Task.Delay(3000);
+
+        StateHasChanged();
+
+        await Task.Delay(1000);
+
+        StateHasChanged();
+
+        if (DeleteConfirm)
+        {
+            AssessmentFS item = (AssessmentFS)args.Item;
+            await _dbAssessmentFSData.DeleteAssessmentFS(item);
+        }
+
+        DeleteConfirm = false;
+        await OnInitializedAsync();
+
+    }
+
+    private async Task CreateHandlerFS(GridCommandEventArgs args)
+    {
+        AssessmentFS item = (AssessmentFS)args.Item;
+       var C = GridINFS.ToList();
+        
+        if (item.Financial==0) {
+            C.RemoveAll(r=>r.Id ==3);
+        }
+        if (item.Price==0) {
+            C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.Technical==0) {
+           C.RemoveAll(r=>r.Id ==4);
+        }
+        if (item.CustomerOrientation ==0) {
+           C.RemoveAll(r=>r.Id ==2);
+        }
+        
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Technical), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+        DateTime dateAndTime = DateTime.Now;
+        item.Date = (dateAndTime.ToString());
+        item.Id = SelectedItems.Select(a => a.Id).FirstOrDefault();
+        var NFS = GridINFS.Select(n => n.Score).ToList();
+        if (0 <= item.Price && item.Price <= NFS.ElementAtOrDefault(0) && 0 <= item.Financial && item.Financial <= NFS.ElementAtOrDefault(2) && 0 <= item.CustomerOrientation && item.CustomerOrientation <= NFS.ElementAtOrDefault(1) && 0 <= item.Technical && item.Technical <= NFS.ElementAtOrDefault(3))
+        {
+            await _dbAssessmentFSData.InsertAssessmentFS(item);
+            await OnInitializedAsync();
+        }
+        else
+        {
+
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+
+    }
+
+    private async Task CancelHandlerFS(GridCommandEventArgs args)
+    {
+
+        AssessmentFS item = (AssessmentFS)args.Item;
+        await OnInitializedAsync();
+
+    }
+
+    void EditHandlerSC(GridCommandEventArgs args)
+    {
+
+        AssessmentSC item = (AssessmentSC)args.Item;
+        var C = GridINSC.ToList();
+        
+        if (item.Financial == 0) {
+            C.RemoveAll(r=>r.Id == 6);
+        }
+        if (item.Price == 0) {
+            C.RemoveAll(r=>r.Id == 3);
+        }
+        if (item.Delivery == 0) {
+           C.RemoveAll(r=>r.Id == 4);
+        }
+        if (item.Quality == 0) {
+           C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.CustomerOrientation == 0) {
+           C.RemoveAll(r=>r.Id == 5);
+        }
+        if (item.Vendorlist == 0) {
+           C.RemoveAll(r=>r.Id == 2);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Delivery + item.Vendorlist + item.Quality), (C.Select(c=>c.Score).Sum()));   
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+    }
+
+    async Task UpdateHandlerSC(GridCommandEventArgs args)
+    {
+        AssessmentSC item = (AssessmentSC)args.Item;
+        var C = GridINSC.ToList();
+        
+        if (item.Financial == 0) {
+            C.RemoveAll(r=>r.Id == 6);
+        }
+        if (item.Price == 0) {
+            C.RemoveAll(r=>r.Id == 3);
+        }
+        if (item.Delivery == 0) {
+           C.RemoveAll(r=>r.Id == 4);
+        }
+        if (item.Quality == 0) {
+           C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.CustomerOrientation == 0) {
+           C.RemoveAll(r=>r.Id == 5);
+        }
+        if (item.Vendorlist == 0) {
+           C.RemoveAll(r=>r.Id == 2);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Delivery + item.Vendorlist + item.Quality), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+        var NSC = GridINSC.Select(n => n.Score).ToList();
+        if (0 <= item.Quality && item.Quality <= NSC.ElementAtOrDefault(0) && 0 <= item.Vendorlist && item.Vendorlist <= NSC.ElementAtOrDefault(1) && 0 <= item.Price && item.Price <= NSC.ElementAtOrDefault(2) && 0 <= item.Delivery && item.Delivery <= NSC.ElementAtOrDefault(3) && 0 <= item.CustomerOrientation && item.CustomerOrientation <= NSC.ElementAtOrDefault(4) && 0 <= item.Financial && item.Financial <= NSC.ElementAtOrDefault(5))
+        {
+            await _dbAssessmentSCData.UpdateAssessmentSC(item);
+            DateTime dateAndTime = DateTime.Now;
+            item.Date = (dateAndTime.ToString());
+            await _dbAssessmentSCData.UpdateAssessmentSC(item);
+
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+        await OnInitializedAsync();
+    }
+
+    private async Task DeleteHandlerSC(GridCommandEventArgs args)
+    {
+        await ShowWindow();
+
+        await Task.Delay(3000);
+
+        StateHasChanged();
+
+        await Task.Delay(1000);
+
+        StateHasChanged();
+
+        if (DeleteConfirm)
+        {
+            AssessmentSC item = (AssessmentSC)args.Item;
+            await _dbAssessmentSCData.DeleteAssessmentSC(item);
+        }
+
+        DeleteConfirm = false;
+        await OnInitializedAsync();
+    }
+
+    private async Task CreateHandlerSC(GridCommandEventArgs args)
+    {
+        AssessmentSC item = (AssessmentSC)args.Item;
+        var C = GridINSC.ToList();
+        
+        if (item.Financial == 0) {
+            C.RemoveAll(r=>r.Id == 6);
+        }
+        if (item.Price == 0) {
+            C.RemoveAll(r=>r.Id == 3);
+        }
+        if (item.Delivery == 0) {
+           C.RemoveAll(r=>r.Id == 4);
+        }
+        if (item.Quality == 0) {
+           C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.CustomerOrientation == 0) {
+           C.RemoveAll(r=>r.Id == 5);
+        }
+        if (item.Vendorlist == 0) {
+           C.RemoveAll(r=>r.Id == 2);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Delivery + item.Vendorlist + item.Quality), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+        DateTime dateAndTime = DateTime.Now;
+        item.Date = (dateAndTime.ToString()); ;
+        item.Id = SelectedItems.Select(a => a.Id).FirstOrDefault();
+        var NSC = GridINSC.Select(n => n.Score).ToList();
+        if (0 <= item.Quality && item.Quality <= NSC.ElementAtOrDefault(0) && 0 <= item.Vendorlist && item.Vendorlist <= NSC.ElementAtOrDefault(1) && 0 <= item.Price && item.Price <= NSC.ElementAtOrDefault(2) && 0 <= item.Delivery && item.Delivery <= NSC.ElementAtOrDefault(3) && 0 <= item.CustomerOrientation && item.CustomerOrientation <= NSC.ElementAtOrDefault(4) && 0 <= item.Financial && item.Financial <= NSC.ElementAtOrDefault(5))
+        {
+            await _dbAssessmentSCData.InsertAssessmentSC(item);
+            await OnInitializedAsync();
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+
+    }
+
+    private async Task CancelHandlerSC(GridCommandEventArgs args)
+    {
+
+        AssessmentSC item = (AssessmentSC)args.Item;
+        await OnInitializedAsync();
+
+    }
+    void EditHandlerSS(GridCommandEventArgs args)
+    {
+
+        AssessmentSS item = (AssessmentSS)args.Item;
+        var C = GridINSS.ToList();
+        
+        if (item.Financial == 0) {
+            C.RemoveAll(r=>r.Id == 5);
+        }
+        if (item.Price == 0) {
+            C.RemoveAll(r=>r.Id == 2);
+        }
+        if (item.Delivery == 0) {
+           C.RemoveAll(r=>r.Id == 3);
+        }
+        if (item.Quality == 0) {
+           C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.CustomerOrientation == 0) {
+           C.RemoveAll(r=>r.Id == 4);
+        }
+        if (item.Technical == 0) {
+           C.RemoveAll(r=>r.Id == 6);
+        }
+        if (item.HSE_QC == 0) {
+           C.RemoveAll(r=>r.Id == 7);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Delivery + item.HSE_QC + item.Quality + item.Technical), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+    }
+
+    async Task UpdateHandlerSS(GridCommandEventArgs args)
+    {
+        AssessmentSS item = (AssessmentSS)args.Item;
+        var C = GridINSS.ToList();
+        
+        if (item.Financial == 0) {
+            C.RemoveAll(r=>r.Id == 5);
+        }
+        if (item.Price == 0) {
+            C.RemoveAll(r=>r.Id == 2);
+        }
+        if (item.Delivery == 0) {
+           C.RemoveAll(r=>r.Id == 3);
+        }
+        if (item.Quality == 0) {
+           C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.CustomerOrientation == 0) {
+           C.RemoveAll(r=>r.Id == 4);
+        }
+        if (item.Technical == 0) {
+           C.RemoveAll(r=>r.Id == 6);
+        }
+        if (item.HSE_QC == 0) {
+           C.RemoveAll(r=>r.Id == 7);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Delivery + item.HSE_QC + item.Quality + item.Technical), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+
+        item.Id = SelectedItems.Select(a => a.Id).FirstOrDefault();
+        var NSS = GridINSS.Select(n => n.Score).ToList();
+        if (0 <= item.Quality && item.Quality <= NSS.ElementAtOrDefault(0) && 0 <= item.Price && item.Price <= NSS.ElementAtOrDefault(1) && 0 <= item.Delivery && item.Delivery <= NSS.ElementAtOrDefault(2) && 0 <= item.CustomerOrientation && item.CustomerOrientation <= NSS.ElementAtOrDefault(3) && 0 <= item.Financial && item.Financial <= NSS.ElementAtOrDefault(4) && 0 <= item.Technical && item.Technical <= NSS.ElementAtOrDefault(5) && 0 <= item.HSE_QC && item.HSE_QC <= NSS.ElementAtOrDefault(6))
+        {
+            await _dbAssessmentSSData.UpdateAssessmentSS(item);
+            DateTime dateAndTime = DateTime.Now;
+            item.Date = (dateAndTime.ToString());
+            await _dbAssessmentSSData.UpdateAssessmentSS(item);
+
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+        await OnInitializedAsync();
+    }
+
+    private async Task DeleteHandlerSS(GridCommandEventArgs args)
+    {
+        await ShowWindow();
+
+        await Task.Delay(3000);
+
+        StateHasChanged();
+
+        await Task.Delay(1000);
+
+        StateHasChanged();
+
+        if (DeleteConfirm)
+        {
+            AssessmentSS item = (AssessmentSS)args.Item;
+            await _dbAssessmentSSData.DeleteAssessmentSS(item);
+        }
+
+        DeleteConfirm = false;
+        await OnInitializedAsync();
+    }
+
+    private async Task CreateHandlerSS(GridCommandEventArgs args)
+    {
+        AssessmentSS item = (AssessmentSS)args.Item;
+        var C = GridINSS.ToList();
+        
+        if (item.Financial == 0) {
+            C.RemoveAll(r=>r.Id == 5);
+        }
+        if (item.Price == 0) {
+            C.RemoveAll(r=>r.Id == 2);
+        }
+        if (item.Delivery == 0) {
+           C.RemoveAll(r=>r.Id == 3);
+        }
+        if (item.Quality == 0) {
+           C.RemoveAll(r=>r.Id == 1);
+        }
+        if (item.CustomerOrientation == 0) {
+           C.RemoveAll(r=>r.Id == 4);
+        }
+        if (item.Technical == 0) {
+           C.RemoveAll(r=>r.Id == 6);
+        }
+        if (item.HSE_QC == 0) {
+           C.RemoveAll(r=>r.Id == 7);
+        }
+
+        var S = decimal.Divide((item.Financial + item.Price + item.CustomerOrientation + item.Delivery + item.HSE_QC + item.Quality + item.Technical), (C.Select(c=>c.Score).Sum()));
+        item.Sum = Convert.ToInt32(S * 100);
+        if (item.Sum >= 70)
+        {
+            item.Grade = "A";
+
+        }
+        else if ((item.Sum < 70) && (item.Sum >= 50))
+        {
+            item.Grade = "B";
+        }
+        else
+        {
+            item.Grade = "C";
+        }
+        var p = string.Join(" , ", project.ToList());
+        if (p != "")
+        {
+            item.Project = p;
+        }
+        DateTime dateAndTime = DateTime.Now;
+        item.Date = (dateAndTime.ToString());
+        item.Id = SelectedItems.Select(a => a.Id).FirstOrDefault();
+        var NSS = GridINSS.Select(n => n.Score).ToList();
+        if (0 <= item.Quality && item.Quality <= NSS.ElementAtOrDefault(0) && 0 <= item.Price && item.Price <= NSS.ElementAtOrDefault(1) && 0 <= item.Delivery && item.Delivery <= NSS.ElementAtOrDefault(2) && 0 <= item.CustomerOrientation && item.CustomerOrientation <= NSS.ElementAtOrDefault(3) && 0 <= item.Financial && item.Financial <= NSS.ElementAtOrDefault(4) && 0 <= item.Technical && item.Technical <= NSS.ElementAtOrDefault(5) && 0 <= item.HSE_QC && item.HSE_QC <= NSS.ElementAtOrDefault(6))
+        {
+            await _dbAssessmentSSData.InsertAssessmentSS(item);
+            await OnInitializedAsync();
+        }
+        else
+        {
+            isVisible2 = true;
+            await Task.Delay(1000);
+            isVisible2 = false;
+        }
+
+    }
+
+    private async Task CancelHandlerSS(GridCommandEventArgs args)
+    {
+
+        AssessmentSS item = (AssessmentSS)args.Item;
+        await OnInitializedAsync();
+
+    }
+    void ClearSelection(ChangeEventArgs e)
+    {
+        Enum.TryParse(e.Value.ToString(), out GridSelectionMode chosenMode);
+        selectionMode = chosenMode;
+
+        if (chosenMode == GridSelectionMode.Single)
+        {
+            VendorInPut selectedItem = null;
+            if (SelectedItems.Count() > 0)
+            {
+                selectedItem = SelectedItems.First();
+            }
+            var TempItems = new List<VendorInPut>();
+            if (selectedItem != null)
+            {
+                TempItems.Add(selectedItem);
+            }
+            SelectedItems = TempItems.AsEnumerable<VendorInPut>();
+        }
+    }
+
+
+}
+
+

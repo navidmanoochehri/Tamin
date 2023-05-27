@@ -1,0 +1,857 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\CheckEmail.css",
+      "PackagePath": "staticwebassets\\css\\CheckEmail.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\ForgotPassword.css",
+      "PackagePath": "staticwebassets\\css\\ForgotPassword.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Index.css",
+      "PackagePath": "staticwebassets\\css\\Index.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Material\\Material.css",
+      "PackagePath": "staticwebassets\\css\\Material\\Material.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Material\\variables.scss",
+      "PackagePath": "staticwebassets\\css\\Material\\variables.scss"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Register.css",
+      "PackagePath": "staticwebassets\\css\\Register.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Tamin.css",
+      "PackagePath": "staticwebassets\\css\\Tamin.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Tamin2.css",
+      "PackagePath": "staticwebassets\\css\\Tamin2.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\Vendor-Form.css",
+      "PackagePath": "staticwebassets\\css\\Vendor-Form.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\MaterialIcons-Regular.eot",
+      "PackagePath": "staticwebassets\\fonts\\MaterialIcons-Regular.eot"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\MaterialIcons-Regular.ijmap",
+      "PackagePath": "staticwebassets\\fonts\\MaterialIcons-Regular.ijmap"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\MaterialIcons-Regular.svg",
+      "PackagePath": "staticwebassets\\fonts\\MaterialIcons-Regular.svg"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\MaterialIcons-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\MaterialIcons-Regular.ttf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\MaterialIcons-Regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\MaterialIcons-Regular.woff"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\MaterialIcons-Regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\MaterialIcons-Regular.woff2"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.eot",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.eot"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.otf",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.otf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.svg",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.svg"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.ttf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.vfb",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.vfb"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.woff",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.woff"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\Yekan.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Yekan.woff2"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\fonts\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\CheckEmail_bkgrnd.png",
+      "PackagePath": "staticwebassets\\images\\CheckEmail_bkgrnd.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\FA.png",
+      "PackagePath": "staticwebassets\\images\\FA.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\ForgotPassword_bkgrnd.png",
+      "PackagePath": "staticwebassets\\images\\ForgotPassword_bkgrnd.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\Login_bkgrnd.png",
+      "PackagePath": "staticwebassets\\images\\Login_bkgrnd.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\Logoo-Tanavob-1.png",
+      "PackagePath": "staticwebassets\\images\\Logoo-Tanavob-1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\Register_bkgrnd.png",
+      "PackagePath": "staticwebassets\\images\\Register_bkgrnd.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_1st_place_medal_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_1st_place_medal_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_1st_place_medal_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_1st_place_medal_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_2nd_place_medal_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_2nd_place_medal_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_2nd_place_medal_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_2nd_place_medal_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_3rd_place_medal_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_3rd_place_medal_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_3rd_place_medal_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_3rd_place_medal_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_add_70px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_add_70px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_add_male_user_512px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_add_male_user_512px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_add_male_user_92px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_add_male_user_92px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_address_48px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_address_48px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_attendance_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_attendance_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_barcode_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_barcode_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_bell_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_bell_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_bell_32px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_bell_32px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_card_verification_value_48px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_card_verification_value_48px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_cardboard_box_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_cardboard_box_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_chart_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_chart_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_check_document_128px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_check_document_128px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_check_lock_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_check_lock_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_company_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_company_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_correspondence_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_correspondence_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_customer_128px_2.png",
+      "PackagePath": "staticwebassets\\images\\icons8_customer_128px_2.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_customer_36px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_customer_36px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_delivery_man_64px_2.png",
+      "PackagePath": "staticwebassets\\images\\icons8_delivery_man_64px_2.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_edit_150px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_edit_150px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_email_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_email_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_form_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_form_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_gmail_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_gmail_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_graph_report_28px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_graph_report_28px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_hand_box_256px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_hand_box_256px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_hand_box_64px_2.png",
+      "PackagePath": "staticwebassets\\images\\icons8_hand_box_64px_2.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_handle_with_care_512px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_handle_with_care_512px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_handle_with_care_80px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_handle_with_care_80px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_identification_documents_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_identification_documents_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_internet_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_internet_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_jingle_bell_28px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_jingle_bell_28px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_key_28px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_key_28px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_key_64px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_key_64px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_leadership_96px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_leadership_96px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_lock_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_lock_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_lock_64px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_lock_64px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_login_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_login_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_logout_rounded_up_32px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_logout_rounded_up_32px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_logout_rounded_up_32px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_logout_rounded_up_32px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_mailing_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_mailing_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_medal_128px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_medal_128px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_microsoft_outlook_2019_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_microsoft_outlook_2019_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_microsoft_outlook_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_microsoft_outlook_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_name_512px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_name_512px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_name_70px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_name_70px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_office_phone_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_office_phone_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_pass_fail_150px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_pass_fail_150px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_phone_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_phone_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_postal_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_postal_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_postcard_with_barcode_48px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_postcard_with_barcode_48px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_private_message_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_private_message_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_received_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_received_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_search_in_mail_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_search_in_mail_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_secure_mail_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_secure_mail_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_settings_28px_7.png",
+      "PackagePath": "staticwebassets\\images\\icons8_settings_28px_7.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_settings_32px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_settings_32px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_smart_card_70px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_smart_card_70px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_star_filled_150px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_star_filled_150px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_star_filled_150px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_star_filled_150px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_survey_150px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_survey_150px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_survey_150px_1.png",
+      "PackagePath": "staticwebassets\\images\\icons8_survey_150px_1.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_trolley_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_trolley_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_unlock_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_unlock_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_user_settings_150px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_user_settings_150px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_user_settings_350px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_user_settings_350px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_user_settings_70px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_user_settings_70px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\icons8_yahoo_64px.png",
+      "PackagePath": "staticwebassets\\images\\icons8_yahoo_64px.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\img0001.png",
+      "PackagePath": "staticwebassets\\images\\img0001.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\img0002.png",
+      "PackagePath": "staticwebassets\\images\\img0002.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\img0003.png",
+      "PackagePath": "staticwebassets\\images\\img0003.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\img0004.png",
+      "PackagePath": "staticwebassets\\images\\img0004.png"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\images\\placeholder.gif",
+      "PackagePath": "staticwebassets\\images\\placeholder.gif"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\codeManager.js",
+      "PackagePath": "staticwebassets\\js\\codeManager.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\exporter.js",
+      "PackagePath": "staticwebassets\\js\\exporter.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\focus-component.js",
+      "PackagePath": "staticwebassets\\js\\focus-component.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\inputfile.js",
+      "PackagePath": "staticwebassets\\js\\inputfile.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\jquery-1.12.4.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-1.12.4.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\jquery-3.5.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.5.1.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\prettify.js",
+      "PackagePath": "staticwebassets\\js\\prettify.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\refresh-page.js",
+      "PackagePath": "staticwebassets\\js\\refresh-page.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\telerik-cdn-loader.js",
+      "PackagePath": "staticwebassets\\js\\telerik-cdn-loader.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\themeManager.js",
+      "PackagePath": "staticwebassets\\js\\themeManager.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\wb.lazyload.min.js",
+      "PackagePath": "staticwebassets\\js\\wb.lazyload.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\wb.rotate.min.js",
+      "PackagePath": "staticwebassets\\js\\wb.rotate.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\wb.validation.min.js",
+      "PackagePath": "staticwebassets\\js\\wb.validation.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\js\\wwb15.min.js",
+      "PackagePath": "staticwebassets\\js\\wwb15.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper-utils.js",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper-utils.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper-utils.js.map",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper-utils.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper-utils.min.js",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper-utils.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper-utils.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper-utils.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper.js",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper.js.flow",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper.js.flow"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper.js.map",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper.min.js",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\popper\\popper.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\popper\\popper.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\toastr\\toastr.css",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\toastr\\toastr.js",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.js"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\toastr\\toastr.js.map",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\toastr\\toastr.min.css",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\Tamin-New\\wwwroot\\lib\\toastr\\toastr.min.js",
+      "PackagePath": "staticwebassets\\lib\\toastr\\toastr.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7\\staticwebassets\\msbuild.Tamin.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7\\staticwebassets\\msbuild.build.Tamin.props",
+      "PackagePath": "build\\Tamin.props"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7\\staticwebassets\\msbuild.buildMultiTargeting.Tamin.props",
+      "PackagePath": "buildMultiTargeting\\Tamin.props"
+    },
+    {
+      "Id": "obj\\Debug\\netcoreapp7\\staticwebassets\\msbuild.buildTransitive.Tamin.props",
+      "PackagePath": "buildTransitive\\Tamin.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

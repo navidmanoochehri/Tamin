@@ -1,0 +1,153 @@
+﻿@page "/index"
+
+@using System.IO;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx;
+@using Telerik.Windows.Documents.Spreadsheet.Model;
+@using System.Collections;
+@using System;
+@using System.Collections.Generic;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Txt;
+@using Telerik.Windows.Documents.Spreadsheet.Utilities;
+@using System.Linq;
+@using Telerik.Documents.Common.Model;
+@using System.Collections.ObjectModel;
+@using Tamin.DocumentProcessing;
+@using Telerik.DataSource;
+@using Telerik.DataSource.Extensions;
+@using Tamin.Data;
+@using Tamin.Data.Models;
+@using Microsoft.AspNetCore.Authorization
+
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject IDateData _dbDateData
+@inject IVendorData _dbVendorData
+@inject IAuthorizationService AuthorizationService
+
+@{
+    Layout = "_IndexLayout";
+}
+
+<style>
+
+    .notification {
+        direction: ltr;
+        vertical-align: top;
+        position: absolute;
+        right: 200px;
+        top: 50px;
+        width: auto;
+        height: 32px;
+        z-index: 7;
+        height: 32px;
+        visibility: visible;
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<div id="container">
+
+    <div id="Layer1">
+        <div id="Layer1_Container">
+
+            <label for="" id="Label2">فرم تامین کنندگان</label>
+            <label for="" id="Label3">ویرایش فرم</label>
+            <label for="" id="Label6">ویرایش کاربر</label>
+            <label for="" id="Label7">خروج</label>
+
+            <lable for="" id="Label8">
+                سلام @UserManager.GetUserName(User)
+            </lable>
+            @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+            {
+
+            <lable for="" id="Label9">
+                @{
+
+                    var currentUser = UserManager.GetUserName(User);
+                    List<Date> list = new List<Date>();
+                    List<VendorInPut> vendors = new List<VendorInPut>();
+                    list = await _dbDateData.GetDate();
+                    var current = list.Where(x => x.UserName == currentUser);
+                    var lastoutdate = current.Select(t => t.Lastlogout).ElementAtOrDefault(0);
+                    vendors = await _dbVendorData.GetVendors();
+                    List<string> vendorsdate = vendors.Select(s => s.Date).ToList();
+                    var datecount = vendorsdate.Where(x => x.CompareTo(lastoutdate) >= 0).Count();
+
+                }
+
+                @datecount
+
+            </lable>
+            <div id="wb_Image8">
+                <a onclick="myFunction()" style="cursor:pointer">
+                    <img src="/images/icons8_bell_32px.png" id="Image1" alt="">
+                </a>
+                @{
+                    <script>
+                        function myFunction() {
+                            var x = document.getElementById("myDIV");
+                            if (x.style.display === "none") {
+                                x.style.display = "block";
+                            }
+                            else {
+                                x.style.display = "none";
+                            }
+                        }
+                    </script>
+                }
+            </div>
+            <div id="myDIV" class="notification">
+                @{
+
+                    var datelist = vendorsdate.Where(x => x.CompareTo(lastoutdate) >= 0).ToList();
+                    var vendorusers = vendors.Where(s => datelist.Contains(s.Date)).ToList();
+                    var newusers = vendorusers.Select(s => s.Name);
+
+                    @foreach (var element in newusers)
+
+                    {
+
+                        <div class="alert alert-danger m-lg-0" style="font-family:'Yekan';font-size:14px;width:auto">@element</div><br />
+
+                    }
+
+                }
+            </div>
+            }
+            <label for="" id="Label4">ارزیابی و شاخص ها</label>
+            <div id="wb_Image1">
+                <a href="EditForm" onmouseleave="AnimateCss('Label3', 'focus-out', 0, 1000);return false;" onmouseover="ShowObject('Label3', 1);AnimateCss('Label3', 'focus-in', 0, 1000);return false;"><img src="images/icons8_check_document_128px_1.png" id="Image1" alt=""></a>
+            </div>
+            <div id="wb_Image5">
+                <a href="vendorform" onmouseleave="AnimateCss('Label2', 'focus-out', 0, 1000);return false;" onmouseover="ShowObject('Label2', 1);AnimateCss('Label2', 'focus-in', 0, 1000);return false;"><img src="images/icons8_pass_fail_150px.png" id="Image5" alt=""></a>
+            </div>
+            <div id="wb_Image7">
+                <a href="EditUsers" onmouseleave="AnimateCss('Label6', 'focus-out', 0, 1000);return false;" onmouseover="ShowObject('Label6', 1);AnimateCss('Label6', 'focus-in', 0, 1000);return false;"><img src="images/icons8_customer_128px_2.png" id="Image7" alt=""></a>
+            </div>
+            <div id="wb_Image2">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })">
+                    <button id="logout" type="submit" style="padding: 0;border: none;background: none;outline:none;cursor: pointer" onmouseleave="AnimateCss('Label7', 'focus-out', 0, 1000);return false;" onmouseover="ShowObject('Label7', 1);AnimateCss('Label7', 'focus-in', 0, 1000);return false;"><img src="images/icons8_logout_rounded_up_32px_1.png" id="Image2" alt=""></button>
+                </form>
+            </div>
+            <div id="wb_Image3">
+                <img src="images/Logoo-Tanavob-1.png" id="Image3" alt="">
+            </div>
+            <div id="wb_Image4">
+                <img src="images/icons8_handle_with_care_80px.png" id="Image4" alt="">
+            </div>
+            <hr id="Line1">
+            <div id="wb_Image6">
+                <a href="Assessment" onmouseleave="AnimateCss('Label4', 'focus-out', 0, 1000);return false;" onmouseover="ShowObject('Label4', 1);AnimateCss('Label4', 'focus-in', 0, 500);return false;"><img src="images/icons8_medal_128px_1.png" id="Image6" alt=""></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

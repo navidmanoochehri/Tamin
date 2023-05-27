@@ -1,0 +1,592 @@
+﻿@page "/VendorForm"
+
+@using Tamin.Data;
+@using Tamin.Data.Models;
+@using Microsoft.AspNetCore.Identity;
+@using Dapper;
+@using System.ComponentModel.DataAnnotations
+@using Telerik.Blazor.Components.Upload
+
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<IdentityUser> UserManager
+@inject IVendorData _dbVendorData
+@inject IActivityData _dbActivityData
+@inject IGroupsData _dbGroupsData
+@inject IAssessmentFCData _dbAssessmentFCData
+@inject IAssessmentFSData _dbAssessmentFSData
+@inject IAssessmentSCData _dbAssessmentSCData
+@inject IAssessmentSSData _dbAssessmentSSData
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JsInterop
+
+
+<a onload="@LogEmail()"></a>
+
+<AuthorizeView Roles="Admin, Users">
+    <Authorized Context="Auth">
+
+
+
+        @if (vendor == null)
+        {
+            <br />
+            <br />
+            <p class="centered text-lg-center"><em>بارگزاری...</em></p>
+        }
+        else
+
+        {
+
+            @if (i)
+
+            {
+                <div id="space"><br></div>
+                <div id="container">
+                    <div id="wb_Vendor-Form" style="position:absolute;left:42px;top:54px;width:915px;height:1448px;z-index:64;">
+
+                        <EditForm Model="@newVendor" OnValidSubmit="@InsertVendors" >
+
+                            <DataAnnotationsValidator />
+                            @{ 
+                                var r = vendor.Where(y => y.Name == newVendor.Name).Select(x => x.Name).ElementAtOrDefault(0);
+                                var e = vendor.Where(y => y.EMail == newVendor.EMail).Select(x => x.EMail).ElementAtOrDefault(0);
+                                var c = vendor.Where(y => y.EconomicCode == newVendor.EconomicCode).Select(x => x.EconomicCode).ElementAtOrDefault(0);
+                                var n = vendor.Where(y => y.RegistrationNo == newVendor.RegistrationNo).Select(x => x.RegistrationNo).ElementAtOrDefault(0);
+                                var p = vendor.Where(y => y.PostalCode == newVendor.PostalCode).Select(x => x.PostalCode).ElementAtOrDefault(0);
+                                var w = vendor.Where(y => y.WebSite == newVendor.WebSite).Select(x => x.WebSite).ElementAtOrDefault(0);
+                                var i = vendor.Where(y => y.NatioalId == newVendor.NatioalId).Select(x => x.NatioalId).ElementAtOrDefault(0);
+                                if(r == null && e == null && c == null && n == null && p == null && w == null && i == null)
+                                {
+                                    checkvalidation = false;
+                                }
+                            }
+                        <div id="wb_Editbox1" style="position:absolute;left:526px;top:120px;width:310px;height:38px;z-index:0;">
+
+                            <InputText id="Editbox1" @bind-Value="newVendor.Name" />
+
+                            @{
+
+
+                                if (r == null)
+
+                                {
+
+                                    <ValidationMessage For="@(() => newVendor.Name)" class="text-danger" style="font-family:'Vazir'" />
+                                    
+                                }
+
+                                else
+                                {
+
+                                    <label class="text-danger" style="font-family:'Vazir'">نام شرکت تکراری می باشد</label>
+                                    checkvalidation = true;
+                                }
+
+                            }
+
+                        </div>
+
+                            <div id="wb_Editbox2" style="position:absolute;left:526px;top:220px;width:310px;height:38px;z-index:4;">
+                                <InputText id="Editbox2" @bind-Value="newVendor.ManagerName" />
+                                <ValidationMessage For="@(() => newVendor.ManagerName)" class="text-danger" style="font-family:'Vazir'" />
+                            </div>
+
+                            <div id="wb_Editbox3" style="position:absolute;left:526px;top:320px;width:310px;height:38px;z-index:7;">
+                                <InputText id="Editbox3" @bind-Value="newVendor.Phone" />
+                                <ValidationMessage For="@(() => newVendor.Phone)" class="text-danger" style="font-family:'Vazir'" />
+                            </div>
+                            <div id="wb_Editbox4" style="position:absolute;left:526px;top:579px;width:310px;height:38px;z-index:15;">
+                                <InputText id="Editbox4" @bind-Value="newVendor.Fax" />
+                                <ValidationMessage For="@(() => newVendor.Fax)" class="text-danger" style="font-family:'Vazir'" />
+                            </div>
+                            <div id="wb_Editbox5" style="position:absolute;left:526px;top:680px;width:310px;height:38px;z-index:18;">
+                                <InputText id="Editbox5" @bind-Value="newVendor.MailBox" />
+                                <ValidationMessage For="@(() => newVendor.MailBox)" class="text-danger" style="font-family:'Vazir'" />
+                            </div>
+                            <div id="wb_Editbox6" style="position:absolute;left:526px;top:778px;width:310px;height:38px;z-index:20;">
+                                <InputText id="Editbox6" @bind-Value="newVendor.EMail" />
+                                @{
+
+
+                                    if (e == null)
+
+                                    {
+
+                                        <ValidationMessage For="@(() => newVendor.EMail)" class="text-danger" style="font-family:'Vazir'" />
+                                      
+                                    }
+
+                                    else
+                                    {
+
+                                        <label class="text-danger" style="font-family:'Vazir'">رایانامه تکراری می باشد</label>
+                                        checkvalidation = true;
+                                    }
+                                }
+                            </div>
+                            <div id="wb_Editbox7" style="position:absolute;left:526px;top:980px;width:310px;height:38px;z-index:22;">
+                                <InputText id="Editbox7" @bind-Value="newVendor.EconomicCode" required=@(!newVendor.CheckEconomicCode) />
+                                @{
+
+                                    if (c == null)
+
+                                    {
+                                        <ValidationMessage For="@(() => newVendor.EconomicCode)" class="text-danger" style="font-family:'Vazir'" />
+                                       
+                                    }
+
+                                    else
+                                    {
+                                        <label class="text-danger" style="font-family:'Vazir'">کد اقتصادی تکراری می باشد</label>
+                                        checkvalidation = true;
+                                    }
+                                }
+                            </div>
+                            <div id="wb_Editbox8" style="position:absolute;left:526px;top:874px;width:310px;height:38px;z-index:23;">
+
+                                <InputText id="Editbox8" @bind-Value="newVendor.RegistrationNo" required=@(!newVendor.CheckRegistrationNo) />
+                                @{
+
+                                    if (n == null && p == null)
+
+                                    {
+                                        <ValidationMessage For="@(() => newVendor.RegistrationNo)" class="text-danger" style="font-family:'Vazir'" />
+                                      
+                                    }
+
+                                    else
+                                    {
+                                        <label class="text-danger" style="font-family:'Vazir'">شماره ثبت تکراری می باشد</label>
+                                        checkvalidation = true;
+                                    }
+                                }
+                            </div>
+                            <div id="wb_Editbox9" style="position:absolute;left:525px;top:1066px;width:310px;height:38px;z-index:41;">
+
+                                <InputText id="Editbox9" @bind-Value="newVendor.PostalCode" />
+                                @{
+
+                                    if (p == null)
+
+                                    {
+                                        <ValidationMessage For="@(() => newVendor.PostalCode)" class="text-danger" style="font-family:'Vazir'" />
+                                     
+                                    }
+
+                                    else
+                                    {
+                                        <label class="text-danger" style="font-family:'Vazir'">کدپستی تکراری می باشد</label>
+                                        checkvalidation = true;
+                                    }
+                                }
+                            </div>
+                            <div id="wb_Editbox10" style="position:absolute;left:525px;top:1166px;width:310px;height:38px;z-index:44;">
+
+                                <InputText id="Editbox10" @bind-Value="newVendor.WebSite" />
+                                @{
+
+                                    if (w == null)
+
+                                    {
+                                        <ValidationMessage For="@(() => newVendor.WebSite)" class="text-danger" style="font-family:'Vazir'" />
+                                       
+                                    }
+
+                                    else
+                                    {
+                                        <label class="text-danger" style="font-family:'Vazir'">وبسایت تکراری می باشد</label>
+                                        checkvalidation = true;
+                                    }
+                                }
+                            </div>
+                            <div id="wb_Editbox11" style="position:absolute;left:525px;top:1266px;width:310px;height:38px;z-index:47;">
+
+                                <InputText id="Editbox11" @bind-Value="newVendor.NatioalId" required=@(!newVendor.CheckNatioalId) />
+                                @{
+
+                                    if (i == null)
+
+                                    {
+                                        <ValidationMessage For="@(() => newVendor.NatioalId)" class="text-danger" style="font-family:'Vazir'" />
+                                        
+                                    }
+
+                                    else
+                                    {
+                                        <label class="text-danger" style="font-family:'Vazir'">شماره ملی تکراری می باشد</label>
+                                        checkvalidation = true;
+                                    }
+                                }
+                            </div>
+
+                            <InputTextArea id="TextArea1" @bind-Value="newVendor.Address" style="position:absolute;left:526px;top:420px;width:300px;height:84px;z-index:8;" rows="3" cols="40" />
+                            <ValidationMessage For="@(() => newVendor.Address)" class="text-danger" style="position:absolute;left:526px;top:510px;width:300px;height:5px;z-index:8 ;font-family:'Vazir'" />
+
+                            <InputTextArea id="TextArea5" @bind-Value="newVendor.CooperationResume" disabled="@(!newVendor.HasCooperationResume)" style="position:absolute;left:58px;top:467px;width:329px;height:100px;z-index:34;" rows="4" cols="44" spellcheck="false"></InputTextArea>
+                            <InputTextArea id="TextArea2" @bind-Value="newVendor.VendorListResume" style="position:absolute;left:57px;top:663px;width:329px;height:100px;z-index:36;" rows="4" cols="44" spellcheck="false"></InputTextArea>
+                            <InputTextArea id="TextArea4" @bind-Value="newVendor.ActivityDescription" style="position:absolute;left:55px;top:1000px;width:329px;height:100px;z-index:38;" rows="4" cols="44" spellcheck="false"></InputTextArea>
+                            <InputTextArea id="TextArea3" @bind-Value="newVendor.Description" style="position:absolute;left:58px;top:844px;width:329px;height:100px;z-index:55;" rows="4" cols="44" spellcheck="false"></InputTextArea>
+                            <div id="wb_FileUpload1" class="container" style="position:absolute;left:57px;top:260px;width:339px;height:37px;z-index:30; font-family:'Vazir'">
+
+                                <TelerikUpload SaveUrl="@SaveUrl"
+                                               RemoveUrl="@RemoveUrl"
+                                               OnSuccess="@OnSuccessHandler"
+                                               AutoUpload="true"
+                                               AllowedExtensions="@AllowedExtensions">
+                                </TelerikUpload>
+
+                            </div>
+                            <div id="wb_FlipSwitch1" style="position: absolute; left: 58px; top:425px; width: 56px; height: 24px; z-index: 32;">
+                                <Input type="checkbox" @onchange="@toggle4" value="On" id="FlipSwitch1">
+                                <label id="FlipSwitch1-label" for="FlipSwitch1">
+                                    <span id="FlipSwitch1-inner"></span>
+                                    <span id="FlipSwitch1-switch"></span>
+                                </label>
+                            </div>
+                            <div id="wb_FlipSwitch2" style="position:absolute;left:96px;top:112px;width:56px;height:24px;z-index:51;">
+                                <Input type="checkbox" @onchange="@toggle1" value="On" id="FlipSwitch2">
+                                <label id="FlipSwitch2-label" for="FlipSwitch2">
+                                    <span id="FlipSwitch2-inner"></span>
+                                    <span id="FlipSwitch2-switch"></span>
+                                </label>
+                            </div>
+                            <div id="wb_FlipSwitch3" style="position:absolute;left:96px;top:149px;width:56px;height:24px;z-index:49;">
+                                <Input type="checkbox" @onchange="@toggle2" value="On" id="FlipSwitch3">
+                                <label id="FlipSwitch3-label" for="FlipSwitch3">
+                                    <span id="FlipSwitch3-inner"></span>
+                                    <span id="FlipSwitch3-switch"></span>
+                                </label>
+                            </div>
+                            <div id="wb_FlipSwitch4" style="position:absolute;left:96px;top:185px;width:56px;height:24px;z-index:50;">
+                                <Input type="checkbox" @onchange="@toggle3" value="On" id="FlipSwitch4">
+                                <label id="FlipSwitch4-label" for="FlipSwitch4">
+                                    <span id="FlipSwitch4-inner"></span>
+                                    <span id="FlipSwitch4-switch"></span>
+                                </label>
+                            </div>
+
+                            <div style="position:absolute;left:58px;top:1170px;width:329px;height:150px;z-index:58;">
+
+                                <TelerikDropDownList @bind-Value="@newVendor.Groups"
+                                                     Data="@group.Select(b => b.Title).ToList()"
+                                                     Width="340px">
+                                </TelerikDropDownList>
+
+                                <ValidationMessage For="@(() => newVendor.Groups)" class="text-danger" style="font-family:'Vazir'" />
+                            </div>
+
+                            <div style="position:absolute;left:58px;top:1270px;width:329px;height:150px;z-index:58;">
+                                @{
+                                    <TelerikMultiSelect @bind-Value="@activitylist"
+                                                        Data="@activity.Select(a => a.Title).ToList()"
+                                                        ValueField="Id"
+                                                        Placeholder="فعالیت ها"
+                                                        Width="340px" ClearButton="true" />
+                                    var MultipleValues = string.Join(" , ", activitylist.ToArray());
+                                    newVendor.Activities = MultipleValues;
+                                    <ValidationMessage For="@(() => newVendor.Activities)" class="text-danger" style="font-family:'Vazir'" />
+                                }
+                            </div>
+                            <button disabled="@checkvalidation" type="submit" id="Button1" style="position:absolute;left:458px;top:1381px;width:77px;height:34px;z-index:63;">ثبت</button>
+                        </EditForm>
+
+                        <label for="" id="Label1" style="position:absolute;left:200px;top:23px;width:500px;height:36px;line-height:36px;z-index:1;">فرم تامین کنندگان و پیمانکاران</label>
+                        <label for="Editbox1" id="Label2" style="position:absolute;left:622px;top:90px;width:200px;height:30px;line-height:30px;z-index:3;">نام فروشنده/شركت/پيمانكار :</label>
+                        <label for="Editbox2" id="Label3" style="position:absolute;left:724px;top:190px;width:104px;height:30px;line-height:30px;z-index:5;">نام مدیرعامل :</label>
+                        <label for="Editbox3" id="Label4" style="position:absolute;left:724px;top:290px;width:104px;height:30px;line-height:30px;z-index:6;">شماره تماس :</label>
+                        <div id="wb_Line1" style="position:absolute;left:453px;top:98px;width:1px;height:1244px;z-index:2;">
+                            <img src="images/img0004.png" id="Line1">
+                        </div>
+                        
+                        <div id="wb_Image2" style="position:absolute;left:504px;top:115px;width:48px;height:48px;z-index:10;">
+                            <img src="images/icons8_company_48px.png" id="Image2" alt="">
+                        </div>
+                        <div id="wb_Image3" style="position:absolute;left:504px;top:215px;width:48px;height:53px;z-index:11;">
+                            <img src="images/icons8_leadership_96px.png" id="Image3" alt="">
+                        </div>
+                        <div id="wb_Image4" style="position:absolute;left:504px;top:314px;width:48px;height:48px;z-index:12;">
+                            <img src="images/icons8_phone_48px.png" id="Image4" alt="">
+                        </div>
+                        <div id="wb_Image5" style="position:absolute;left:502px;top:465px;width:48px;height:48px;z-index:13;">
+                            <img src="images/icons8_address_48px_1.png" id="Image5" alt="">
+                        </div>
+                        <label for="TextArea1" id="Label5" style="position:absolute;left:724px;top:390px;width:104px;height:30px;line-height:30px;z-index:14;">نشانی دفتر مرکزی :</label>
+                        <label for="Editbox4" id="Label6" style="position:absolute;left:724px;top:549px;width:104px;height:30px;line-height:30px;z-index:16;">شماره فکس :</label>
+                        <div id="wb_Image6" style="position:absolute;left:502px;top:574px;width:48px;height:48px;z-index:17;">
+                            <img src="images/icons8_office_phone_48px.png" id="Image6" alt="">
+                        </div>
+                        <div id="wb_Image7" style="position:absolute;left:500px;top:675px;width:48px;height:48px;z-index:19;">
+                            <img src="images/icons8_postal_48px.png" id="Image7" alt="">
+                        </div>
+                        <div id="wb_Image8" style="position:absolute;left:500px;top:773px;width:48px;height:48px;z-index:21;">
+                            <img src="images/icons8_email_48px.png" id="Image8" alt="">
+                        </div>
+                        <div id="wb_Image9" style="position:absolute;left:502px;top:869px;width:48px;height:48px;z-index:24;">
+                            <img src="images/icons8_card_verification_value_48px_1.png" id="Image9" alt="">
+                        </div>
+                        <div id="wb_Image10" style="position:absolute;left:502px;top:970px;width:48px;height:48px;z-index:25;">
+                            <img src="images/icons8_barcode_48px.png" id="Image10" alt="">
+                        </div>
+                        <label for="Editbox7" id="Label8" style="position:absolute;left:724px;top:950px;width:104px;height:30px;line-height:30px;z-index:26;">شماره اقتصادی :</label>
+                        <label for="Editbox8" id="Label10" style="position:absolute;left:724px;top:845px;width:104px;height:30px;line-height:30px;z-index:27;">شماره ثبت :</label>
+                        <label for="Editbox6" id="Label7" style="position:absolute;left:724px;top:750px;width:104px;height:30px;line-height:30px;z-index:28;">رایانامه :</label>
+                        <label for="Editbox5" id="Label11" style="position: absolute;left: 724px;top: 652px;width: 104px;height: 30px;line-height: 30px;z-index: 29;">صندوق پستی :</label>
+                        <label for="TextArea5" id="Label14" style=" position: absolute;left: 286px;top: 434px;width: 104px;height: 30px;line-height: 30px; z-index: 31;">شرح دهید :</label>
+                        <label for="" id="Label15" style="position:absolute;left:128px;top:638px;width:262px;height:17px;line-height:17px;z-index:33;">عضو وندور لیست خاصی هستید؟ نام  ببرید</label>
+                        <label for="FileUpload1" id="Label16" style="position:absolute;left:285px;top:230px;width:104px;height:30px;line-height:30px;z-index:35;">کاتالوگ شرکت :</label>
+                        <label for="TextArea4" id="Label18" style="position:absolute;left:125px;top:970px;width:262px;height:21px;line-height:21px;z-index:37;">توضیحات :</label>
+                        <label for="" id="Label17" style="position:absolute;left:128px;top:425px;width:262px;height:17px;line-height:17px;z-index:39;">آیا تا کنون سابقه همکاری با شرکت تناوب داشته اید؟</label>
+                        <label for="Editbox9" id="Label9" style="position:absolute;left:724px;top:1036px;width:104px;height:30px;line-height:30px;z-index:40;">کد پستی :</label>
+                        <div id="wb_Image11" style="position:absolute;left:502px;top:1061px;width:48px;height:48px;z-index:42;">
+                            <img src="images/icons8_postcard_with_barcode_48px.png" id="Image11" alt="">
+                        </div>
+                        <label for="Editbox10" id="Label12" style="position:absolute;left:724px;top:1136px;width:104px;height:30px;line-height:30px;z-index:43;">وب سایت :</label>
+                        <div id="wb_Image12" style="position:absolute;left:496px;top:1156px;width:48px;height:48px;z-index:45;">
+                            <img src="images/icons8_internet_48px.png" id="Image12" alt="">
+                        </div>
+                        <label for="Editbox11" id="Label13" style="position:absolute;left:724px;top:1236px;width:104px;height:30px;line-height:30px;z-index:46;">شناسه ملی :</label>
+                        <div id="wb_Image13" style="position:absolute;left:496px;top:1261px;width:48px;height:48px;z-index:48;">
+                            <img src="images/icons8_identification_documents_48px.png" id="Image13" alt="">
+                        </div>
+                        <label for="FlipSwitch2" id="Label20" style="position:absolute;left:130px;top:112px;width:262px;height:17px;line-height:17px;z-index:52;">فاقد شماره ثبت؟</label>
+                        <label for="FlipSwitch3" id="Label21" style="position:absolute;left:130px;top:149px;width:262px;height:17px;line-height:17px;z-index:53;">فاقد شماره اقتصادی؟</label>
+                        <label for="FlipSwitch4" id="Label22" style="position:absolute;left:129px;top:187px;width:262px;height:17px;line-height:17px;z-index:54;">فاقد شناسه ملی؟</label>
+                        <label for="TextArea4" id="Label19" style="position:absolute;left:126px;top:815px;width:262px;height:21px;line-height:21px;z-index:56;">شرح فعالیت :</label>
+                        <label for="TextArea3" id="Label24" style="position:absolute;left:126px;top:1240px;width:262px;height:21px;line-height:21px;z-index:61;">زمینه (های) اصلی فعالیت:</label>
+                        <label for="TextArea5" id="Label25" style="position:absolute;left:126px;top:1140px;width:262px;height:21px;line-height:21px;z-index:61;">گروه کاری:</label>
+                        <a id="Button2" href="index" style="position:absolute;left:365px;top:1381px;width:75px;height:34px;z-index:62;">بازگشت</a>
+
+                    </div>
+                </div>
+             
+                <div class="alert @StatusClass text-center" style="font-family:'Vazir';font-size:large;bottom:200px;height:60px;width:300px">@StatusMessage</div>
+            }
+            else
+            {
+                <div class="alert alert-danger text-center centered" style="font-family:'Vazir';font-size:large;top:50px">شما قبلا اطلاعات خود را ثبت کرده اید</div>
+                <br />
+                <br />
+                <br />
+                <br />
+                <div class="center text-center centered text-decoration-none" style="top:150px">
+                    <a class="k-button k-primary" style="font-family:'Vazir';font-size:large;top:150px;text-decoration:none" href="index">بازگشت</a>
+                </div>
+            }
+        }
+    </Authorized>
+    <NotAuthorized>
+        <div class="alert alert-danger text-center centered" style="width:100%;font-size:22px;top:50px">شما به سیستم وارد نشده اید ، لطفا به صفحه ورود بروید</div>
+        <div class="text-center centered" style="width:100%; height:100%">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <a class="k-button k-primary" href="\" style="font-family:'Vazir';font-size:18px;top:200px;text-decoration:none">ورود</a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code{
+
+
+    public string SaveUrl => ToAbsoluteUrl("api/upload/save");
+    public string RemoveUrl => ToAbsoluteUrl("api/upload/remove");
+    public List<string> AllowedExtensions { get; set; } = new List<string>() { ".pdf", ".docx" };
+
+    public string ToAbsoluteUrl(string url)
+    {
+        return $"{NavigationManager.BaseUri}{url}";
+    }
+
+
+    public string email = "";
+    public string value = "";
+    public bool i;
+    private VendorInPut newVendor = new VendorInPut();
+    private ActivityOutPut newActivity = new ActivityOutPut();
+    bool checkvalidation { get; set; }
+    private List<ActivityOutPut> activity { get; set; } = new List<ActivityOutPut>();
+    private List<VendorInPut> vendor;
+    List<string> activitylist { get; set; } = new List<string>();
+    List<Groups> group { get; set; } = new List<Groups>();
+    List<string> Check { get; set; } = new List<string>();
+
+    protected override async Task OnInitializedAsync()
+
+    {
+
+        vendor = await _dbVendorData.GetVendors();
+        activity = await _dbActivityData.GetActivity();
+        group = await _dbGroupsData.GetGroup();
+        Check = vendor.Select(m => m.EMail).ToList();
+    }
+
+
+    public async Task LogEmail()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var currentUser = await UserManager.GetUserAsync(user);
+        email = currentUser.Email;
+
+        for (int e = 0; e < Check.Count; e++)
+        {
+            if (Check[e] == email)
+            {
+
+                value = Check[e];
+            }
+        }
+        if (value=="")
+        {
+            i = true;
+        }
+        else
+        {
+            i = false;
+        }
+
+    }
+
+    private string StatusMessage;
+    private string StatusClass;
+
+    private async Task InsertVendors()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var currentUser = await UserManager.GetUserAsync(user);
+        email = currentUser.Email;
+        DateTime dateAndTime = DateTime.Now;
+        newVendor.Date = (dateAndTime.ToString("yyyy/MM/dd"));
+
+        VendorInPut v = new VendorInPut
+        {
+            Name = newVendor.Name,
+            ManagerName = newVendor.ManagerName,
+            Phone = newVendor.Phone,
+            Address = newVendor.Address,
+            Fax = newVendor.Fax,
+            MailBox = newVendor.MailBox,
+            EMail = email,
+            CheckRegistrationNo = newVendor.CheckRegistrationNo,
+            RegistrationNo = newVendor.RegistrationNo,
+            CheckEconomicCode = newVendor.CheckEconomicCode,
+            EconomicCode = newVendor.EconomicCode,
+            PostalCode = newVendor.PostalCode,
+            WebSite = newVendor.WebSite,
+            CheckNatioalId = newVendor.CheckNatioalId,
+            NatioalId = newVendor.NatioalId,
+            Catalog = newVendor.Catalog,
+            HasCooperationResume = newVendor.HasCooperationResume,
+            CooperationResume = newVendor.CooperationResume,
+            VendorListResume = newVendor.VendorListResume,
+            ActivityDescription = newVendor.ActivityDescription,
+            Description = newVendor.Description,
+            Activities = newVendor.Activities,
+            Date = newVendor.Date,
+            Groups = newVendor.Groups
+
+        };
+
+        if (checkvalidation == false)
+        {
+            await _dbVendorData.InsertVendors(v);
+
+            vendor.Add(v);
+
+            newVendor = new VendorInPut();
+
+            vendor = await _dbVendorData.GetVendors();
+
+            var LastId = vendor.Select(a => a.Id).LastOrDefault();
+
+            if (newVendor.Groups == "کالایی")
+            {
+
+                AssessmentFC vId = new AssessmentFC
+                {
+                    Id = LastId
+                };
+                AssessmentSC vId2 = new AssessmentSC
+                {
+                    Id = LastId
+                };
+                await _dbAssessmentFCData.InsertAssessmentFC(vId);
+                await _dbAssessmentSCData.InsertAssessmentSC(vId2);
+
+            }
+            else if (newVendor.Groups == "خدماتی")
+            {
+                AssessmentSC vId = new AssessmentSC
+                {
+                    Id = LastId
+                };
+                AssessmentSS vId2 = new AssessmentSS
+                {
+                    Id = LastId
+                };
+                await _dbAssessmentSCData.InsertAssessmentSC(vId);
+                await _dbAssessmentSSData.InsertAssessmentSS(vId2);
+            }
+            else
+            {
+                AssessmentFC vId = new AssessmentFC
+                {
+                    Id = LastId
+                };
+                AssessmentSC vId2 = new AssessmentSC
+                {
+                    Id = LastId
+                };
+                AssessmentSC vId3 = new AssessmentSC
+                {
+                    Id = LastId
+                };
+                AssessmentSS vId4 = new AssessmentSS
+                {
+                    Id = LastId
+                };
+
+                await _dbAssessmentFCData.InsertAssessmentFC(vId);
+                await _dbAssessmentSCData.InsertAssessmentSC(vId2);
+                await _dbAssessmentSCData.InsertAssessmentSC(vId3);
+                await _dbAssessmentSSData.InsertAssessmentSS(vId4);
+            }
+
+            StatusClass = "alert-success";
+            StatusMessage = " اطلاعات شما با موفقیت ثبت شد";
+
+        }
+    }
+    async Task OnSuccessHandler(UploadSuccessEventArgs e)
+    {
+        newVendor.Catalog= e.Files[0].Name;
+        await OnInitializedAsync();
+    }
+
+    @functions
+    {
+        void toggle1()
+        {
+            newVendor.CheckRegistrationNo = !newVendor.CheckRegistrationNo;
+        }
+        void toggle2()
+        {
+            newVendor.CheckEconomicCode = !newVendor.CheckEconomicCode;
+        }
+        void toggle3()
+        {
+            newVendor.CheckNatioalId = !newVendor.CheckNatioalId;
+        }
+        void toggle4()
+        {
+            newVendor.HasCooperationResume = !newVendor.HasCooperationResume;
+        }
+
+    }
+
+}

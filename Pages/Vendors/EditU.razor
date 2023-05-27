@@ -1,0 +1,393 @@
+﻿@page "/EditUsers"
+
+@using System.Collections.Generic;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Txt;
+@using Telerik.Windows.Documents.Spreadsheet.Utilities;
+@using System.Linq;
+@using Telerik.DataSource.Extensions;
+@using Microsoft.AspNetCore.Identity;
+
+
+@inject UserManager<IdentityUser> _UserManager
+@inject RoleManager<IdentityRole> _RoleManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
+
+<style>
+    .k-filter-menu-container .k-widget.k-dropdown,
+    .k-filter-menu-container .k-state-empty:nth-of-type(2n),
+    .k-filter-menu-container .k-datepicker:nth-of-type(2n),
+    .k-filter-menu-container .k-numerictextbox:nth-of-type(2n) {
+        display: none;
+    }
+
+    .k-grid .k-header .k-link,
+    .k-grid .k-header {
+        text-align: center;
+    }
+
+    .k-filter-menu-container .k-widget.k-dropdown:first-of-type {
+        display: block;
+    }
+
+    .k-window .k-edit-form-container {
+        height: 350px;
+        width: 500px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .center {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<AuthorizeView Roles="Admin">
+    <Authorized Context="user">
+        <br /><br /><br />
+        <h1 class="text-center center" style="font-family:'Vazir'">ویرایش کاربران</h1>
+        <br /><br /><br />
+        <div class="center">
+            <TelerikGrid Data="@ColUsers" EditMode="@GridEditMode.Popup" Pageable="true" Width="800px" Height="600px" Resizable="true" Reorderable="true" PageSize="10" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true"
+                         OnUpdate="@UpdateHandler" OnEdit="@EditHandler" OnDelete="@DeleteHandler" OnCreate="@CreateHandler" OnCancel="@CancelHandler">
+
+                <GridColumns>
+
+                    <GridCommandColumn>
+                        <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روز رسانی</GridCommandButton>
+                        <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                        <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                        <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">Cancel</GridCommandButton>
+                    </GridCommandColumn>
+
+                    <GridColumn Field="@(nameof(IdentityUser.UserName))" Title="UserName" Editable="true" />
+                    <GridColumn Field="@(nameof(IdentityUser.Email))" Title="Email" />
+                    <GridColumn Field="@(nameof(IdentityUser.PasswordHash))" Title="Password" Editable="true" Width="0" />
+                    <GridColumn Title="Role" Editable="true" Width="0">
+                        <EditorTemplate>
+                            <TelerikDropDownList Data="@Options"
+                                                 @bind-Value="@CurrentUserRole" />
+                        </EditorTemplate>
+                    </GridColumn>
+                    <GridColumn Title="Email Confirmed" Editable="true" Width="0">
+                        <EditorTemplate>
+                            <TelerikCheckBox Id="myCheckBox" @bind-Value="@CurrentUserConfirme" />
+                            <label for="myCheckBox">@(Confirme ? "خیر" : "بلی")</label>
+                        </EditorTemplate>
+                    </GridColumn>
+                </GridColumns>
+
+            </TelerikGrid>
+            <TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible" Modal="true">
+                <WindowTitle>
+                    <strong>توجه</strong>
+                </WindowTitle>
+                <WindowContent>
+
+                    آیا اطمینان برای حذف کردن دارید؟
+                    <br /><br />
+
+                    <TelerikButton OnClick="@(async() => await Confirm())" Primary="true" Icon="delete">بلی</TelerikButton>
+                    <TelerikButton OnClick="@(async() => await CloseWindow())">خیر</TelerikButton>
+
+                </WindowContent>
+                <WindowActions>
+                    <WindowAction Name="Close"></WindowAction>
+                </WindowActions>
+            </TelerikWindow>
+        </div>
+        <br />
+        <br />
+        <div class="text-center center">
+            <a class="k-button k-primary" href="index" style="font-size:22px">بازگشت</a>
+        </div>
+        <br />
+        <br />
+    </Authorized>
+    <NotAuthorized>
+        <div class="alert alert-danger text-center centered" style="width:100%;font-size:22px;top:50px">شما مجوز دسترسی به این صفحه را ندارید</div>
+        <div class="text-center centered" style="width:100%; height:100%">
+            <br />
+            <a class="k-button k-primary" href="\index" style="font-size:22px;top:200px">بازگشت</a>
+        </div>
+        <br />
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    string ADMINISTRATION_ROLE = "Admin";
+    System.Security.Claims.ClaimsPrincipal CurrentUser;
+    public bool DeleteConfirm { get; set; }
+    public bool isVisible { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        GetUsers();
+
+
+        // ensure there is a ADMINISTRATION_ROLE
+        var RoleResult = await _RoleManager.FindByNameAsync(ADMINISTRATION_ROLE);
+        if (RoleResult == null)
+        {
+            // Create ADMINISTRATION_ROLE Role
+            await _RoleManager.CreateAsync(new IdentityRole(ADMINISTRATION_ROLE));
+        }
+        // Ensure a user named Admin@BlazorHelpWebsite.com is an Administrator
+        var user = await _UserManager.FindByNameAsync("Admin");
+        if (user != null)
+        {
+            // Is Admin@BlazorHelpWebsite.com in administrator role?
+            var UserResult = await _UserManager.IsInRoleAsync(user, ADMINISTRATION_ROLE);
+            if (!UserResult)
+            {
+                // Put admin in Administrator role
+                await _UserManager.AddToRoleAsync(user, ADMINISTRATION_ROLE);
+            }
+        }
+        // Get the current logged in user
+        CurrentUser = (await authenticationStateTask).User;
+
+    }
+
+    // Property used to add or edit the currently selected user
+    IdentityUser objUser = new IdentityUser();
+    // Tracks the selected role for the currently selected user
+    string CurrentUserRole { get; set; } = "Users";
+    bool CurrentUserConfirme { get; set; } = false;
+    // Collection to display the existing users
+    List<IdentityUser>
+        ColUsers = new List<IdentityUser>
+            ();
+    List<IdentityRole>
+        ColRoles = new List<IdentityRole>
+            ();
+    // Options to display in the roles dropdown when editing a user
+    List<string>
+        Options = new List<string> () { "Users", "Admin" };
+    bool Confirme = new bool();
+    // To hold any possible errors
+    string strError = "";
+    // To enable showing the Popup
+
+
+    public void GetUsers()
+    {
+        // clear any error messages
+        strError = "";
+        // Collection to hold users
+        ColUsers = new List<IdentityUser>
+            ();
+        ColRoles = new List<IdentityRole>
+            ();
+        // get users from __UserManager
+        var user = _UserManager.Users.Select(x => new IdentityUser
+        {
+            Id = x.Id,
+            UserName = x.UserName,
+            Email = x.Email,
+            PasswordHash = "*****",
+            EmailConfirmed=x.EmailConfirmed
+        });
+
+        foreach (var item in user)
+        {
+            ColUsers.Add(item);
+        }
+
+    }
+
+
+    async Task EditHandler(GridCommandEventArgs args)
+    {
+        IdentityUser item = (IdentityUser)args.Item;
+        // Get the user
+        var user = await _UserManager.FindByIdAsync(item.Id);
+        if (user != null)
+        {
+            // Is user in administrator role?
+            var UserResult =
+            await _UserManager
+            .IsInRoleAsync(user, ADMINISTRATION_ROLE);
+            if (UserResult)
+            {
+                CurrentUserRole = ADMINISTRATION_ROLE;
+
+            }
+            else
+            {
+                CurrentUserRole = "Users";
+
+            }
+
+            CurrentUserConfirme = user.EmailConfirmed;
+        }
+    }
+
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        IdentityUser item = (IdentityUser)args.Item;
+        // Get the user
+
+        var user = await _UserManager.FindByIdAsync(item.Id);
+        // Update Email
+
+        user.Email = item.Email;
+        // Update the user
+
+        item.EmailConfirmed = CurrentUserConfirme;
+        user.EmailConfirmed = item.EmailConfirmed;
+
+
+        await _UserManager.UpdateAsync(user);
+        // Only update password if the current value
+        // is not the default value
+        if (item.PasswordHash != "*****")
+        {
+            var resetToken =
+            await _UserManager.GeneratePasswordResetTokenAsync(user);
+            var passworduser =
+            await _UserManager.ResetPasswordAsync(
+            user,
+            resetToken,
+            item.PasswordHash);
+            if (!passworduser.Succeeded)
+            {
+                if (passworduser.Errors.FirstOrDefault() != null)
+                {
+                    strError =
+                    passworduser
+                    .Errors
+                    .FirstOrDefault()
+                    .Description;
+                }
+                else
+                {
+                    strError = "Pasword error";
+                }
+            }
+
+        }
+        // Handle Roles
+        // Is user in administrator role?
+        var UserResult =
+        await _UserManager
+        .IsInRoleAsync(user, ADMINISTRATION_ROLE);
+        // Is Administrator role selected
+        // but user is not an Administrator?
+        if (
+        (CurrentUserRole == ADMINISTRATION_ROLE)
+        &
+        (!UserResult))
+        {
+            // Put admin in Administrator role
+            await _UserManager
+            .AddToRoleAsync(user, ADMINISTRATION_ROLE);
+        }
+        else
+        {
+            // Is Administrator role not selected
+            // but user is an Administrator?
+            if ((CurrentUserRole != ADMINISTRATION_ROLE)
+            &
+            (UserResult))
+            {
+                // Remove user from Administrator role
+                await _UserManager
+                .RemoveFromRoleAsync(user, ADMINISTRATION_ROLE);
+            }
+        }
+
+    }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+        IdentityUser item = (IdentityUser)args.Item;
+        // Make new user
+        objUser = new IdentityUser();
+        objUser.PasswordHash = "*****";
+        // Set Id to blank so we know it is a new record
+        objUser.Id = "";
+        objUser.EmailConfirmed = false;
+        // Open the Popup
+        await OnInitializedAsync();
+
+    }
+
+    public async Task DeleteHandler(GridCommandEventArgs args)
+
+    {
+        await ShowWindow();
+
+        await Task.Delay(3000);
+
+        StateHasChanged();
+
+        await Task.Delay(1000);
+
+        StateHasChanged();
+
+        if (DeleteConfirm)
+        {
+            IdentityUser item = (IdentityUser)args.Item;
+            // Get the user
+            var user = await _UserManager.FindByIdAsync(item.Id);
+            if (user != null)
+            {
+                // Delete the user
+                await _UserManager.DeleteAsync(user);
+            }
+            // Refresh Users
+        }
+
+        DeleteConfirm = false;
+        StateHasChanged();
+        await OnInitializedAsync();
+
+    }
+
+    public async Task ShowWindow()
+    {
+        isVisible = true;
+        await OnInitializedAsync();
+        StateHasChanged();
+
+    }
+
+    public async Task Confirm()
+    {
+        DeleteConfirm = true;
+        isVisible = false;
+        await OnInitializedAsync();
+        StateHasChanged();
+        return;
+    }
+
+    public async Task CloseWindow()
+    {
+        DeleteConfirm = false;
+        isVisible = false;
+        await OnInitializedAsync();
+        StateHasChanged();
+        return;
+    }
+    async Task CancelHandler(GridCommandEventArgs args)
+    {
+        await Task.Delay(500); //simulate actual long running async operation
+    }
+
+
+}
+
+

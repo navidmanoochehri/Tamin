@@ -1,0 +1,82 @@
+﻿@page "/Register"
+@model RegisterModel
+@{
+    Layout = "_Register";
+
+}
+
+<div asp-validation-summary="All" style="color:orangered;text-align:center;font-family:'Yekan';font-size:20px"></div>
+
+<div id="container">
+    <div id="wb_Form1" style="position:absolute;left:23px;top:103px;width:337px;height:512px;z-index:22;">
+
+        <form name="Form1" method="post">
+
+            <input asp-for="Input.UserName" id="Editbox1" style="position:absolute;left:41px;top:126px;width:245px;height:34px;z-index:1;">
+            <span asp-validation-for="Input.UserName" style="text-align:left;color:orangered;position:absolute;left:41px;top:176px;width:245px;height:34px;z-index:1;font-family:'Yekan'"></span>
+
+            <input asp-for="Input.Password" id="Editbox2" style="position:absolute;left:41px;top:276px;width:245px;height:34px;z-index:0;">
+            <span asp-validation-for="Input.Password" style="text-align:left;color:orangered;position:absolute;left:41px;top:326px;width:245px;height:34px;z-index:0;font-family:'Yekan'"></span>
+
+            <label id="Label4" style="position:absolute;left:193px;top:326px;width:96px;height:17px;line-height:17px;z-index:9;">تکرار رمز عبور</label>
+            <input asp-for="Input.ConfirmPassword" id="Editbox3" style="position:absolute;left:41px;top:350px;width:245px;height:34px;z-index:10;">
+            <span asp-validation-for="Input.ConfirmPassword" style="text-align:left;color:orangered;position:absolute;left:41px;top:400px;width:245px;height:34px;z-index:10;font-family:'Yekan'"></span>
+
+            <label id="Label5" style="position: absolute; left: 221px; top: 181px; width: 67px; height: 17px; line-height: 17px; z-index: 11;">ایمیل</label>
+            <input asp-for="Input.Email" id="Editbox4" style="position:absolute;left:41px;top:204px;width:245px;height:34px;z-index:12;">
+            <span asp-validation-for="Input.Email" style="text-align:left;color:orangered;position:absolute;left:41px;top:254px;width:245px;height:34px;z-index:12;font-family:'Yekan'"></span>
+
+            <label id="Label2" style="position:absolute;left:214px;top:102px;width:75px;height:17px;line-height:17px;z-index:2;">نام کاربری</label>
+            <label id="Label3" style="position:absolute;left:222px;top:253px;width:68px;height:17px;line-height:17px;z-index:3;">رمز عبور</label>
+            <div id="wb_Image6" style="position:absolute;left:26px;top:283px;width:32px;height:32px;z-index:4;">
+                <img src="images/icons8_lock_32px.png" id="Image6" alt="">
+            </div>
+            <div id="wb_Image8" style="position:absolute;left:25px;top:130px;width:36px;height:36px;z-index:5;">
+                <img src="images/icons8_customer_36px.png" id="Image8" alt="">
+            </div>
+            <button type="submit" id="Button1" style="position:absolute;left:180px;top:439px;width:96px;height:36px;z-index:6;">ثبت نام</button>
+            <a id="Button2" href="/" style="position:absolute;left:61px;top:439px;width:94px;height:34px;z-index:7;">انصراف</a>
+            <div id="wb_Image10" style="position:absolute;left:122px;top:11px;width:92px;height:92px;z-index:8;">
+                <img src="images/icons8_add_male_user_92px.png" id="Image10" alt="">
+            </div>
+
+            <div id="wb_Image11" style="position:absolute;left:25px;top:209px;width:32px;height:32px;z-index:13;">
+                <img src="images/icons8_correspondence_32px.png" id="Image11" alt="">
+            </div>
+            <div id="wb_Image9" style="position:absolute;left:26px;top:355px;width:32px;height:32px;z-index:14;">
+                <img src="images/icons8_check_lock_32px.png" id="Image9" alt="">
+            </div>
+
+        </form>
+
+    </div>
+    <div id="wb_Line1" style="position:absolute;left:446px;top:44px;width:3px;height:613px;z-index:23;">
+        <img src="images/img0002.png" id="Line1" alt="">
+    </div>
+    <div id="Layer1" style="position:absolute;text-align:left;left:498px;top:234px;width:402px;height:252px;z-index:24;">
+        <div id="wb_Image4" style="position:absolute;left:216px;top:151px;width:74px;height:74px;z-index:15;">
+            <img src="images/icons8_smart_card_70px.png" id="Image4" alt="">
+        </div>
+        <div id="wb_Image5" style="position:absolute;left:129px;top:148px;width:75px;height:75px;z-index:16;">
+            <img src="images/icons8_user_settings_70px.png" id="Image5" alt="">
+        </div>
+        <div id="wb_Image7" style="position:absolute;left:52px;top:159px;width:64px;height:64px;z-index:17;">
+            <img src="images/icons8_add_70px.png" id="Image7" alt="">
+        </div>
+        <label for="" id="Label6" style="position:absolute;left:16px;top:76px;width:292px;height:57px;line-height:57px;z-index:18;">تامین کنندگان تناوب</label>
+        <div id="wb_Image2" style="position:absolute;left:303px;top:34px;width:80px;height:98px;opacity:0.90;z-index:19;">
+            <img src="images/FA.png" id="Image2" alt="">
+        </div>
+        <div id="wb_Image3" style="position:absolute;left:308px;top:156px;width:70px;height:70px;z-index:20;">
+            <img src="images/icons8_name_70px.png" id="Image3" alt="">
+        </div>
+        <label for="" id="Label1" style="position:absolute;left:0px;top:41px;width:308px;height:57px;line-height:57px;z-index:21;">ثبت نام ثبت و ارزیابی</label>
+    </div>
+    <div id="wb_Image1" style="position:absolute;left:410px;top:301px;width:80px;height:98px;opacity:0.90;z-index:25;">
+        <img src="images/FA.png" id="Image1" alt="">
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

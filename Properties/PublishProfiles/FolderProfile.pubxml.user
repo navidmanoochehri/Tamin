@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Programming\Publish</_PublishTargetUrl>
+    <History>True|2022-12-06T10:53:06.7858791Z;True|2022-09-10T11:07:19.7700623+04:30;True|2022-08-14T12:19:33.3333795+04:30;True|2022-07-25T14:30:42.8632539+04:30;True|2022-07-25T14:30:02.5929894+04:30;True|2022-07-24T13:55:31.5336726+04:30;True|2022-07-09T10:46:45.6626712+04:30;True|2022-04-12T14:51:29.5654564+04:30;True|2022-04-11T13:36:50.6664170+04:30;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=.%3bDatabase=Tamin%3buser id=IIS password=P%40ssw0rd%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

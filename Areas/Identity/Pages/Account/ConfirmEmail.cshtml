@@ -1,0 +1,27 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "تأیید رایانامه";
+}
+
+<h1>@ViewData["Title"]</h1>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div asp-validation-summary="All" class="text-danger"></div>
+@{
+    if (Model.ShowInvalid)
+    {
+    <p>
+        .خطایی در تأیید ایمیل شما
+    </p>
+    <p>
+        اگر می توانید وارد شوید ، دوباره ایمیل خود را به روز کنید.<br />
+        اگر نمی توانید وارد سیستم شوید ، تأیید مجدد را دوباره ارسال کنید.
+    </p>
+    }
+    else
+    {
+    <p>
+    با تشکر از شما برای تأیید ایمیل خود.
+    </p>
+    }
+}

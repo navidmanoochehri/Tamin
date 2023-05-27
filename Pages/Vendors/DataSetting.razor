@@ -1,0 +1,518 @@
+﻿@page "/DataSetting"
+
+@using Tamin.Data;
+@using Tamin.Data.Models;
+@using System.IO;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx;
+@using Telerik.Windows.Documents.Spreadsheet.Model;
+@using System.Collections;
+@using System;
+@using System.Collections.Generic;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Txt;
+@using Telerik.Windows.Documents.Spreadsheet.Utilities;
+@using System.Linq;
+@using Telerik.Documents.Common.Model;
+@using System.Collections.ObjectModel;
+@using Tamin.DocumentProcessing;
+@using Telerik.DataSource
+@using Telerik.DataSource.Extensions
+
+
+@inject IActivityData _dbActivityData
+@inject IGroupsData _dbGroupsData
+@inject IINAssessmentFCData _dbINAssessmentFC
+@inject IINAssessmentSCData _dbINAssessmentSC
+@inject IINAssessmentFSData _dbINAssessmentFS
+@inject IINAssessmentSSData _dbINAssessmentSS
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
+
+    <AuthorizeView Roles="Admin">
+        <Authorized Context="Auth">
+            <br />
+            <br />
+            <br />
+            @if (GridDataActivity == null)
+            {
+                <p><em>بارگزاری....</em></p>
+            }
+            else
+            {
+                <style>
+                    .k-filter-menu-container .k-widget.k-dropdown,
+                    .k-filter-menu-container .k-state-empty:nth-of-type(2n),
+                    .k-filter-menu-container .k-datepicker:nth-of-type(2n),
+                    .k-filter-menu-container .k-numerictextbox:nth-of-type(2n) {
+                        display: none;
+                    }
+
+                    .k-grid .k-header .k-link,
+                    .k-grid .k-header {
+                        text-align: center;
+                    }
+
+                    .k-filter-menu-container .k-widget.k-dropdown:first-of-type {
+                        display: block;
+                    }
+                </style>
+
+                <div class="k-row">
+
+                    <div class="k-column">
+                        <br />
+                        <div><h3>ویرایش ارزیابی اولیه کالا </h3></div>
+                        <br />
+                        <TelerikGrid Data="@GridDataINAssessmentFC" EditMode="@GridEditMode.Incell" TItem="INAssessmentFC" Pageable="true" Resizable="true" Reorderable="true" PageSize="15" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                                     OnUpdate="@UpdateHandlerFC" OnEdit="@EditHandlerFC" OnDelete="@DeleteHandlerFC" OnCreate="@CreateHandlerFC" OnCancel="@CancelHandlerFC">
+
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                            </GridToolBar>
+
+                            <GridColumns>
+
+                                <GridColumn Field="@nameof(INAssessmentFC.Score)" Title="امتیاز" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Title)" Title="عنوان" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Id)" Title="ردیف" Editable="true" Width="70px"></GridColumn>
+
+                                <GridCommandColumn Width="120px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                    <div class="k-column">
+                        <br />
+                        <div><h3>ویرایش ارزیابی اولیه خدمات </h3></div>
+                        <br />
+                        <TelerikGrid Data="@GridDataINAssessmentFS" EditMode="@GridEditMode.Incell" TItem="INAssessmentFS" Pageable="true" Resizable="true" Reorderable="true" PageSize="15" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                                     OnUpdate="@UpdateHandlerFS" OnEdit="@EditHandlerFS" OnDelete="@DeleteHandlerFS" OnCreate="@CreateHandlerFS" OnCancel="@CancelHandlerFS">
+
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                            </GridToolBar>
+
+                            <GridColumns>
+
+                                <GridColumn Field="@nameof(INAssessmentFC.Score)" Title="امتیاز" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Title)" Title="عنوان" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Id)" Title="ردیف" Editable="true" Width="70px"></GridColumn>
+
+                                <GridCommandColumn Width="120px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                    <div class="k-column">
+                        <br />
+                        <div><h3>ویرایش ارزیابی دوره ای کالا</h3></div>
+                        <br />
+                        <TelerikGrid Data="@GridDataINAssessmentSC" EditMode="@GridEditMode.Incell" TItem="INAssessmentSC" Pageable="true" Resizable="true" Reorderable="true" PageSize="15" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                                     OnUpdate="@UpdateHandlerSC" OnEdit="@EditHandlerSC" OnDelete="@DeleteHandlerSC" OnCreate="@CreateHandlerSC" OnCancel="@CancelHandlerSC">
+
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                            </GridToolBar>
+
+                            <GridColumns>
+
+                                <GridColumn Field="@nameof(INAssessmentFC.Score)" Title="امتیاز" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Title)" Title="عنوان" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Id)" Title="ردیف" Editable="true" Width="70px"></GridColumn>
+
+                                <GridCommandColumn Width="120px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                    <div class="k-column">
+                        <br />
+                        <div><h3>ویرایش ارزیابی دوره ای خدمات</h3></div>
+                        <br />
+                        <TelerikGrid Data="@GridDataINAssessmentSS" EditMode="@GridEditMode.Incell" TItem="INAssessmentSS" Pageable="true" Resizable="true" Reorderable="true" PageSize="15" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                                     OnUpdate="@UpdateHandlerSS" OnEdit="@EditHandlerSS" OnDelete="@DeleteHandlerSS" OnCreate="@CreateHandlerSS" OnCancel="@CancelHandlerSS">
+
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                            </GridToolBar>
+
+                            <GridColumns>
+
+                                <GridColumn Field="@nameof(INAssessmentFC.Score)" Title="امتیاز" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Title)" Title="عنوان" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(INAssessmentFC.Id)" Title="ردیف" Editable="true" Width="70px"></GridColumn>
+
+                                <GridCommandColumn Width="120px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                    <div class="k-column">
+                        <br />
+                        <div><h3>ویرایش فعالیت ها</h3></div>
+                        <br />
+                        <TelerikGrid Data="@GridDataActivity" EditMode="@GridEditMode.Incell" TItem="ActivityOutPut" Pageable="true" Resizable="true" Reorderable="true" PageSize="15" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                                     OnUpdate="@UpdateHandlerActivity" OnEdit="@EditHandlerActivity" OnDelete="@DeleteHandlerActivity" OnCreate="@CreateHandlerActivity" OnCancel="@CancelHandlerActivity">
+
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                            </GridToolBar>
+
+                            <GridColumns>
+
+                                <GridColumn Field="@nameof(ActivityOutPut.Title)" Title="فعالیت ها" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(ActivityOutPut.Id)" Title="ردیف" Editable="true" Width="70px"></GridColumn>
+
+                                <GridCommandColumn Width="100px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                    <div class="k-column">
+                        <br />
+                        <div><h3>ویرایش گروه ها</h3></div>
+                        <br />
+                        <TelerikGrid Data="@GridDataGroups" EditMode="@GridEditMode.Incell" TItem="Groups" Pageable="true" Resizable="true" Reorderable="true" PageSize="10" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true "
+                                     OnUpdate="@UpdateHandlerGroup" OnEdit="@EditHandlerGroup" OnDelete="@DeleteHandlerGroup" OnCreate="@CreateHandlerGroup" OnCancel="@CancelHandlerGroup">
+
+
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                            </GridToolBar>
+
+                            <GridColumns>
+
+                                <GridColumn Field="@nameof(Groups.Title)" Title="گروه ها" Width="200px" Editable="true"></GridColumn>
+                                <GridColumn Field="@nameof(Groups.Id)" Title="ردیف" Width="70px" Editable="true"></GridColumn>
+
+                                <GridCommandColumn Width="100px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                                </GridCommandColumn>
+                            </GridColumns>
+                        </TelerikGrid>
+                    </div>
+                </div>
+
+            }
+            <br />
+            <br />
+            @*<TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible" Modal="true">
+                <WindowTitle>
+                    <strong>توجه</strong>
+                </WindowTitle>
+                <WindowContent>
+
+                    آیا اطمینان برای حذف کردن دارید؟
+                    <br /><br />
+
+                    <TelerikButton OnClick="@(async() => await Confirm())" Primary="true" Icon="delete">بلی</TelerikButton>
+                    <TelerikButton OnClick="@(async() => await CloseWindow())">خیر</TelerikButton>
+
+                </WindowContent>
+                <WindowActions>
+                    <WindowAction Name="Close"></WindowAction>
+                </WindowActions>
+            </TelerikWindow>*@
+            <div class="text-center center">
+                <a class="k-button k-primary" href="Assessment" style="font-size:18px">بازگشت</a>
+            </div>
+            <br />
+            <br />
+        </Authorized>
+        <NotAuthorized>
+            <div class="alert alert-danger text-center centered" style="width:100%;font-size:22px;top:50px">شما مجوز دسترسی به این صفحه را ندارید</div>
+            <div class="text-center centered" style="width:100%; height:100%">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <a class="k-button k-primary" href="\index" style="font-size:22px;top:200px">بازگشت</a>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+
+            @code {
+
+
+                public IEnumerable<ActivityOutPut> GridDataActivity = new List<ActivityOutPut>();
+                public IEnumerable<Groups> GridDataGroups = new List<Groups>();
+                public IEnumerable<INAssessmentFC> GridDataINAssessmentFC = new List<INAssessmentFC>();
+                public IEnumerable<INAssessmentSC> GridDataINAssessmentSC = new List<INAssessmentSC>();
+                public IEnumerable<INAssessmentFS> GridDataINAssessmentFS = new List<INAssessmentFS>();
+                public IEnumerable<INAssessmentSS> GridDataINAssessmentSS = new List<INAssessmentSS>();
+
+
+                protected override async Task OnInitializedAsync()
+
+                {
+                    await LoadData();
+                }
+
+                async Task LoadData()
+                {
+                    var activity = await _dbActivityData.GetActivity();
+                    GridDataActivity = new ObservableCollection<ActivityOutPut>(activity);
+                    var group = await _dbGroupsData.GetGroup();
+                    GridDataGroups = new ObservableCollection<Groups>(group);
+                    var FC = await _dbINAssessmentFC.GetINAssessmentFC();
+                    GridDataINAssessmentFC = new ObservableCollection<INAssessmentFC>(FC);
+                    var FS = await _dbINAssessmentFS.GetINAssessmentFS();
+                    GridDataINAssessmentFS = new ObservableCollection<INAssessmentFS>(FS);
+                    var SC = await _dbINAssessmentSC.GetINAssessmentSC();
+                    GridDataINAssessmentSC = new ObservableCollection<INAssessmentSC>(SC);
+                    var SS = await _dbINAssessmentSS.GetINAssessmentSS();
+                    GridDataINAssessmentSS = new ObservableCollection<INAssessmentSS>(SS);
+                }
+
+                private async Task EditHandlerActivity(GridCommandEventArgs args)
+                {
+
+                    ActivityOutPut item = (ActivityOutPut)args.Item;
+                    await _dbActivityData.UpdateActivity(item);
+
+                }
+                private async Task EditHandlerGroup(GridCommandEventArgs args)
+                {
+
+                    Groups item = (Groups)args.Item;
+                    await _dbGroupsData.UpdateGroups(item);
+
+                }
+                async Task UpdateHandlerActivity(GridCommandEventArgs args)
+                {
+                    ActivityOutPut item = (ActivityOutPut)args.Item;
+                    await _dbActivityData.UpdateActivity(item);
+                    await OnInitializedAsync();
+
+                }
+                async Task UpdateHandlerGroup(GridCommandEventArgs args)
+                {
+                    Groups item = (Groups)args.Item;
+                    await _dbGroupsData.UpdateGroups(item);
+                    await OnInitializedAsync();
+
+                }
+
+                private async Task DeleteHandlerActivity(GridCommandEventArgs args)
+                {
+                    ActivityOutPut item = (ActivityOutPut)args.Item;
+                    await _dbActivityData.DeleteActivity(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task DeleteHandlerGroup(GridCommandEventArgs args)
+                {
+                    Groups item = (Groups)args.Item;
+                    await _dbGroupsData.DeleteGroups(item);
+                    await OnInitializedAsync();
+
+                }
+
+                private async Task CreateHandlerActivity(GridCommandEventArgs args)
+                {
+                    ActivityOutPut item = (ActivityOutPut)args.Item;
+                    await _dbActivityData.InsertActivity(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CreateHandlerGroup(GridCommandEventArgs args)
+                {
+                    Groups item = (Groups)args.Item;
+                    await _dbGroupsData.InsertGroups(item);
+                    await OnInitializedAsync();
+
+                }
+
+                private async Task CancelHandlerActivity(GridCommandEventArgs args)
+                {
+
+                    ActivityOutPut item = (ActivityOutPut)args.Item;
+                    await OnInitializedAsync();
+
+                }
+                private async Task CancelHandlerGroup(GridCommandEventArgs args)
+                {
+
+                    Groups item = (Groups)args.Item;
+                    await OnInitializedAsync();
+
+                }
+                private async Task EditHandlerFC(GridCommandEventArgs args)
+                {
+
+                    INAssessmentFC item = (INAssessmentFC)args.Item;
+                    await _dbINAssessmentFC.UpdateINAssessmentFC(item);
+
+                }
+                async Task UpdateHandlerFC(GridCommandEventArgs args)
+                {
+                    INAssessmentFC item = (INAssessmentFC)args.Item;
+                    await _dbINAssessmentFC.UpdateINAssessmentFC(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task DeleteHandlerFC(GridCommandEventArgs args)
+                {
+                    INAssessmentFC item = (INAssessmentFC)args.Item;
+                    await _dbINAssessmentFC.DeleteINAssessmentFC(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CreateHandlerFC(GridCommandEventArgs args)
+                {
+                    INAssessmentFC item = (INAssessmentFC)args.Item;
+                    await _dbINAssessmentFC.InsertINAssessmentFC(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CancelHandlerFC(GridCommandEventArgs args)
+                {
+
+                    INAssessmentFC item = (INAssessmentFC)args.Item;
+                    await OnInitializedAsync();
+
+                }
+                private async Task EditHandlerFS(GridCommandEventArgs args)
+                {
+
+                    INAssessmentFS item = (INAssessmentFS)args.Item;
+                    await _dbINAssessmentFS.UpdateINAssessmentFS(item);
+
+                }
+                async Task UpdateHandlerFS(GridCommandEventArgs args)
+                {
+                    INAssessmentFS item = (INAssessmentFS)args.Item;
+                    await _dbINAssessmentFS.UpdateINAssessmentFS(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task DeleteHandlerFS(GridCommandEventArgs args)
+                {
+                    INAssessmentFS item = (INAssessmentFS)args.Item;
+                    await _dbINAssessmentFS.DeleteINAssessmentFS(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CreateHandlerFS(GridCommandEventArgs args)
+                {
+                    INAssessmentFS item = (INAssessmentFS)args.Item;
+                    await _dbINAssessmentFS.InsertINAssessmentFS(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CancelHandlerFS(GridCommandEventArgs args)
+                {
+
+                    INAssessmentFS item = (INAssessmentFS)args.Item;
+                    await OnInitializedAsync();
+
+                }
+                private async Task EditHandlerSC(GridCommandEventArgs args)
+                {
+
+                    INAssessmentSC item = (INAssessmentSC)args.Item;
+                    await _dbINAssessmentSC.UpdateINAssessmentSC(item);
+
+                }
+                async Task UpdateHandlerSC(GridCommandEventArgs args)
+                {
+                    INAssessmentSC item = (INAssessmentSC)args.Item;
+                    await _dbINAssessmentSC.UpdateINAssessmentSC(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task DeleteHandlerSC(GridCommandEventArgs args)
+                {
+                    INAssessmentSC item = (INAssessmentSC)args.Item;
+                    await _dbINAssessmentSC.DeleteINAssessmentSC(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CreateHandlerSC(GridCommandEventArgs args)
+                {
+                    INAssessmentSC item = (INAssessmentSC)args.Item;
+                    await _dbINAssessmentSC.InsertINAssessmentSC(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CancelHandlerSC(GridCommandEventArgs args)
+                {
+
+                    INAssessmentSC item = (INAssessmentSC)args.Item;
+                    await OnInitializedAsync();
+
+                }
+                private async Task EditHandlerSS(GridCommandEventArgs args)
+                {
+
+                    INAssessmentSS item = (INAssessmentSS)args.Item;
+                    await _dbINAssessmentSS.UpdateINAssessmentSS(item);
+
+                }
+                async Task UpdateHandlerSS(GridCommandEventArgs args)
+                {
+                    INAssessmentSS item = (INAssessmentSS)args.Item;
+                    await _dbINAssessmentSS.UpdateINAssessmentSS(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task DeleteHandlerSS(GridCommandEventArgs args)
+                {
+                    INAssessmentSS item = (INAssessmentSS)args.Item;
+                    await _dbINAssessmentSS.DeleteINAssessmentSS(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CreateHandlerSS(GridCommandEventArgs args)
+                {
+                    INAssessmentSS item = (INAssessmentSS)args.Item;
+                    await _dbINAssessmentSS.InsertINAssessmentSS(item);
+                    await OnInitializedAsync();
+
+                }
+                private async Task CancelHandlerSS(GridCommandEventArgs args)
+                {
+
+                    INAssessmentSS item = (INAssessmentSS)args.Item;
+                    await OnInitializedAsync();
+
+                }
+            }

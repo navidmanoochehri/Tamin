@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+
+    <title>پرتال</title>
+    <meta charset="utf-8">
+    <link href="/css/Tamin2.css" rel="stylesheet">
+    <link href="/css/Index.css" rel="stylesheet">
+    <script src="/js/jquery-3.5.1.min.js"></script>
+    <script src="/js/wb.lazyload.min.js"></script>
+    <script src="/js/wb.rotate.min.js"></script>
+    <script src="/js/wwb15.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+
+<body style="width:100%;height:auto" onload="ShowObject('Label2', 0);ShowObject('Label3', 0);ShowObject('Label4', 0);ShowObject('Label6', 0);ShowObject('Label7', 0);AnimateCss('Layer1', 'focus-in', 0, 1500)">
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

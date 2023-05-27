@@ -1,0 +1,21 @@
+﻿@page "/LogOut"
+
+@using Dapper;
+@using Tamin.Data;
+@using Tamin.Data.Models;
+@using Microsoft.AspNetCore.Identity;
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@inject IDateData _dbDateData
+
+
+@model LogoutModel
+@{
+    ViewData["Title"] = "Log out";
+}
+
+<header>
+    <h1>@ViewData["Title"]</h1>
+    <p>شما از سیستم خارج شدید.</p>
+</header>

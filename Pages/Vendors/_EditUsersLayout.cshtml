@@ -1,0 +1,37 @@
+﻿@page "/EditUsers"
+
+@namespace Tamin.Pages.Vendors
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>ویرایش فرم تامین کنندگان</title>
+    <link href="~/css/Material/Material.css" rel="stylesheet" />
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/site.css" rel="stylesheet" />
+
+</head>
+
+<body style="text-align-last:center">
+
+    <app>
+
+        <component type="typeof(App)" render-mode="Server" />
+
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script src="_content/telerik.ui.for.blazor/js/telerik-blazor.js"></script>
+    <script src="js/refresh-page.js"></script>
+    <script src="~/js/exporter.js"></script>
+
+</body>
+</html>

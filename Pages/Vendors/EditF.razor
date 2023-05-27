@@ -1,0 +1,763 @@
+﻿@page "/EditForm"
+
+@using System.IO;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.Xlsx;
+@using Telerik.Windows.Documents.Spreadsheet.Model;
+@using System.Collections;
+@using System;
+@using System.Collections.Generic;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Csv;
+@using Telerik.Windows.Documents.Spreadsheet.FormatProviders.TextBased.Txt;
+@using Telerik.Windows.Documents.Spreadsheet.Utilities;
+@using System.Linq;
+@using Telerik.Documents.Common.Model;
+@using System.Collections.ObjectModel;
+@using Tamin.DocumentProcessing;
+@using Telerik.DataSource;
+@using Telerik.DataSource.Extensions;
+@using Tamin.Data;
+@using Tamin.Data.Models;
+
+
+@inject IVendorData _dbVendorData
+@inject IActivityData _dbActivityData
+@inject IProjectsData _dbProjectsData
+@inject IGroupsData _dbGroupsData
+@inject IJSRuntime JsRuntime
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<IdentityUser> UserManager
+@inject IVendorData _dbVendorData
+@inject IActivityData _dbActivityData
+@inject IGroupsData _dbGroupsData
+@inject IAssessmentFCData _dbAssessmentFCData
+@inject IAssessmentFSData _dbAssessmentFSData
+@inject IAssessmentSCData _dbAssessmentSCData
+@inject IAssessmentSSData _dbAssessmentSSData
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+
+<style>
+
+    .k-grid .k-header .k-link,
+    .k-grid .k-header {
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .k-filter-menu-container .k-widget.k-dropdown:first-of-type {
+        display: block;
+    }
+
+    .k-window .k-edit-form-container {
+        height: 700px;
+        width: 600px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .k-grid tbody tr {
+        line-height: 14px;
+        white-space: nowrap;
+    }
+
+    .k-grid tbody td {
+        padding: 2px;
+        overflow-wrap: inherit !important;
+        white-space: nowrap;
+    }
+
+    div.smallerFont,
+    div.smallerFont .k-filtercell * {
+        font-size: 14px;
+    }
+
+        div.smallerFont .k-dropdown.k-header.k-dropdown-operator {
+            width: calc(8px + 2em) !important;
+            overflow-wrap: break-word !important;
+        }
+</style>
+
+<AuthorizeView Roles="Admin" Context="Auth">
+
+    <br />
+    <br />
+    <br />
+    <h1 class="text-center center" style="font-family:'Vazir'">ویرایش اطلاعات تامین کنندگان</h1>
+    <br />
+    <br />
+
+    @if (GridData == null)
+    {
+
+        <p><em>بارگزاری....</em></p>
+    }
+    else
+    {
+
+<div>
+
+    <TelerikGrid Data="@GridData" Width="100%" EditMode="@GridEditMode.Popup" TItem="VendorInPut" Pageable="true" Resizable="true" PageSize="20" Reorderable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true"
+                 SelectionMode="@GridSelectionMode.Multiple" @bind-SelectedItems="vendorselected" OnUpdate="@UpdateHandler" OnEdit="EditHandler" OnCreate="@CreateHandler" OnDelete="@DeleteHandler" OnCancel="@CancelHandler"
+                 OnStateInit="@((GridStateEventArgs<VendorInPut> args) => OnStateInitHandler(args))">
+
+        <GridExport>
+            <GridExcelExport FileName="Vendors" AllPages="true" />
+        </GridExport>
+
+        <GridToolBar>
+
+            <GridCommandButton Command="ExcelExport" Primary="true" Icon="@IconName.FileExcel">خروجی به Excle</GridCommandButton>
+            <GridCommandButton Primary="true" OnClick="@(()=>GridData=vendorselected)" Icon="@IconName.Filter">Selected Filter</GridCommandButton>
+            <GridCommandButton Primary="true" OnClick="@SelectRefresh" Icon="@IconName.FilterClear">Clear Filter </GridCommandButton>
+            <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+            <GridCommandButton OnClick="@(()=>isVisible5=true)" Primary="true" Icon="@IconName.Preview">نمایش</GridCommandButton>
+
+        </GridToolBar>
+
+        <GridColumns>
+
+            <GridColumn Field="@nameof(VendorInPut.EditDate)" Title="تاریخ ویرایش"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Date)" Title="تاریخ ثبت"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Groups)" Title="گروه کاری" Editable="true">
+
+                <EditorTemplate>
+                    @{
+                        <TelerikDropDownList @bind-Value="@group"
+                                             Data="@GridGP.Select(a => a.Title)"
+                                             PopupHeight="auto"
+                                             PopupWidth="auto"
+                                             Width="150px" />
+
+                    }
+                </EditorTemplate>
+            </GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Activities)" Title="زمینه های فعالیت" Width="160px" Editable="true">
+                <EditorTemplate>
+                    @{
+                        <TelerikMultiSelect @bind-Value="@activity"
+                                            Data="@GridAT.Select(a => a.Title).ToList()"
+                                            Placeholder="فعالیت ها"
+                                            Width="200px" />
+
+                    }
+                </EditorTemplate>
+            </GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Projects)" Title="پروژه ها" Width="150px" Editable="true">
+                <EditorTemplate>
+                    @{
+
+                        <TelerikMultiSelect @bind-Value="@project"
+                                            Data="@GridPJ.Select(a => a.Title).ToList()"
+                                            Placeholder="پروژه ها"
+                                            Width="200px" />
+                    }
+                </EditorTemplate>
+            </GridColumn>
+
+
+            <GridColumn Field="@nameof(VendorInPut.Address)" Title="نشانی دفتر مرکزی" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.NatioalId)" Title="شماره ملی " Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Fax)" Title="فکس" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.ManagerName)" Title="نام مدیرعامل" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.RegistrationNo)" Title="شماره ثبت" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.PostalCode)" Title="کدپستی" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.VendorListResume)" Title="عضو وندور لیست؟" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.ActivityDescription)" Title="شرح فعالیت" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Description)" Title="توضیحات" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.ActivityDescription)" Title="شرح فعالیت" Editable="true"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.CooperationResume)" Title="سابقه همکاری" Editable="true" Width="0"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.WebSite)" Title="وبسایت" Editable="true">
+                <Template>
+                    @{
+                        var Web = context as VendorInPut;
+                        <a href=http://@Web.WebSite target="_blank">@Web.WebSite</a>
+                    }
+                </Template>
+            </GridColumn>
+
+            <GridColumn Field="@nameof(VendorInPut.EMail)" Title="رایانامه" Editable="true"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Phone)" Title="شماره تماس" Editable="true"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Name)" Title="نام شرکت" Editable="true"></GridColumn>
+            <GridColumn Field="@nameof(VendorInPut.Id)" Title="ID" Width="80px"></GridColumn>
+
+            <GridCommandColumn Width="200px">
+
+                
+                <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+                <GridCommandButton Command="Delete" Primary="true" Icon="delete">حذف</GridCommandButton>
+
+            </GridCommandColumn>
+            <GridCheckboxColumn />
+        </GridColumns>
+        <DetailTemplate Context="firstLevelItem">
+
+            @{
+                
+                var currGridData = GetLevelData(firstLevelItem.Id);
+                <TelerikGrid Data="@currGridData" EditMode="@GridEditMode.Popup" TItem="VendorInPut" Pageable="true" Resizable="true" Reorderable="true"
+                             OnUpdate="@UpdateHandler" OnEdit="EditHandler" OnCancel="@CancelHandler">
+
+                    <GridColumns>
+
+                        <GridColumn Field="@nameof(VendorInPut.Address)" Title="نشانی دفتر مرکزی" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.NatioalId)" Title="شماره ملی " Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Fax)" Title="فکس" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.ManagerName)" Title="نام مدیرعامل" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.RegistrationNo)" Title="شماره ثبت" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.PostalCode)" Title="کدپستی" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.EconomicCode)" Title="کد اقتصادی" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.VendorListResume)" Title="عضو وندور لیست؟" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Description)" Title="توضیحات" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.CooperationResume)" Title="سابقه همکاری" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Id)" Title="ID" Width="80px"></GridColumn>
+
+                        <GridCommandColumn Width="200px">
+
+                            <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                            <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                            <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+
+                        </GridCommandColumn>
+
+                    </GridColumns>
+                </TelerikGrid>
+
+            }
+        </DetailTemplate>
+
+    </TelerikGrid>
+
+    <TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible" Modal="true">
+        <WindowTitle>
+            <strong>توجه</strong>
+        </WindowTitle>
+        <WindowContent>
+
+            آیا اطمینان برای حذف کردن دارید؟
+            <br /><br />
+
+            <TelerikButton OnClick="@(async () => await Confirm())" Primary="true" Icon="delete">بلی</TelerikButton>
+            <TelerikButton OnClick="@(async () => await CloseWindow())">خیر</TelerikButton>
+
+        </WindowContent>
+        <WindowActions>
+            <WindowAction Name="Close"></WindowAction>
+        </WindowActions>
+    </TelerikWindow>
+
+    <TelerikWindow Width="250px" Height="120px" Centered="true" @bind-Visible="@isVisible2" Modal="true">
+        <WindowTitle>
+
+        </WindowTitle>
+        <WindowContent>
+            <h6 style="font-family:Yekan">به روز رسانی انجام شد</h6>
+        </WindowContent>
+        <WindowActions>
+            <WindowAction Name="Close"></WindowAction>
+        </WindowActions>
+    </TelerikWindow>
+
+    <TelerikWindow Width="250px" Height="120px" Centered="true" @bind-Visible="@isVisible3" Modal="true">
+        <WindowTitle>
+
+        </WindowTitle>
+        <WindowContent>
+            <h6 style="font-family:Yekan">رکورد جدید ایجاد شد</h6>
+        </WindowContent>
+        <WindowActions>
+            <WindowAction Name="Close"></WindowAction>
+        </WindowActions>
+    </TelerikWindow>
+    <TelerikWindow Width="200px" Height="100px" Centered="true" @bind-Visible="@isVisible4">
+        <WindowTitle>
+            <small>توجه</small>
+        </WindowTitle>
+        <WindowContent>
+            <h6 style="font-family:Yekan">رکورد تکراری</h6>
+        </WindowContent>
+        <WindowActions>
+            <WindowAction Name="Close"></WindowAction>
+        </WindowActions>
+    </TelerikWindow>
+    <TelerikWindow Width="600px" Height="600px" Centered="true" Class="table-bordered" Modal="true" @bind-Visible="@isVisible5">
+        <WindowTitle>
+            <small>نمایش جزئیات</small>
+        </WindowTitle>
+        <WindowContent>
+           
+                : نام شرکت
+                <div style="color:orangered">@vendorselected.Select(s => s.Name).ElementAtOrDefault(0)</div>
+                : زمینه فعالیت
+                <div style="color:orangered">@vendorselected.Select(s => s.Activities).ElementAtOrDefault(0)</div>
+                : آدرس
+                <div style="color:orangered">@vendorselected.Select(s => s.Address).ElementAtOrDefault(0)</div>
+                : تاریخ ثبت
+                <div style="color:orangered">@vendorselected.Select(s => s.Date).ElementAtOrDefault(0)</div>
+                : تاریخ ویرایش
+                <div style="color:orangered">@vendorselected.Select(s => s.EditDate).ElementAtOrDefault(0)</div>
+                : رایانامه
+                <div style="color:orangered">@vendorselected.Select(s => s.EMail).ElementAtOrDefault(0)</div>
+                : فکس
+                <div style="color:orangered">@vendorselected.Select(s => s.Fax).ElementAtOrDefault(0)</div>
+                : گروه کاری
+                <div style="color:orangered">@vendorselected.Select(s => s.Groups).ElementAtOrDefault(0)</div>
+                : نام مدیر عامل
+                <div style="color:orangered">@vendorselected.Select(s => s.ManagerName).ElementAtOrDefault(0)</div>
+                : شماره ملی
+                <div style="color:orangered">@vendorselected.Select(s => s.NatioalId).ElementAtOrDefault(0)</div>
+                : تلفن
+                <div style="color:orangered">@vendorselected.Select(s => s.Phone).ElementAtOrDefault(0)</div>
+                : کدپستی
+                <div style="color:orangered">@vendorselected.Select(s => s.PostalCode).ElementAtOrDefault(0)</div>
+                : پروژه
+                <div style="color:orangered">@vendorselected.Select(s => s.Projects).ElementAtOrDefault(0)</div>
+                : وب سایت
+                <div style="color:orangered">@vendorselected.Select(s => s.WebSite).ElementAtOrDefault(0)</div>
+                : شماره ثبت
+                <div style="color:orangered">@vendorselected.Select(s => s.RegistrationNo).ElementAtOrDefault(0)</div>
+                : لیست رزومه
+                <div style="color:orangered">@vendorselected.Select(s => s.VendorListResume).ElementAtOrDefault(0)</div>
+                : کد اقتصادی
+                <div style="color:orangered">@vendorselected.Select(s => s.EconomicCode).ElementAtOrDefault(0)</div>
+                : توضیحات
+                <div style="color:orangered">@vendorselected.Select(s => s.Description).ElementAtOrDefault(0)</div>
+                : خلاصه رزومه
+                <div style="color:orangered">@vendorselected.Select(s => s.CooperationResume).ElementAtOrDefault(0)</div>
+          
+   
+        </WindowContent>
+        <WindowActions>
+            <WindowAction Name="Close"></WindowAction>
+        </WindowActions>
+    </TelerikWindow>
+</div>
+        <br />
+        <br />
+        <div class="text-center center">
+            <a class="k-button k-primary" href="index" style="font-size:22px">بازگشت</a>
+            <br />
+            <br />
+        </div>
+    }
+</AuthorizeView>
+
+<AuthorizeView Roles="Users" Context="Auth2">
+    <br />
+    <br />
+    <br />
+    <h1 class="text-center center" style="font-family:'Yekan'">ویرایش اطلاعات</h1>
+    <br />
+    <br />
+
+    @if (GridData == null)
+    {
+
+        <p><em>بارگزاری....</em></p>
+    }
+    else
+    {
+        <div>
+
+            <TelerikGrid Data="@Userdata" Width="100%" EditMode="@GridEditMode.Inline" TItem="VendorInPut" Resizable="true" Reorderable="true"
+                         OnUpdate="@UpdateHandler" OnEdit="EditHandler" OnCancel="@CancelHandler">
+
+
+                <GridToolBar>
+
+                    <GridCommandButton Command="ExcelExport" Primary="true" Icon="@IconName.FileExcel">خروجی به Excle</GridCommandButton>
+
+                </GridToolBar>
+
+                <GridColumns>
+
+                    <GridColumn Field="@nameof(VendorInPut.EditDate)" Title="تاریخ ویرایش"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Date)" Title="تاریخ ثبت"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Groups)" Title="گروه کاری" Editable="true">
+
+                        <EditorTemplate>
+                            @{
+                                <TelerikDropDownList @bind-Value="@group"
+                                                     Data="@GridGP.Select(a => a.Title)"
+                                                     PopupHeight="auto"
+                                                     PopupWidth="auto"
+                                                     Width="150px" />
+
+                            }
+                        </EditorTemplate>
+                    </GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Activities)" Title="زمینه های فعالیت" Width="160px" Editable="true">
+                        <EditorTemplate>
+                            @{
+                                <TelerikMultiSelect @bind-Value="@activity"
+                                                    Data="@GridAT.Select(a => a.Title).ToList()"
+                                                    Placeholder="فعالیت ها"
+                                                    Width="200px" />
+
+                            }
+                        </EditorTemplate>
+                    </GridColumn>
+
+                    <GridColumn Field="@nameof(VendorInPut.Address)" Title="نشانی دفتر مرکزی" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.NatioalId)" Title="شماره ملی " Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Fax)" Title="فکس" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.ManagerName)" Title="نام مدیرعامل" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.RegistrationNo)" Title="شماره ثبت" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.PostalCode)" Title="کدپستی" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.VendorListResume)" Title="عضو وندور لیست؟" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.ActivityDescription)" Title="شرح فعالیت" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Description)" Title="توضیحات" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.CooperationResume)" Title="سابقه همکاری" Editable="true" Width="0"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.WebSite)" Title="وبسایت"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.EconomicCode)" Title="کد اقتصادی" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.EMail)" Title="رایانامه" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Phone)" Title="شماره تماس" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Name)" Title="نام شرکت" Editable="true"></GridColumn>
+
+
+                    <GridCommandColumn Width="200px">
+
+                        <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                        <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                        <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+                    </GridCommandColumn>
+                </GridColumns>
+
+            </TelerikGrid>
+            <br />
+            <br />
+            <h1 style="font-family:'Yekan'">ویرایش جزئیات</h1>
+            <br />
+            <br />
+            <TelerikGrid Data="@Userdata" EditMode="@GridEditMode.Inline" TItem="VendorInPut" Resizable="true" Reorderable="true"
+                         OnUpdate="@UpdateHandler" OnEdit="EditHandler" OnCancel="@CancelHandler">
+
+                <GridColumns>
+
+                    <GridColumn Field="@nameof(VendorInPut.Address)" Title="نشانی دفتر مرکزی" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.NatioalId)" Title="شماره ملی " Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Fax)" Title="فکس" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.ManagerName)" Title="نام مدیرعامل" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.RegistrationNo)" Title="شماره ثبت" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.PostalCode)" Title="کدپستی" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.VendorListResume)" Title="عضو وندور لیست؟" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.ActivityDescription)" Title="شرح فعالیت" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.Description)" Title="توضیحات" Editable="true"></GridColumn>
+                    <GridColumn Field="@nameof(VendorInPut.CooperationResume)" Title="سابقه همکاری" Editable="true"></GridColumn>
+
+
+                    <GridCommandColumn Width="200px">
+
+                        <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true">به روزآوری</GridCommandButton>
+                        <GridCommandButton Command="Edit" Primary="true" Icon="edit">ویرایش</GridCommandButton>
+                        <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true">انصراف</GridCommandButton>
+
+
+                    </GridCommandColumn>
+
+                </GridColumns>
+            </TelerikGrid>
+
+            <TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible" Modal="true">
+                <WindowTitle>
+                    <strong>توجه</strong>
+                </WindowTitle>
+                <WindowContent>
+
+                    آیا اطمینان برای حذف کردن دارید؟
+                    <br /><br />
+
+                    <TelerikButton OnClick="@(async () => await Confirm())" Primary="true" Icon="delete">بلی</TelerikButton>
+                    <TelerikButton OnClick="@(async () => await CloseWindow())">خیر</TelerikButton>
+
+                </WindowContent>
+                <WindowActions>
+                    <WindowAction Name="Close"></WindowAction>
+                </WindowActions>
+            </TelerikWindow>
+
+            <TelerikWindow Width="250px" Height="120px" Centered="true" @bind-Visible="@isVisible2" Modal="true">
+                <WindowTitle>
+
+                </WindowTitle>
+                <WindowContent>
+                    به روز رسانی انجام شد
+                </WindowContent>
+                <WindowActions>
+                    <WindowAction Name="Close"></WindowAction>
+                </WindowActions>
+            </TelerikWindow>
+            <br />
+            <br />
+            <div class="text-center center">
+                <a class="k-button k-primary" href="index" style="font-size:22px">بازگشت</a>
+
+            </div>
+            <br />
+            <br />
+        </div>
+
+    }
+
+</AuthorizeView>
+
+@code {
+
+    public IEnumerable<VendorInPut> GridData = new List<VendorInPut>();
+    public IEnumerable<VendorInPut> Userdata = new List<VendorInPut>();
+    public IEnumerable<VendorInPut> vendorselected = new List<VendorInPut>();
+    public List<Projects> GridPJ = new List<Projects>();
+    public List<ActivityOutPut> GridAT = new List<ActivityOutPut>();
+    public List<Groups> GridGP = new List<Groups>();
+    public List<string> project = new List<string>();
+    public List<string> activity = new List<string>();
+    private VendorInPut Vendors = new VendorInPut();
+
+    public string group { get; set; }
+    bool ExportAllPages { get; set; }
+    public bool DeleteConfirm { get; set; }
+    public bool isVisible { get; set; }
+    public bool isVisible2 { get; set; }
+    public bool isVisible3 { get; set; }
+    public bool isVisible4 { get; set; }
+    public bool isVisible5 { get; set; }
+
+    List<VendorInPut> GetLevelData(int Id)
+    {
+        return GridData.Where(itm => itm.Id == Id).ToList();
+    }
+
+    GridSelectionMode selectionMode { get; set; } = GridSelectionMode.Multiple;
+
+    bool ShowSelectAll
+        => selectionMode == GridSelectionMode.Multiple;
+
+    protected override async Task OnInitializedAsync()
+
+    {
+        await LoadData();
+        await CurrentUser();
+    }
+
+    async Task LoadData()
+    {
+
+        var vendors = await _dbVendorData.GetVendors();
+        GridData = new ObservableCollection<VendorInPut>(vendors);
+        GridPJ = await _dbProjectsData.GetProjects();
+        GridAT = await _dbActivityData.GetActivity();
+        GridGP = await _dbGroupsData.GetGroup();
+
+    }
+
+    async Task OnStateInitHandler(GridStateEventArgs<VendorInPut> args)
+    {
+        var state = new GridState<VendorInPut>
+        {
+            SortDescriptors = new List<Telerik.DataSource.SortDescriptor>
+{
+                new Telerik.DataSource.SortDescriptor{ Member = "Date", SortDirection = Telerik.DataSource.ListSortDirection.Descending }
+            },
+
+        };
+
+        args.GridState = state;
+        await LoadData();
+    }
+    public async Task CurrentUser()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+        var currentUser = await UserManager.GetUserAsync(user);
+        Userdata = GridData.Where(u => u.EMail == currentUser.Email);
+
+    }
+
+    void EditHandler(GridCommandEventArgs args)
+    {
+
+        VendorInPut item = (VendorInPut)args.Item;
+        var a = string.Join(" , ", activity.ToList());
+        var p = string.Join(" , ", project.ToList());
+        var g = group;
+
+        if (a != "")
+        {
+            Vendors.Activities = a;
+            item.Activities = Vendors.Activities;
+        }
+        if (p != "")
+        {
+            Vendors.Projects = p;
+            item.Projects = Vendors.Projects;
+        }
+
+        if (g != null)
+        {
+            Vendors.Groups = g;
+            item.Groups = Vendors.Groups;
+        }
+
+
+        DateTime dateAndTime = DateTime.Now;
+        item.EditDate = (dateAndTime.ToString("yyyy/MM/dd"));
+
+    }
+
+
+    async Task UpdateHandler(GridCommandEventArgs args)
+    {
+        await LoadData();
+        await CurrentUser();
+        StateHasChanged();
+        VendorInPut item = (VendorInPut)args.Item;
+        var a = string.Join(" , ", activity.ToList());
+        var p = string.Join(" , ", project.ToList());
+        var g = group;
+
+        if (a != "")
+        {
+            Vendors.Activities = a;
+            item.Activities = Vendors.Activities;
+        }
+        if (p != "")
+        {
+            Vendors.Projects = p;
+            item.Projects = Vendors.Projects;
+        }
+
+        if (g != null)
+        {
+            Vendors.Groups = g;
+            item.Groups = Vendors.Groups;
+        }
+
+        DateTime dateAndTime = DateTime.Now;
+        item.EditDate = (dateAndTime.ToString("yyyy/MM/dd"));
+        await _dbVendorData.UpdateVendors(item);
+
+        await LoadData();
+        await CurrentUser();
+
+        isVisible2 = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+
+        isVisible2 = false;
+        StateHasChanged();
+
+    }
+
+
+    public async Task DeleteHandler(GridCommandEventArgs args)
+
+    {
+
+        await ShowWindow();
+
+        await Task.Delay(4000);
+
+        StateHasChanged();
+
+        if (DeleteConfirm)
+        {
+            VendorInPut item = (VendorInPut)args.Item;
+            await _dbVendorData.DeleteVendores(item);
+        }
+
+        DeleteConfirm = false;
+
+
+
+        await LoadData();
+    }
+
+    async Task CreateHandler(GridCommandEventArgs args)
+    {
+
+        VendorInPut item = (VendorInPut)args.Item;
+        item.Projects = Vendors.Projects;
+        item.Activities = Vendors.Activities;
+        item.Groups = Vendors.Groups;
+        DateTime dateAndTime = DateTime.Now;
+        item.EditDate = (dateAndTime.ToString("yyyy/MM/dd"));
+        var r = GridData.Where(x => x.Name == item.Name).Select(y => y.Name).ElementAtOrDefault(0);
+        var e = GridData.Where(y => y.EMail == item.EMail).Select(x => x.EMail).ElementAtOrDefault(0);
+        var c = GridData.Where(y => y.EconomicCode == item.EconomicCode).Select(x => x.EconomicCode).ElementAtOrDefault(0);
+        var n = GridData.Where(y => y.RegistrationNo == item.RegistrationNo).Select(x => x.RegistrationNo).ElementAtOrDefault(0);
+        var p = GridData.Where(y => y.PostalCode == item.PostalCode).Select(x => x.PostalCode).ElementAtOrDefault(0);
+        var w = GridData.Where(y => y.WebSite == item.WebSite).Select(x => x.WebSite).ElementAtOrDefault(0);
+        var i = GridData.Where(y => y.NatioalId == item.NatioalId).Select(x => x.NatioalId).ElementAtOrDefault(0);
+        if (r != null || e != null || c != null || n != null || p != null || w != null || i != null)
+        {
+            isVisible4 = true;
+        }
+        else
+        {
+            await _dbVendorData.InsertVendors(item);
+
+            StateHasChanged();
+            await LoadData();
+
+
+            isVisible3 = true;
+            StateHasChanged();
+            await Task.Delay(2000);
+
+            isVisible3 = false;
+            StateHasChanged();
+        }
+
+
+    }
+
+    async Task CancelHandler(GridCommandEventArgs args)
+    {
+
+        VendorInPut item = (VendorInPut)args.Item;
+
+        await LoadData();
+    }
+
+    async Task SelectRefresh(GridCommandEventArgs args)
+    {
+        vendorselected = Enumerable.Empty<VendorInPut>();
+
+        await LoadData();
+    }
+
+    public async Task ShowWindow()
+    {
+        isVisible = true;
+
+        await LoadData();
+        StateHasChanged();
+    }
+
+    public async Task Confirm()
+    {
+        DeleteConfirm = true;
+        isVisible = false;
+
+        await LoadData();
+        StateHasChanged();
+    }
+
+    public async Task CloseWindow()
+    {
+        DeleteConfirm = false;
+        isVisible = false;
+
+        await LoadData();
+        StateHasChanged();
+    }
+
+}
+

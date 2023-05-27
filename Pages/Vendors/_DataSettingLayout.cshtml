@@ -1,0 +1,40 @@
+﻿@page "/DataSetting"
+
+@namespace Tamin.Pages.Vendors
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>تنظیمات داده ها</title>
+    <script src="_content/Telerik.UI.for.Blazor/js/telerik-blazor.js" defer></script>
+    <script src="js/refresh-page.js"></script>
+    <script src="/js/exporter.js"></script>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link id="kendoCss" rel="stylesheet" href="_content/telerik.ui.for.blazor/css/kendo-theme-default/all.css" />
+    <link href="/css/site.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <app>
+
+        <component type="typeof(App)" render-mode="Server" />
+
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+ 
+
+
+</body>
+</html>
+

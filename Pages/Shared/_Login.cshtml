@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>سیستم تامین کنندگان</title>
+    <link href="/css/Tamin.css" rel="stylesheet" />
+    <link href="/css/Login.css" rel="stylesheet" />
+    <script src="~/js/jquery-3.5.1.min.js"></script>
+    <script src="~/js/wwb15.min.js"></script>
+
+</head>
+
+<body style ="width:100%;height:auto" onload="AnimateCss('wb_Image10', 'focus-in', 0, 1500);return false;">
+
+    <div >
+        @RenderBody()
+    </div>
+             
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
