@@ -21,7 +21,7 @@ namespace Tamin.Data
         }
         public Task InsertAssessmentSPE(AssessmentSPE AssessmentSPE)
         {
-            string sql = @"INSERT into dbo.AssessmentSPE (Id, Quality, Vendorlist, Price, Delivery, CustomerOrientation, Financial, Project, Sum, Grade, Date, MDate, Comment, Image) Values (@Id, @Quality, @Vendorlist, @Price, @Delivery, @CustomerOrientation, @Financial, @Project, @Sum, @Grade, @Date, @MDate, @Comment, @Image);";
+            string sql = @"INSERT into dbo.AssessmentSPE (Id, Timing, Quality, Standard, Equipment_protection, Material_protection, Protection_consumables, Resource_management, Technical_ability,Professionalism, Status_face, Correct_use, Material_balance, Project, Sum, Grade, Date, MDate, Comment, Image) Values (@Id, @Timing, @Quality, @Standard, @Equipment_protection, @Material_protection, @Protection_consumables, @Resource_management, @Technical_ability, @Professionalism, @Status_face, @Correct_use, @Material_balance, @Project, @Sum, @Grade, @Date, @MDate, @Comment, @Image);";
 
             return _dbAssessmentSPEData.SaveData(sql, AssessmentSPE);
         }
@@ -32,7 +32,7 @@ namespace Tamin.Data
         }
         public Task UpdateAssessmentSPE(AssessmentSPE AssessmentSPE)
         {
-            string sql = @"UPDATE dbo.AssessmentSPE set Id=@Id, Vendorlist=@Vendorlist, Price=@Price, Delivery=@Delivery, CustomerOrientation=@CustomerOrientation, Financial=@Financial, Project=@Project, Sum=@Sum, Grade=@Grade, Date=@Date, MDate=@MDate, Comment=@Comment, Quality=@Quality, Image=@Image WHERE (Id=@Id AND Date=@Date)";
+            string sql = @"UPDATE dbo.AssessmentSPE set Id=@Id, Timing=@Timing, Quality=@Quality, Standard=@Standard, Equipment_protection=@Equipment_protection, Material_protection=@Material_protection, Protection_consumables=@Protection_consumables, Resource_management=@Resource_management, Technical_ability=@Technical_ability, Professionalism=@Professionalism, Status_face=@Status_face, Correct_use=@Correct_use, Material_balance=@Material_balance, Project=@Project, Sum=@Sum, Grade=@Grade, Date=@Date, MDate=@MDate, Comment=@Comment, Quality=@Quality, Image=@Image WHERE (Id=@Id AND Date=@Date)";
             return _dbAssessmentSPEData.SaveData(sql, AssessmentSPE);
         }
     }
