@@ -21,7 +21,7 @@ namespace Tamin.Data
         }
         public Task InsertAssessmentFPE(AssessmentFPE AssessmentFPE)
         {
-            string sql = @"INSERT into dbo.AssessmentFPE (Id, Vendorlist, Price, Financial,Project , Sum, Grade, Date, MDate, Comment, Image) Values (@Id, @Vendorlist, @Price, @Financial, @Project, @Sum, @Grade, @Date, @MDate, @Comment, @Image);";
+            string sql = @"INSERT into dbo.AssessmentFPE (Id, Resume, Price, Customer, Financial, Technical, Professionalism, Project, Sum, Grade, Date, MDate, Comment, Image) Values (@Id, @Resume, @Price, @Customer, @Financial, @Technical, @Professionalism, @Project, @Sum, @Grade, @Date, @MDate, @Comment, @Image);";
 
             return _dbAssessmentFPEData.SaveData(sql, AssessmentFPE);
         }
@@ -32,7 +32,7 @@ namespace Tamin.Data
         }
         public Task UpdateAssessmentFPE(AssessmentFPE AssessmentFPE)
         {
-            string sql = @"UPDATE dbo.AssessmentFPE set Id=@Id, Vendorlist=@Vendorlist, Price=@Price, Financial=@Financial,Project=@Project, Sum=@Sum, Grade=@Grade, Date=@Date, MDate=@MDate, Comment=@Comment, Image=@Image WHERE (Id=@Id AND Date=@Date)";
+            string sql = @"UPDATE dbo.AssessmentFPE set Id=@Id, Resume=@Resume, Price=@Price, Customer=@Customer, Financial=@Financial, Technical=@Technical, Professionalism=@Professionalism, Project=@Project, Sum=@Sum, Grade=@Grade, Date=@Date, MDate=@MDate, Comment=@Comment, Image=@Image WHERE (Id=@Id AND Date=@Date)";
             return _dbAssessmentFPEData.SaveData(sql, AssessmentFPE);
         }
     }

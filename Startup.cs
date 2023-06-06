@@ -64,12 +64,16 @@ namespace Tamin
             services.AddScoped<IGroupsData, GroupsData>();
             services.AddScoped<IAssessmentFCData, AssessmentFCData>();
             services.AddScoped<IAssessmentFSData, AssessmentFSData>();
+            services.AddScoped<IAssessmentFPEData, AssessmentFPEData>();
             services.AddScoped<IAssessmentSCData, AssessmentSCData>();
             services.AddScoped<IAssessmentSSData, AssessmentSSData>();
+            services.AddScoped<IAssessmentSPEData, AssessmentSPEData>();
             services.AddScoped<IINAssessmentFCData, INAssessmentFCData>();
             services.AddScoped<IINAssessmentFSData, INAssessmentFSData>();
+            services.AddScoped<IINAssessmentFPEData, INAssessmentFPEData>();
             services.AddScoped<IINAssessmentSCData, INAssessmentSCData>();
             services.AddScoped<IINAssessmentSSData, INAssessmentSSData>();
+            services.AddScoped<IINAssessmentSPEData, INAssessmentSPEData>();
             services.AddScoped<IProjectsData, ProjectsData>();
             services.AddScoped<IDateData, DateData>();
 

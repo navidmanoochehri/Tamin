@@ -68,7 +68,7 @@
     .k-grid tbody tr {
         line-height: 30px;
         white-space: nowrap;
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .k-grid tbody td {
@@ -102,15 +102,14 @@
         else
         {
             <br />
-            <h1 style="font-family:'Vazir';text-align-last:center">ارزیابی و شاخص ها</h1>
+                     <p style="font-family:'Vazir';font-size:40px">ارزیابی عمکرد و شاخص ها</p>
             <br />
             <div>
-
-                <a href="/Charts/powerbi/Grade%20Table?rs:Command=Render&rc:Toolbar=false" target="_blank" title="گزارش"><img src="/images/icons8_chart_32px.png" /></a>
-                <a href="/DataSetting" title="تنظیم داده ها"><img src="/images/icons8_settings_32px_1.png" /></a>
-                <a @onclick="Show" style="cursor:pointer">
-                    <img src="/images/icons8_bell_32px_1.png" id="Image1" alt="">
-                    <lable for="" style="border-radius:100px; background-color:orangered;color:snow; font-family: 'Yekan'; font-weight: bold; font-size:12px; padding:1px 3px 0px 2px; margin: -20px; text-align:center; vertical-align:top;">
+                               
+                <a href="/Charts/powerbi/Grade%20Table?rs:Command=Render&rc:Toolbar=false" target="_blank" title="گزارش">گزارش ساز<img src="/images/icons8_chart_32px.png" /></a>|
+                <a href="/DataSetting" title="تنظیم داده ها">تنظیمات<img src="/images/icons8_settings_32px_1.png" /></a>|
+                <a @onclick="Show" style="cursor:pointer">اعلانات<img src="/images/icons8_bell_32px_1.png" id="Image1" alt="">
+                    <lable for="" style="border-radius:100px; background-color:orangered;color:snow; font-family: 'Vazir'; font-weight: bold; font-size:12px; padding:1px 3px 0px 2px; margin: -20px; text-align:center; vertical-align:top;">
 
                         @{
 
@@ -150,11 +149,12 @@
 
                     </lable>
                 </a>
+               
             </div>
             <br />
             <TelerikWindow Width="400px" Height="500px" Centered="true" @bind-Visible="@isVisible3" Modal="true" Class="k-rtl">
                 <WindowTitle>
-
+                    بررسی نشده بالای 6 ماه
                 </WindowTitle>
                 <WindowContent>
                     @{
