@@ -9,297 +9,297 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Tamin
 build_property.RootNamespace = Tamin
-build_property.ProjectDir = d:\Programming\Tamin-New\
+build_property.ProjectDir = D:\Programming\Tamin-New\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\Programming\Tamin-New
+build_property.MSBuildProjectDirectory = D:\Programming\Tamin-New
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/Programming/Tamin-New/App.razor]
+[D:/Programming/Tamin-New/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/App.razor]
+[D:/Programming/Tamin-New/Pages/App.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Assessment/Assessment.razor]
+[D:/Programming/Tamin-New/Pages/Assessment/Assessment.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXNzbWVudFxBc3Nlc3NtZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Error.razor]
+[D:/Programming/Tamin-New/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/DataSetting.razor]
+[D:/Programming/Tamin-New/Pages/Vendors/DataSetting.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xEYXRhU2V0dGluZy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/EditF.razor]
+[D:/Programming/Tamin-New/Pages/Vendors/EditF.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xFZGl0Ri5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/EditU.razor]
+[D:/Programming/Tamin-New/Pages/Vendors/EditU.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xFZGl0VS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/VendorF.razor]
+[D:/Programming/Tamin-New/Pages/Vendors/VendorF.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xWZW5kb3JGLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/_Imports.razor]
+[D:/Programming/Tamin-New/Pages/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Shared/LoginDisplay.razor]
+[D:/Programming/Tamin-New/Shared/LoginDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXExvZ2luRGlzcGxheS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Shared/MainLayout.razor]
+[D:/Programming/Tamin-New/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Shared/NavMenu.razor]
+[D:/Programming/Tamin-New/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Shared/SurveyPrompt.razor]
+[D:/Programming/Tamin-New/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/_Imports.razor]
+[D:/Programming/Tamin-New/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/CheckEmail.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/CheckEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDaGVja0VtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Lockout.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/LogOut.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/LogOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dPdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/UnconfirmedEmail.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/UnconfirmedEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxVbmNvbmZpcm1lZEVtYWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Error.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Programming/Tamin-New/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Assessment/_AssessmentLayout.cshtml]
+[D:/Programming/Tamin-New/Pages/Assessment/_AssessmentLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXNzbWVudFxfQXNzZXNzbWVudExheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Index/Index.cshtml]
+[D:/Programming/Tamin-New/Pages/Index/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXhcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Index/_IndexLayout.cshtml]
+[D:/Programming/Tamin-New/Pages/Index/_IndexLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXhcX0luZGV4TGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_CheckMail.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_CheckMail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9DaGVja01haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_ForgotPassword.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_Layout.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_Login.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_LoginPartial.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_Register.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Programming/Tamin-New/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/_DataSettingLayout.cshtml]
+[D:/Programming/Tamin-New/Pages/Vendors/_DataSettingLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xfRGF0YVNldHRpbmdMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/_EditFLayout.cshtml]
+[D:/Programming/Tamin-New/Pages/Vendors/_EditFLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xfRWRpdEZMYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/_EditUsersLayout.cshtml]
+[D:/Programming/Tamin-New/Pages/Vendors/_EditUsersLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xfRWRpdFVzZXJzTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/Vendors/_VendorFLayout.cshtml]
+[D:/Programming/Tamin-New/Pages/Vendors/_VendorFLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVuZG9yc1xfVmVuZG9yRkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/_Host.cshtml]
+[D:/Programming/Tamin-New/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/_ViewImports.cshtml]
+[D:/Programming/Tamin-New/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Programming/Tamin-New/Pages/_ViewStart.cshtml]
+[D:/Programming/Tamin-New/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

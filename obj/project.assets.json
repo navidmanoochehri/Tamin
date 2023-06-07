@@ -72,34 +72,16 @@
           }
         }
       },
-      "Magick.NET-Q16-AnyCPU/7.15.5": {
+      "JpegLibrary/0.3.26": {
         "type": "package",
         "compile": {
-          "lib/netstandard20/Magick.NET-Q16-AnyCPU.dll": {
+          "lib/netcoreapp3.0/JpegLibrary.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard20/Magick.NET-Q16-AnyCPU.dll": {
+          "lib/netcoreapp3.0/JpegLibrary.dll": {
             "related": ".xml"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/Magick.Native-Q16-x64.dll.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/osx-x64/native/Magick.Native-Q16-x64.dll.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/win-x64/native/Magick.Native-Q16-x64.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x86/native/Magick.Native-Q16-x86.dll": {
-            "assetType": "native",
-            "rid": "win-x86"
           }
         }
       },
@@ -177,12 +159,12 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Authorization/3.1.6": {
+      "Microsoft.AspNetCore.Authorization/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "3.1.6",
-          "Microsoft.Extensions.Logging.Abstractions": "3.1.6",
-          "Microsoft.Extensions.Options": "3.1.6"
+          "Microsoft.AspNetCore.Metadata": "3.1.13",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.13",
+          "Microsoft.Extensions.Options": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.dll": {
@@ -212,12 +194,12 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components/3.1.6": {
+      "Microsoft.AspNetCore.Components/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "3.1.6",
-          "Microsoft.AspNetCore.Components.Analyzers": "3.1.6",
-          "Microsoft.JSInterop": "3.1.6"
+          "Microsoft.AspNetCore.Authorization": "3.1.13",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.1.13",
+          "Microsoft.JSInterop": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.dll": {
@@ -230,16 +212,16 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/3.1.6": {
+      "Microsoft.AspNetCore.Components.Analyzers/3.1.13": {
         "type": "package",
         "build": {
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Components.Forms/3.1.6": {
+      "Microsoft.AspNetCore.Components.Forms/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.1.6"
+          "Microsoft.AspNetCore.Components": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -252,13 +234,13 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Web/3.1.6": {
+      "Microsoft.AspNetCore.Components.Web/3.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.1.6",
-          "Microsoft.AspNetCore.Components.Forms": "3.1.6",
-          "Microsoft.Extensions.DependencyInjection": "3.1.6",
-          "Microsoft.JSInterop": "3.1.6"
+          "Microsoft.AspNetCore.Components": "3.1.13",
+          "Microsoft.AspNetCore.Components.Forms": "3.1.13",
+          "Microsoft.Extensions.DependencyInjection": "3.1.13",
+          "Microsoft.JSInterop": "3.1.13"
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {
@@ -269,41 +251,6 @@
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "Microsoft.AspNetCore.Components.WebAssembly/3.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "3.1.6",
-          "Microsoft.AspNetCore.Components.WebAssembly.HttpHandler": "3.2.0",
-          "Microsoft.Extensions.Configuration.Json": "3.1.6",
-          "Microsoft.Extensions.Logging": "3.1.6",
-          "Microsoft.JSInterop.WebAssembly": "3.2.1"
-        },
-        "compile": {
-          "lib/netstandard2.1/Microsoft.AspNetCore.Components.WebAssembly.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.AspNetCore.Components.WebAssembly.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components.WebAssembly.DevServer/3.2.1": {
-        "type": "package",
-        "build": {
-          "build/_._": {}
-        }
-      },
-      "Microsoft.AspNetCore.Components.WebAssembly.HttpHandler/3.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.1/System.Net.Http.WebAssemblyHttpHandler.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/_._": {}
         }
       },
       "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
@@ -619,7 +566,7 @@
           "buildMultiTargeting/Microsoft.AspNetCore.Identity.UI.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Metadata/3.1.6": {
+      "Microsoft.AspNetCore.Metadata/3.1.13": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.dll": {
@@ -1880,22 +1827,6 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration/3.1.6": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "3.1.6"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -1913,40 +1844,6 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
-        }
-      },
-      "Microsoft.Extensions.Configuration.FileExtensions/3.1.6": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "3.1.6",
-          "Microsoft.Extensions.FileProviders.Physical": "3.1.6"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.FileExtensions.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.FileExtensions.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.Extensions.Configuration.Json/3.1.6": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "3.1.6",
-          "Microsoft.Extensions.Configuration.FileExtensions": "3.1.6"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Extensions.DependencyInjection/7.0.0": {
@@ -2093,36 +1990,6 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/_._": {}
-        }
-      },
-      "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.6",
-          "Microsoft.Extensions.FileSystemGlobbing": "3.1.6"
-        },
-        "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Physical.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Physical.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.Extensions.FileSystemGlobbing/3.1.6": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
-            "related": ".xml"
-          }
         }
       },
       "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
@@ -2417,7 +2284,7 @@
           }
         }
       },
-      "Microsoft.JSInterop/3.1.6": {
+      "Microsoft.JSInterop/3.1.13": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {
@@ -2426,22 +2293,6 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Microsoft.JSInterop.WebAssembly/3.2.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.JSInterop": "3.1.6"
-        },
-        "compile": {
-          "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.dll": {
             "related": ".xml"
           }
         }
@@ -2511,7 +2362,7 @@
           }
         }
       },
-      "Microsoft.TypeScript.MSBuild/5.0.4": {
+      "Microsoft.TypeScript.MSBuild/5.1.3": {
         "type": "package",
         "build": {
           "build/Microsoft.TypeScript.MSBuild.props": {},
@@ -3151,6 +3002,19 @@
           "runtimes/win-x86/native/sni.dll": {
             "assetType": "native",
             "rid": "win-x86"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -4861,11 +4725,10 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "Telerik.DataSource/2.0.5": {
+      "Telerik.DataSource/2.0.11": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.6.0",
-          "Newtonsoft.Json": "12.0.2",
           "System.Data.Common": "4.3.0",
           "System.Linq.Queryable": "4.3.0",
           "System.Runtime.Loader": "4.3.0",
@@ -4882,11 +4745,12 @@
           }
         }
       },
-      "Telerik.Documents.CMapUtils/2020.3.1019": {
+      "Telerik.Documents.CMapUtils/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Fixed": "[2020.3.1019]",
-          "Telerik.Zip": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]",
+          "Telerik.Documents.Fixed": "[2021.3.909]",
+          "Telerik.Zip": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.CMapUtils.dll": {
@@ -4899,8 +4763,11 @@
           }
         }
       },
-      "Telerik.Documents.Core/2020.3.1019": {
+      "Telerik.Documents.Core/2021.3.909": {
         "type": "package",
+        "dependencies": {
+          "Telerik.Zip": "[2021.3.909]"
+        },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Core.dll": {
             "related": ".xml"
@@ -4912,11 +4779,11 @@
           }
         }
       },
-      "Telerik.Documents.Fixed/2020.3.1019": {
+      "Telerik.Documents.Fixed/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Core": "[2020.3.1019]",
-          "Telerik.Zip": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]",
+          "Telerik.Zip": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Fixed.dll": {
@@ -4929,10 +4796,10 @@
           }
         }
       },
-      "Telerik.Documents.Flow/2020.3.1019": {
+      "Telerik.Documents.Flow/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Core": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Flow.dll": {
@@ -4945,12 +4812,30 @@
           }
         }
       },
-      "Telerik.Documents.Flow.FormatProviders.Pdf/2020.3.1019": {
+      "Telerik.Documents.Flow.FormatProviders.Doc/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Core": "[2020.3.1019]",
-          "Telerik.Documents.Fixed": "[2020.3.1019]",
-          "Telerik.Documents.Flow": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]",
+          "Telerik.Documents.Flow": "[2021.3.909]",
+          "Telerik.Zip": "[2021.3.909]"
+        },
+        "compile": {
+          "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Doc.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Doc.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Telerik.Documents.Flow.FormatProviders.Pdf/2021.3.909": {
+        "type": "package",
+        "dependencies": {
+          "Telerik.Documents.Core": "[2021.3.909]",
+          "Telerik.Documents.Fixed": "[2021.3.909]",
+          "Telerik.Documents.Flow": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Pdf.dll": {
@@ -4963,11 +4848,12 @@
           }
         }
       },
-      "Telerik.Documents.ImageUtils/2020.3.1019": {
+      "Telerik.Documents.ImageUtils/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Magick.NET-Q16-AnyCPU": "7.15.5",
-          "Telerik.Documents.Fixed": "[2020.3.1019]"
+          "SixLabors.ImageSharp": "1.0.0",
+          "Telerik.Documents.Fixed": "[2021.3.909]",
+          "TiffLibrary.ImageSharpAdapter": "0.5.252"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.ImageUtils.dll": {
@@ -4980,10 +4866,10 @@
           }
         }
       },
-      "Telerik.Documents.Spreadsheet/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Core": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.dll": {
@@ -4996,11 +4882,12 @@
           }
         }
       },
-      "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Core": "[2020.3.1019]",
-          "Telerik.Documents.Spreadsheet": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]",
+          "Telerik.Documents.Spreadsheet": "[2021.3.909]",
+          "Telerik.Zip": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll": {
@@ -5013,12 +4900,12 @@
           }
         }
       },
-      "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Core": "[2020.3.1019]",
-          "Telerik.Documents.Fixed": "[2020.3.1019]",
-          "Telerik.Documents.Spreadsheet": "[2020.3.1019]"
+          "Telerik.Documents.Core": "[2021.3.909]",
+          "Telerik.Documents.Fixed": "[2021.3.909]",
+          "Telerik.Documents.Spreadsheet": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll": {
@@ -5031,12 +4918,12 @@
           }
         }
       },
-      "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Documents.Spreadsheet": "[2020.3.1019]",
-          "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": "[2020.3.1019]",
-          "Telerik.Zip": "[2020.3.1019]"
+          "Telerik.Documents.Spreadsheet": "[2021.3.909]",
+          "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": "[2021.3.909]",
+          "Telerik.Zip": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Xls.dll": {
@@ -5049,10 +4936,10 @@
           }
         }
       },
-      "Telerik.Documents.SpreadsheetStreaming/2020.3.1019": {
+      "Telerik.Documents.SpreadsheetStreaming/2021.3.909": {
         "type": "package",
         "dependencies": {
-          "Telerik.Zip": "[2020.3.1019]"
+          "Telerik.Zip": "[2021.3.909]"
         },
         "compile": {
           "lib/netstandard2.0/Telerik.Documents.SpreadsheetStreaming.dll": {
@@ -5074,15 +4961,14 @@
           "lib/netstandard2.0/Telerik.Recurrence.dll": {}
         }
       },
-      "Telerik.UI.for.Blazor/2.18.0": {
+      "Telerik.UI.for.Blazor/2.28.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "3.2.1",
-          "Microsoft.AspNetCore.Components.WebAssembly.DevServer": "3.2.1",
+          "Microsoft.AspNetCore.Components.Web": "3.1.13",
           "System.Data.Common": "4.3.0",
           "System.Linq.Queryable": "4.3.0",
-          "Telerik.DataSource": "2.0.5",
-          "Telerik.Documents.SpreadsheetStreaming": "2020.3.1019",
+          "Telerik.DataSource": "2.0.11",
+          "Telerik.Documents.SpreadsheetStreaming": "2021.3.909",
           "Telerik.Recurrence": "0.1.0"
         },
         "compile": {
@@ -5102,7 +4988,7 @@
           "buildMultiTargeting/Telerik.UI.for.Blazor.props": {}
         }
       },
-      "Telerik.Zip/2020.3.1019": {
+      "Telerik.Zip/2021.3.909": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Telerik.Zip.dll": {
@@ -5111,6 +4997,40 @@
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Zip.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary/0.5.252": {
+        "type": "package",
+        "dependencies": {
+          "JpegLibrary": "0.3.26"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/TiffLibrary.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TiffLibrary.ImageSharpAdapter/0.5.252": {
+        "type": "package",
+        "dependencies": {
+          "SixLabors.ImageSharp": "1.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.7.1",
+          "TiffLibrary": "0.5.252"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/TiffLibrary.ImageSharpAdapter.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/TiffLibrary.ImageSharpAdapter.dll": {
             "related": ".xml"
           }
         }
@@ -5192,29 +5112,27 @@
         "logo.png"
       ]
     },
-    "Magick.NET-Q16-AnyCPU/7.15.5": {
-      "sha512": "5fpHQYFPbWqCJhlF+eBSm4Nv5dCq87Eq4wLTS2P4xESzgt921ymq2y6OCVqOX/QHMQNMDyZaGDddK5t+pRZuSQ==",
+    "JpegLibrary/0.3.26": {
+      "sha512": "oARtI6d4Gb0i/0hNt163iBLG83bWsL0eSiDNQ87JVwmv0qdH41eDeTlTvluGm3cTCT6XgkU7ULGhkIcbeeGlGQ==",
       "type": "package",
-      "path": "magick.net-q16-anycpu/7.15.5",
+      "path": "jpeglibrary/0.3.26",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Copyright.txt",
-        "Magick.NET.icon.png",
-        "lib/net20/Magick.NET-Q16-AnyCPU.dll",
-        "lib/net20/Magick.NET-Q16-AnyCPU.xml",
-        "lib/net40/Magick.NET-Q16-AnyCPU.dll",
-        "lib/net40/Magick.NET-Q16-AnyCPU.xml",
-        "lib/netstandard13/Magick.NET-Q16-AnyCPU.dll",
-        "lib/netstandard13/Magick.NET-Q16-AnyCPU.xml",
-        "lib/netstandard20/Magick.NET-Q16-AnyCPU.dll",
-        "lib/netstandard20/Magick.NET-Q16-AnyCPU.xml",
-        "magick.net-q16-anycpu.7.15.5.nupkg.sha512",
-        "magick.net-q16-anycpu.nuspec",
-        "runtimes/linux-x64/native/Magick.Native-Q16-x64.dll.so",
-        "runtimes/osx-x64/native/Magick.Native-Q16-x64.dll.dylib",
-        "runtimes/win-x64/native/Magick.Native-Q16-x64.dll",
-        "runtimes/win-x86/native/Magick.Native-Q16-x86.dll"
+        "jpeglibrary.0.3.26.nupkg.sha512",
+        "jpeglibrary.nuspec",
+        "lib/net45/JpegLibrary.dll",
+        "lib/net45/JpegLibrary.xml",
+        "lib/netcoreapp2.1/JpegLibrary.dll",
+        "lib/netcoreapp2.1/JpegLibrary.xml",
+        "lib/netcoreapp3.0/JpegLibrary.dll",
+        "lib/netcoreapp3.0/JpegLibrary.xml",
+        "lib/netstandard1.1/JpegLibrary.dll",
+        "lib/netstandard1.1/JpegLibrary.xml",
+        "lib/netstandard2.0/JpegLibrary.dll",
+        "lib/netstandard2.0/JpegLibrary.xml",
+        "lib/netstandard2.1/JpegLibrary.dll",
+        "lib/netstandard2.1/JpegLibrary.xml"
       ]
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -5269,10 +5187,10 @@
         "microsoft.aspnetcore.authentication.core.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Authorization/3.1.6": {
-      "sha512": "n0EC0W8jRpM2o1sKKYQpFuvE1sgW7juyEbhVZPcHy9VnHyZYvcIBHVJ6aPCtwqf/16KyqIB1XDVjPnPgyui47Q==",
+    "Microsoft.AspNetCore.Authorization/3.1.13": {
+      "sha512": "YwUQdgpq+o91hx3vzGZjPQrY6hTPB9mTLSAuGvLDZ0sRSQpDjiHPDPxZieoaiWplHlk3pM2NFJKNFDEDrYsKZA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authorization/3.1.6",
+      "path": "microsoft.aspnetcore.authorization/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5282,7 +5200,7 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Authorization.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Authorization.xml",
-        "microsoft.aspnetcore.authorization.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.authorization.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.authorization.nuspec"
       ]
     },
@@ -5299,10 +5217,10 @@
         "microsoft.aspnetcore.authorization.policy.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components/3.1.6": {
-      "sha512": "mNBFDx5rbm5IHpMymGuDo9iGf9L4JWwE0Ho4wXQOdJRKhk7DhuebbIgWFcshsEmDqZPuaX1B4PkifJNDq/3KCw==",
+    "Microsoft.AspNetCore.Components/3.1.13": {
+      "sha512": "gz3YfjOU1gzqYtBHeyCqnsvMlfhCDl2W+FHzUxZeG0urCETSpWCuPxMO+64gibOUm8BLMx7laWG+4OTT6XnJ7Q==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components/3.1.6",
+      "path": "microsoft.aspnetcore.components/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5312,14 +5230,14 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Components.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Components.xml",
-        "microsoft.aspnetcore.components.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.components.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.components.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Analyzers/3.1.6": {
-      "sha512": "uX+Dl3uPqlGmKBmQRn9QKfx0cgXXyfr9JF8aaBKgi+mexwyGEYFTMXleb9AHK9aofwwMivwfUHi/OmxgcB4YYw==",
+    "Microsoft.AspNetCore.Components.Analyzers/3.1.13": {
+      "sha512": "mPU1TQCheviUPMwpzHEDL1JkgxDulxCtOCDiQkSSyYp6L2ZufLj1R5k1waHsyhA47zcJU0sJD8XT05wMyLS8UA==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.analyzers/3.1.6",
+      "path": "microsoft.aspnetcore.components.analyzers/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5328,14 +5246,14 @@
         "analyzers/dotnet/cs/Microsoft.AspNetCore.Components.Analyzers.dll",
         "build/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
         "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets",
-        "microsoft.aspnetcore.components.analyzers.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.components.analyzers.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Forms/3.1.6": {
-      "sha512": "ypqYTvv478N19dRTXsELjluHyW+/aASauBdLvVL4zbmA5BMMdQy69LKTcXXfgqhzC1N/KYusPoMPCasD1F7Fwg==",
+    "Microsoft.AspNetCore.Components.Forms/3.1.13": {
+      "sha512": "3lspdiWwGS+WgNCS/SuW057Wju3jVwVSZEo2Dz6UcwwhUzrS/Tcz2F1lEimfip7YBBo+yLUlSzJzVaP59kNd/g==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.forms/3.1.6",
+      "path": "microsoft.aspnetcore.components.forms/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5345,14 +5263,14 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Forms.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Components.Forms.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Components.Forms.xml",
-        "microsoft.aspnetcore.components.forms.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.components.forms.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.components.forms.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Components.Web/3.1.6": {
-      "sha512": "u6xnpxIHf20aiJ+B2iyZKzsisc2aMkKV2JI/wRWov0M/6FLqLwtOsjRidtOAd5g3eJLYxE6fxOOC8KQqbYNjog==",
+    "Microsoft.AspNetCore.Components.Web/3.1.13": {
+      "sha512": "3l93wAovg400ejyUKlwESrj8gljnBoAxSD8LZTVwudbYvXrKPDNZRwMV0JJuloPwLAf9cF4ITcY22IbPa3i9qQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.components.web/3.1.6",
+      "path": "microsoft.aspnetcore.components.web/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5362,269 +5280,8 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Components.Web.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Components.Web.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Components.Web.xml",
-        "microsoft.aspnetcore.components.web.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.components.web.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.components.web.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.WebAssembly/3.2.1": {
-      "sha512": "SHM3OGZc2PlH0FI9O1yGOj9pqiWqSkfxYD5sz+ZMz1MhHlI0mTQsDfe0AjoYjKA+ZfheJe40yd1ilImsJyvGkg==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.webassembly/3.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "lib/netstandard2.1/Microsoft.AspNetCore.Components.WebAssembly.dll",
-        "lib/netstandard2.1/Microsoft.AspNetCore.Components.WebAssembly.xml",
-        "microsoft.aspnetcore.components.webassembly.3.2.1.nupkg.sha512",
-        "microsoft.aspnetcore.components.webassembly.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.WebAssembly.DevServer/3.2.1": {
-      "sha512": "5chtIRcUNELh/kPe6guhz1uopyt+200ELFGrJefGRP6JCYirvERau8vMFfWe8b1cU5qd8VafqA5gNWmkDsN7Ig==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.webassembly.devserver/3.2.1",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "build/Microsoft.AspNetCore.Components.WebAssembly.DevServer.targets",
-        "microsoft.aspnetcore.components.webassembly.devserver.3.2.1.nupkg.sha512",
-        "microsoft.aspnetcore.components.webassembly.devserver.nuspec",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Authentication.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Authentication.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Authentication.Core.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Authentication.Core.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Authorization.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Authorization.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Components.WebAssembly.DebugProxy.deps.json",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Components.WebAssembly.DebugProxy.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Components.WebAssembly.DebugProxy.exe",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Components.WebAssembly.DebugProxy.runtimeconfig.dev.json",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Components.WebAssembly.DebugProxy.runtimeconfig.json",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Connections.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Connections.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Diagnostics.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Diagnostics.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Diagnostics.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Diagnostics.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.HostFiltering.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.HostFiltering.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Hosting.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Hosting.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Hosting.Server.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Hosting.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Hosting.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.Extensions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.Extensions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.Features.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.Features.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Http.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.HttpOverrides.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.HttpOverrides.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Metadata.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Metadata.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Routing.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Routing.Abstractions.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Routing.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Routing.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.IIS.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.IIS.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.IISIntegration.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.IISIntegration.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.Kestrel.Core.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.Kestrel.Core.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.Kestrel.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.Server.Kestrel.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.WebSockets.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.WebSockets.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.WebUtilities.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.WebUtilities.xml",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.dll",
-        "tools/BlazorDebugProxy/Microsoft.AspNetCore.xml",
-        "tools/BlazorDebugProxy/Microsoft.CodeAnalysis.CSharp.dll",
-        "tools/BlazorDebugProxy/Microsoft.CodeAnalysis.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.Binder.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.CommandLine.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.FileExtensions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.Json.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.UserSecrets.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Configuration.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.DependencyInjection.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.FileProviders.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.FileProviders.Composite.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.FileProviders.Physical.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.FileSystemGlobbing.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Hosting.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Hosting.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.Abstractions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.Configuration.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.Console.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.Debug.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.EventLog.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.EventSource.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Logging.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.ObjectPool.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Options.dll",
-        "tools/BlazorDebugProxy/Microsoft.Extensions.Primitives.dll",
-        "tools/BlazorDebugProxy/Microsoft.Net.Http.Headers.dll",
-        "tools/BlazorDebugProxy/Microsoft.Net.Http.Headers.xml",
-        "tools/BlazorDebugProxy/Mono.Cecil.Mdb.dll",
-        "tools/BlazorDebugProxy/Mono.Cecil.Pdb.dll",
-        "tools/BlazorDebugProxy/Mono.Cecil.Rocks.dll",
-        "tools/BlazorDebugProxy/Mono.Cecil.dll",
-        "tools/BlazorDebugProxy/Newtonsoft.Json.dll",
-        "tools/BlazorDebugProxy/System.Diagnostics.EventLog.dll",
-        "tools/BlazorDebugProxy/System.IO.Pipelines.dll",
-        "tools/BlazorDebugProxy/cs/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/cs/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/de/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/de/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/es/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/es/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/fr/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/fr/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/it/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/it/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/ja/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/ja/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/ko/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/ko/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/pl/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/pl/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/pt-BR/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/ru/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/ru/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/runtimes/win/lib/netcoreapp2.0/System.Diagnostics.EventLog.dll",
-        "tools/BlazorDebugProxy/tr/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/tr/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/x64/aspnetcorev2_inprocess.dll",
-        "tools/BlazorDebugProxy/x86/aspnetcorev2_inprocess.dll",
-        "tools/BlazorDebugProxy/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/zh-Hans/Microsoft.CodeAnalysis.resources.dll",
-        "tools/BlazorDebugProxy/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll",
-        "tools/BlazorDebugProxy/zh-Hant/Microsoft.CodeAnalysis.resources.dll",
-        "tools/Microsoft.AspNetCore.Authentication.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Authentication.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Authentication.Core.dll",
-        "tools/Microsoft.AspNetCore.Authentication.Core.xml",
-        "tools/Microsoft.AspNetCore.Authorization.dll",
-        "tools/Microsoft.AspNetCore.Authorization.xml",
-        "tools/Microsoft.AspNetCore.Components.WebAssembly.DebugProxy.exe",
-        "tools/Microsoft.AspNetCore.Components.WebAssembly.Server.dll",
-        "tools/Microsoft.AspNetCore.Components.WebAssembly.Server.xml",
-        "tools/Microsoft.AspNetCore.Connections.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Connections.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Diagnostics.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Diagnostics.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Diagnostics.dll",
-        "tools/Microsoft.AspNetCore.Diagnostics.xml",
-        "tools/Microsoft.AspNetCore.HostFiltering.dll",
-        "tools/Microsoft.AspNetCore.HostFiltering.xml",
-        "tools/Microsoft.AspNetCore.Hosting.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Hosting.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Hosting.Server.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Hosting.dll",
-        "tools/Microsoft.AspNetCore.Hosting.xml",
-        "tools/Microsoft.AspNetCore.Http.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Http.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Http.Extensions.dll",
-        "tools/Microsoft.AspNetCore.Http.Extensions.xml",
-        "tools/Microsoft.AspNetCore.Http.Features.dll",
-        "tools/Microsoft.AspNetCore.Http.Features.xml",
-        "tools/Microsoft.AspNetCore.Http.dll",
-        "tools/Microsoft.AspNetCore.Http.xml",
-        "tools/Microsoft.AspNetCore.HttpOverrides.dll",
-        "tools/Microsoft.AspNetCore.HttpOverrides.xml",
-        "tools/Microsoft.AspNetCore.Metadata.dll",
-        "tools/Microsoft.AspNetCore.Metadata.xml",
-        "tools/Microsoft.AspNetCore.Routing.Abstractions.dll",
-        "tools/Microsoft.AspNetCore.Routing.Abstractions.xml",
-        "tools/Microsoft.AspNetCore.Routing.dll",
-        "tools/Microsoft.AspNetCore.Routing.xml",
-        "tools/Microsoft.AspNetCore.Server.IIS.dll",
-        "tools/Microsoft.AspNetCore.Server.IIS.xml",
-        "tools/Microsoft.AspNetCore.Server.IISIntegration.dll",
-        "tools/Microsoft.AspNetCore.Server.IISIntegration.xml",
-        "tools/Microsoft.AspNetCore.Server.Kestrel.Core.dll",
-        "tools/Microsoft.AspNetCore.Server.Kestrel.Core.xml",
-        "tools/Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll",
-        "tools/Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.xml",
-        "tools/Microsoft.AspNetCore.Server.Kestrel.dll",
-        "tools/Microsoft.AspNetCore.Server.Kestrel.xml",
-        "tools/Microsoft.AspNetCore.StaticFiles.dll",
-        "tools/Microsoft.AspNetCore.StaticFiles.xml",
-        "tools/Microsoft.AspNetCore.WebUtilities.dll",
-        "tools/Microsoft.AspNetCore.WebUtilities.xml",
-        "tools/Microsoft.AspNetCore.dll",
-        "tools/Microsoft.AspNetCore.xml",
-        "tools/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "tools/Microsoft.Extensions.Configuration.Binder.dll",
-        "tools/Microsoft.Extensions.Configuration.CommandLine.dll",
-        "tools/Microsoft.Extensions.Configuration.EnvironmentVariables.dll",
-        "tools/Microsoft.Extensions.Configuration.FileExtensions.dll",
-        "tools/Microsoft.Extensions.Configuration.Json.dll",
-        "tools/Microsoft.Extensions.Configuration.UserSecrets.dll",
-        "tools/Microsoft.Extensions.Configuration.dll",
-        "tools/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "tools/Microsoft.Extensions.DependencyInjection.dll",
-        "tools/Microsoft.Extensions.FileProviders.Abstractions.dll",
-        "tools/Microsoft.Extensions.FileProviders.Composite.dll",
-        "tools/Microsoft.Extensions.FileProviders.Physical.dll",
-        "tools/Microsoft.Extensions.FileSystemGlobbing.dll",
-        "tools/Microsoft.Extensions.Hosting.Abstractions.dll",
-        "tools/Microsoft.Extensions.Hosting.dll",
-        "tools/Microsoft.Extensions.Logging.Abstractions.dll",
-        "tools/Microsoft.Extensions.Logging.Configuration.dll",
-        "tools/Microsoft.Extensions.Logging.Console.dll",
-        "tools/Microsoft.Extensions.Logging.Debug.dll",
-        "tools/Microsoft.Extensions.Logging.EventLog.dll",
-        "tools/Microsoft.Extensions.Logging.EventSource.dll",
-        "tools/Microsoft.Extensions.Logging.dll",
-        "tools/Microsoft.Extensions.ObjectPool.dll",
-        "tools/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-        "tools/Microsoft.Extensions.Options.dll",
-        "tools/Microsoft.Extensions.Primitives.dll",
-        "tools/Microsoft.Extensions.WebEncoders.dll",
-        "tools/Microsoft.Net.Http.Headers.dll",
-        "tools/Microsoft.Net.Http.Headers.xml",
-        "tools/System.Diagnostics.EventLog.dll",
-        "tools/System.IO.Pipelines.dll",
-        "tools/blazor-devserver.deps.json",
-        "tools/blazor-devserver.dll",
-        "tools/blazor-devserver.exe",
-        "tools/blazor-devserver.runtimeconfig.json",
-        "tools/runtimes/win/lib/netcoreapp2.0/System.Diagnostics.EventLog.dll",
-        "tools/x64/aspnetcorev2_inprocess.dll",
-        "tools/x86/aspnetcorev2_inprocess.dll"
-      ]
-    },
-    "Microsoft.AspNetCore.Components.WebAssembly.HttpHandler/3.2.0": {
-      "sha512": "9J250RxLT+WX8Eu/ocLr+8/pS7+ISDRw+c9Y6sBeprTVwEU2EwXYZGCjEmbB3lHnHQUp53wUScjI1FWQd7jwkQ==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.components.webassembly.httphandler/3.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netstandard2.1/System.Net.Http.WebAssemblyHttpHandler.dll",
-        "microsoft.aspnetcore.components.webassembly.httphandler.3.2.0.nupkg.sha512",
-        "microsoft.aspnetcore.components.webassembly.httphandler.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
@@ -5971,10 +5628,10 @@
         "staticwebassets/V5/lib/jquery/dist/jquery.min.map"
       ]
     },
-    "Microsoft.AspNetCore.Metadata/3.1.6": {
-      "sha512": "CPD6ukxTPpvtm5GfAlgRbUPF7D+eo8K7rMVgL/kLrz4aTT6gb/c0uet2ISRIO615zIS2N52ZZwLcX9hmeQhVGg==",
+    "Microsoft.AspNetCore.Metadata/3.1.13": {
+      "sha512": "Fvgyo2ZAeNHMccnzk49vNC6Zoby8YLSgGs5VUF06F93OrP1SSU716bQUVD9pnfRuwIwq/lqywC2N4f82PCXPxQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.metadata/3.1.6",
+      "path": "microsoft.aspnetcore.metadata/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5984,7 +5641,7 @@
         "lib/netcoreapp3.1/Microsoft.AspNetCore.Metadata.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Metadata.xml",
-        "microsoft.aspnetcore.metadata.3.1.6.nupkg.sha512",
+        "microsoft.aspnetcore.metadata.3.1.13.nupkg.sha512",
         "microsoft.aspnetcore.metadata.nuspec"
       ]
     },
@@ -7362,22 +7019,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration/3.1.6": {
-      "sha512": "gphCAywKC+ye1XdL+8Nv2Pd5b1Fn2yx7DekB4GQPCKaPyK94T9Tb+Sfk/iNdaDKtDl4vwidMI0w2AnoXtvofsw==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration/3.1.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
-        "microsoft.extensions.configuration.3.1.6.nupkg.sha512",
-        "microsoft.extensions.configuration.nuspec"
-      ]
-    },
     "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
       "sha512": "f34u2eaqIjNO9YLHBz8rozVZ+TcFiFs0F3r7nUJd7FRkVSxk8u4OpoK226mi49MwexHOR2ibP9MFvRUaLilcQQ==",
       "type": "package",
@@ -7403,38 +7044,6 @@
         "microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec",
         "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Configuration.FileExtensions/3.1.6": {
-      "sha512": "XPxBt0rtj66Z5rcVzykgTw+PCXPCWXpOCookSvJXBG+v55zYa//nLayLbrDpGMEJH/nyOTdtRh6zlkmGeLk/7w==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration.fileextensions/3.1.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.FileExtensions.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.FileExtensions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.xml",
-        "microsoft.extensions.configuration.fileextensions.3.1.6.nupkg.sha512",
-        "microsoft.extensions.configuration.fileextensions.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.Configuration.Json/3.1.6": {
-      "sha512": "lvAoaNuiHDNo8dicd15JXle5pgp/N0RTTa7ozJD+s0NQONFAjS25g8kjjFe3XZaM8XiZyYVYCFaQE8Q+M20IXg==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration.json/3.1.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Json.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.xml",
-        "microsoft.extensions.configuration.json.3.1.6.nupkg.sha512",
-        "microsoft.extensions.configuration.json.nuspec"
       ]
     },
     "Microsoft.Extensions.DependencyInjection/7.0.0": {
@@ -7624,36 +7233,6 @@
         "microsoft.extensions.fileproviders.embedded.7.0.5.nupkg.sha512",
         "microsoft.extensions.fileproviders.embedded.nuspec",
         "tasks/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.Manifest.Task.dll"
-      ]
-    },
-    "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
-      "sha512": "rwngFMfwi2TBkAy/2SSIwR6ajl3cIEOkOlPlmG1j5cGGvJfNA1ujQNOr8rotI1z6keFi7zXRLLhm9gmaoMVDOA==",
-      "type": "package",
-      "path": "microsoft.extensions.fileproviders.physical/3.1.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Physical.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Physical.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.xml",
-        "microsoft.extensions.fileproviders.physical.3.1.6.nupkg.sha512",
-        "microsoft.extensions.fileproviders.physical.nuspec"
-      ]
-    },
-    "Microsoft.Extensions.FileSystemGlobbing/3.1.6": {
-      "sha512": "QMyvTl195jfGHEH7edeNsQWEVkwex3CoYs/hfzwy1rXIVTfnGLp6SIhL7JfokKa1xM4UamPEggmxFTH/VN4Jrg==",
-      "type": "package",
-      "path": "microsoft.extensions.filesystemglobbing/3.1.6",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
-        "microsoft.extensions.filesystemglobbing.3.1.6.nupkg.sha512",
-        "microsoft.extensions.filesystemglobbing.nuspec"
       ]
     },
     "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
@@ -8079,10 +7658,10 @@
         "microsoft.identitymodel.tokens.nuspec"
       ]
     },
-    "Microsoft.JSInterop/3.1.6": {
-      "sha512": "k/AaZDugrwLO4gkLrPkFiWIzjC0BxPGF2yds6P6PYXNG4Jw/od3UZJrVSRLakQPDsnXLMDiyg7uGWtDI17FtSQ==",
+    "Microsoft.JSInterop/3.1.13": {
+      "sha512": "/BhHm6lEApLncXQuwOYRnQsgz1es8mCOUzUhDzNxAN247n+YmeOpc8gxopPokljgoAs/I4NrFSiKhpwCSzx4qg==",
       "type": "package",
-      "path": "microsoft.jsinterop/3.1.6",
+      "path": "microsoft.jsinterop/3.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8091,23 +7670,8 @@
         "lib/netcoreapp3.1/Microsoft.JSInterop.xml",
         "lib/netstandard2.0/Microsoft.JSInterop.dll",
         "lib/netstandard2.0/Microsoft.JSInterop.xml",
-        "microsoft.jsinterop.3.1.6.nupkg.sha512",
+        "microsoft.jsinterop.3.1.13.nupkg.sha512",
         "microsoft.jsinterop.nuspec"
-      ]
-    },
-    "Microsoft.JSInterop.WebAssembly/3.2.1": {
-      "sha512": "wYKx4YeBTnv1bzKZtdsWH0O9OmmYm7zq56QkKCUdl1hDg4Gn0lmCDfYBC0r1k5/Wh64IveuWwpkyTWjqCmp4pg==",
-      "type": "package",
-      "path": "microsoft.jsinterop.webassembly/3.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.txt",
-        "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.dll",
-        "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.xml",
-        "microsoft.jsinterop.webassembly.3.2.1.nupkg.sha512",
-        "microsoft.jsinterop.webassembly.nuspec"
       ]
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
@@ -8202,10 +7766,10 @@
         "microsoft.sqlserver.server.nuspec"
       ]
     },
-    "Microsoft.TypeScript.MSBuild/5.0.4": {
-      "sha512": "fXuMICTqQZKbYyL8Hf1ZypgBSF2U1ZRYss3CL3nWSVLzUku9lESFgEFYgSNFLsO34i1tlkeWjXQ2q1ri3gkDiQ==",
+    "Microsoft.TypeScript.MSBuild/5.1.3": {
+      "sha512": "OPa+RTgbh9r1NWxrboDPbCXn6HCuRIjhZGlcooJCZr5WkgkKfjTT+Mju//9GcsAr9cIi44ry1HsL9y6h8/xRXA==",
       "type": "package",
-      "path": "microsoft.typescript.msbuild/5.0.4",
+      "path": "microsoft.typescript.msbuild/5.1.3",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -8213,7 +7777,7 @@
         "License.txt",
         "build/Microsoft.TypeScript.MSBuild.props",
         "build/Microsoft.TypeScript.MSBuild.targets",
-        "microsoft.typescript.msbuild.5.0.4.nupkg.sha512",
+        "microsoft.typescript.msbuild.5.1.3.nupkg.sha512",
         "microsoft.typescript.msbuild.nuspec",
         "tools/Microsoft.TypeScript.Default.props",
         "tools/Microsoft.TypeScript.targets",
@@ -9503,6 +9067,30 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "SixLabors.ImageSharp/1.0.0": {
+      "sha512": "8amvsk8NXnCxZV0lvJppAZJknViWgBOO/2V59IGR6DVoD13mSmG+/Z9eg5IwrHQuRHp5RD9lfXBXDZyk8rTKDg==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/SixLabors.ImageSharp.dll",
+        "lib/net472/SixLabors.ImageSharp.xml",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.dll",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.xml",
+        "lib/netcoreapp3.1/SixLabors.ImageSharp.dll",
+        "lib/netcoreapp3.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard1.3/SixLabors.ImageSharp.dll",
+        "lib/netstandard1.3/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.1/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.1/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.1.0.0.nupkg.sha512",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -13830,213 +13418,219 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "Telerik.DataSource/2.0.5": {
-      "sha512": "jge7V96uFYP7D/ax0l7rFPd/pYu0wPQJ9whxN7YOgwT4CL85evYDJLhdXAg9yGZBTIbLO9pUwhUsDfUJG4PfVw==",
+    "Telerik.DataSource/2.0.11": {
+      "sha512": "Z0h9Xm03Wkjq45kVoKvLJTnWsVxfc208u2xMddaiz9gOrjLv6R7nO8dQ2Fhdpy4BYlbkiafdhHfFvykz6ZE7QA==",
       "type": "package",
-      "path": "telerik.datasource/2.0.5",
+      "path": "telerik.datasource/2.0.11",
       "files": [
         ".nupkg.metadata",
         "lib/netstandard2.1/Telerik.DataSource.dll",
         "lib/netstandard2.1/Telerik.DataSource.xml",
-        "telerik.datasource.2.0.5.nupkg.sha512",
+        "telerik.datasource.2.0.11.nupkg.sha512",
         "telerik.datasource.nuspec"
       ]
     },
-    "Telerik.Documents.CMapUtils/2020.3.1019": {
-      "sha512": "TUxTH+gdOpag2bPvPl9auLYsPEurZjqBtj17dRYFZ6qB6ovM0Z4CTLjtuWEFzJDwThzOhZOc6HgY7gjsq38++w==",
+    "Telerik.Documents.CMapUtils/2021.3.909": {
+      "sha512": "vvVozU42ClLKtVb//Zy1l8HtWhIEUZ6gQlxX+7K4GbNdmQpr7wl/YB3+yFtbYTGPPvlnjZ3iRrlO0K5XGafDHg==",
       "type": "package",
-      "path": "telerik.documents.cmaputils/2020.3.1019",
+      "path": "telerik.documents.cmaputils/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.CMapUtils.dll",
         "lib/netstandard2.0/Telerik.Documents.CMapUtils.xml",
-        "telerik.documents.cmaputils.2020.3.1019.nupkg.sha512",
+        "telerik.documents.cmaputils.2021.3.909.nupkg.sha512",
         "telerik.documents.cmaputils.nuspec"
       ]
     },
-    "Telerik.Documents.Core/2020.3.1019": {
-      "sha512": "mrOiQr8Wlt9Txp3mnuAvUyFKKd4d/YvutvkD9EpOyW5hSER8Xk2ZFrZnIflVGARNwewEVD+TCWFvVW2p3A4f8w==",
+    "Telerik.Documents.Core/2021.3.909": {
+      "sha512": "y4s90qhanJ+5r5cJMaJvJdlCK5HuyWim45lI/sMja2eRaBuzFk+zlgIOiaxLH7LagCoDMj2IwnBJPaqxSF8I+A==",
       "type": "package",
-      "path": "telerik.documents.core/2020.3.1019",
+      "path": "telerik.documents.core/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Core.dll",
         "lib/netstandard2.0/Telerik.Documents.Core.xml",
-        "telerik.documents.core.2020.3.1019.nupkg.sha512",
+        "telerik.documents.core.2021.3.909.nupkg.sha512",
         "telerik.documents.core.nuspec"
       ]
     },
-    "Telerik.Documents.Fixed/2020.3.1019": {
-      "sha512": "tqhnuzfJDEWh/dHu+geQp3odbfSaM0LtDD3KItjYvSgvn+IQNYpA+UbE3ExRZqCsX1sa+6/RsXfiFbJxqO4cGw==",
+    "Telerik.Documents.Fixed/2021.3.909": {
+      "sha512": "ISApNJjgheF/jGMAYsrkHF2a/qx+yuw8mvp2Qz6oSFMgpsAlV/TAu//uuBY43mRxdXv0NcCX8gaaFdCHktWHhg==",
       "type": "package",
-      "path": "telerik.documents.fixed/2020.3.1019",
+      "path": "telerik.documents.fixed/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Fixed.dll",
         "lib/netstandard2.0/Telerik.Documents.Fixed.xml",
-        "telerik.documents.fixed.2020.3.1019.nupkg.sha512",
+        "telerik.documents.fixed.2021.3.909.nupkg.sha512",
         "telerik.documents.fixed.nuspec"
       ]
     },
-    "Telerik.Documents.Flow/2020.3.1019": {
-      "sha512": "+Rg3KUJPoBYz4GGqxbIw/y5npprcksQ4+vldaCbKA66LGYs7uY0BtpneVk0eIAsKS6RN82HOmR1r9w7c2tqPUA==",
+    "Telerik.Documents.Flow/2021.3.909": {
+      "sha512": "L+SgWRicl2IBDBNPX/yW7adtYZnMARbaZ7gyoapmbNx/KfZNg5m929ZCw8HfrgjsrQGTh2yanoI1fQS/vvNQdw==",
       "type": "package",
-      "path": "telerik.documents.flow/2020.3.1019",
+      "path": "telerik.documents.flow/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Flow.dll",
         "lib/netstandard2.0/Telerik.Documents.Flow.xml",
-        "telerik.documents.flow.2020.3.1019.nupkg.sha512",
+        "telerik.documents.flow.2021.3.909.nupkg.sha512",
         "telerik.documents.flow.nuspec"
       ]
     },
-    "Telerik.Documents.Flow.FormatProviders.Pdf/2020.3.1019": {
-      "sha512": "62p4ZovJugqM/jzkXAYP2LzAp6QOy8RWpsy6+hU6DTXvUJYDfTaYpaixm4up1v78mxI1kQtPBPm6D5Yd98Nf0Q==",
+    "Telerik.Documents.Flow.FormatProviders.Doc/2021.3.909": {
+      "sha512": "mbqMmF1cBm2Cf4pwiceNSzZyESc3T+qOmls/Z1C6ntI7mZbFRYJoatL70Q9OIOVv43X9tTyWrM4xF2/c2WyQYA==",
       "type": "package",
-      "path": "telerik.documents.flow.formatproviders.pdf/2020.3.1019",
+      "path": "telerik.documents.flow.formatproviders.doc/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
+        "LicenseAgreements/ThirdParty/AutoIt.txt",
+        "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
+        "LicenseAgreements/ThirdParty/SpecFlow.txt",
+        "images/tdp.png",
+        "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Doc.dll",
+        "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Doc.xml",
+        "telerik.documents.flow.formatproviders.doc.2021.3.909.nupkg.sha512",
+        "telerik.documents.flow.formatproviders.doc.nuspec"
+      ]
+    },
+    "Telerik.Documents.Flow.FormatProviders.Pdf/2021.3.909": {
+      "sha512": "UQzeVfH5cR1VoksfZcNh21B0kuKojVV0n7V8focWopGcjqePo6nmirPFyyQjwhdXApb3VqURisWB7Ghs0E2Vog==",
+      "type": "package",
+      "path": "telerik.documents.flow.formatproviders.pdf/2021.3.909",
+      "files": [
+        ".nupkg.metadata",
+        "LicenseAgreements/EULA.txt",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Pdf.dll",
         "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Pdf.xml",
-        "telerik.documents.flow.formatproviders.pdf.2020.3.1019.nupkg.sha512",
+        "telerik.documents.flow.formatproviders.pdf.2021.3.909.nupkg.sha512",
         "telerik.documents.flow.formatproviders.pdf.nuspec"
       ]
     },
-    "Telerik.Documents.ImageUtils/2020.3.1019": {
-      "sha512": "XpY91pjUk7XEb/bOdAv9n6vjvApwCEZJx0By2Mut5sVneg6n1yhgQHfq/5WzWiqC1Md3bHCQEnq88QtPMjqBfw==",
+    "Telerik.Documents.ImageUtils/2021.3.909": {
+      "sha512": "nXYRF5iYggjjGouSdPS/rg/VsuPDfISlDw2RTxmADe5CyNOoJkM3HO1EIwm1dUhAt2Mq2f5BkLkUtF17AISGIg==",
       "type": "package",
-      "path": "telerik.documents.imageutils/2020.3.1019",
+      "path": "telerik.documents.imageutils/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.ImageUtils.dll",
         "lib/netstandard2.0/Telerik.Documents.ImageUtils.xml",
-        "telerik.documents.imageutils.2020.3.1019.nupkg.sha512",
+        "telerik.documents.imageutils.2021.3.909.nupkg.sha512",
         "telerik.documents.imageutils.nuspec"
       ]
     },
-    "Telerik.Documents.Spreadsheet/2020.3.1019": {
-      "sha512": "8+0jyYecRDb25RvbdYw+WHxKkuhtDGW7prZ7GhP1a/NPxnDw9T1HYKn1a7AB6Pc+3mueU3THfaSx3/6AiD+6iw==",
+    "Telerik.Documents.Spreadsheet/2021.3.909": {
+      "sha512": "WoTX7fzMZ7BTHTpQYvmhN1SYuCIwzaOeK+fuep9CN/GGZ2ZdbMeZIogRDVCgoGkrfKkI0sYy8xZumtmIXh8NxA==",
       "type": "package",
-      "path": "telerik.documents.spreadsheet/2020.3.1019",
+      "path": "telerik.documents.spreadsheet/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.dll",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.xml",
-        "telerik.documents.spreadsheet.2020.3.1019.nupkg.sha512",
+        "telerik.documents.spreadsheet.2021.3.909.nupkg.sha512",
         "telerik.documents.spreadsheet.nuspec"
       ]
     },
-    "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2020.3.1019": {
-      "sha512": "ZcOcFQzMs3RsFKcFyJNPLMWSB8o2ygpdVe6F+Svg/cCQVaOrbPKR2rcj2DxtvKr4MqjxrW17+KK1Ivf8Cf96MA==",
+    "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2021.3.909": {
+      "sha512": "ynNMgismm9r1kE1cxsekQHkUlxuz9FhPIuxT9wv6rgIauZ0D7+8rFir3GEdv1hjXI/sCvABiWJI5SznRNiGcdQ==",
       "type": "package",
-      "path": "telerik.documents.spreadsheet.formatproviders.openxml/2020.3.1019",
+      "path": "telerik.documents.spreadsheet.formatproviders.openxml/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.xml",
-        "telerik.documents.spreadsheet.formatproviders.openxml.2020.3.1019.nupkg.sha512",
+        "telerik.documents.spreadsheet.formatproviders.openxml.2021.3.909.nupkg.sha512",
         "telerik.documents.spreadsheet.formatproviders.openxml.nuspec"
       ]
     },
-    "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2020.3.1019": {
-      "sha512": "3thmrXQd8GoNFY7D57CNDUbHmISIClbIwVIBGpru8gl+YdvGyXVXneYsm5n0hqLPcoTmKsENTuMS/5+HtxjYPg==",
+    "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2021.3.909": {
+      "sha512": "VGll48OSyH9wr+qvi1MunWe5vIK9Eygv5MeLdz+JYoZ2BHJD72rA9L+BvB7nojRDe3luNNlHQkYsIMxXo1ZcBQ==",
       "type": "package",
-      "path": "telerik.documents.spreadsheet.formatproviders.pdf/2020.3.1019",
+      "path": "telerik.documents.spreadsheet.formatproviders.pdf/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Pdf.xml",
-        "telerik.documents.spreadsheet.formatproviders.pdf.2020.3.1019.nupkg.sha512",
+        "telerik.documents.spreadsheet.formatproviders.pdf.2021.3.909.nupkg.sha512",
         "telerik.documents.spreadsheet.formatproviders.pdf.nuspec"
       ]
     },
-    "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2020.3.1019": {
-      "sha512": "+BQ0y6bKUoZz0EYUaStnDHvrMhI3ipGEnOzVur9mn+y2ijcijQLGo7wc2S9NRo1ZlUL34jxHCGez83AVeZ+AUQ==",
+    "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2021.3.909": {
+      "sha512": "v9X7F7D1kUf9QnbyeQ9o2JU5D2AeAmDpzPVAqnKT38ktOcnYlhz3opSfXk+UPjfWszeW+cwtYGPIr0Rk25lJ2Q==",
       "type": "package",
-      "path": "telerik.documents.spreadsheet.formatproviders.xls/2020.3.1019",
+      "path": "telerik.documents.spreadsheet.formatproviders.xls/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Xls.dll",
         "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Xls.xml",
-        "telerik.documents.spreadsheet.formatproviders.xls.2020.3.1019.nupkg.sha512",
+        "telerik.documents.spreadsheet.formatproviders.xls.2021.3.909.nupkg.sha512",
         "telerik.documents.spreadsheet.formatproviders.xls.nuspec"
       ]
     },
-    "Telerik.Documents.SpreadsheetStreaming/2020.3.1019": {
-      "sha512": "OhCPiJ3PSyYN4I7KZsTM5F/7MXoaU82/1UNCFrY774tfOzLR6G2+336rRyp1pSBu6/iOf5BT0+O4kDeJlkcuUA==",
+    "Telerik.Documents.SpreadsheetStreaming/2021.3.909": {
+      "sha512": "jUzHnGG1P9JKAFvtRGBq2OYsWpsOiuMGoeW0jmMKTOmSIBMDHUb465DKfv1bGOFDgEINy89UJYeOGRnU//mPCA==",
       "type": "package",
-      "path": "telerik.documents.spreadsheetstreaming/2020.3.1019",
+      "path": "telerik.documents.spreadsheetstreaming/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Documents.SpreadsheetStreaming.dll",
         "lib/netstandard2.0/Telerik.Documents.SpreadsheetStreaming.xml",
-        "telerik.documents.spreadsheetstreaming.2020.3.1019.nupkg.sha512",
+        "telerik.documents.spreadsheetstreaming.2021.3.909.nupkg.sha512",
         "telerik.documents.spreadsheetstreaming.nuspec"
       ]
     },
@@ -14051,10 +13645,10 @@
         "telerik.recurrence.nuspec"
       ]
     },
-    "Telerik.UI.for.Blazor/2.18.0": {
-      "sha512": "TEgHczLvRQug0HfQ19H7gLi+kS6thTh9w+3sak+0M9ltJ+mSOa/L/vJv8Qg7yBZRrxBFQkyf6XTGJwmrL6aRzQ==",
+    "Telerik.UI.for.Blazor/2.28.0": {
+      "sha512": "dIrV9Q+yeLP9fbzIszFrW2xadCrMTmdeydikG9NRgwMo2FPTjDGPuGfnRwXoB4xcFYtLoqwaMg8C4IEuH7pr4g==",
       "type": "package",
-      "path": "telerik.ui.for.blazor/2.18.0",
+      "path": "telerik.ui.for.blazor/2.28.0",
       "files": [
         ".nupkg.metadata",
         "build/Microsoft.AspNetCore.StaticWebAssets.props",
@@ -14066,27 +13660,73 @@
         "staticwebassets/css/kendo-theme-bootstrap/all.css",
         "staticwebassets/css/kendo-theme-default/all.css",
         "staticwebassets/css/kendo-theme-material/all.css",
+        "staticwebassets/images/blazor.png",
         "staticwebassets/js/telerik-blazor.js",
-        "telerik.ui.for.blazor.2.18.0.nupkg.sha512",
+        "telerik.ui.for.blazor.2.28.0.nupkg.sha512",
         "telerik.ui.for.blazor.nuspec"
       ]
     },
-    "Telerik.Zip/2020.3.1019": {
-      "sha512": "0hAOiG4uy1kYHcCCy7UHpzpPle7sP7790eDGnavJIQplLjXe2QCfMpwRDTRXdKOcW22g0dF3540IkU6NCEj9cg==",
+    "Telerik.Zip/2021.3.909": {
+      "sha512": "pmLTH/NKuM9kmW3HnyOPGOSHFgUaPhV9VTQY0ZQHGxKzuqCuUtaRCadftG7EcqJmcBsQtejbrridom3QJu405g==",
       "type": "package",
-      "path": "telerik.zip/2020.3.1019",
+      "path": "telerik.zip/2021.3.909",
       "files": [
         ".nupkg.metadata",
         "LicenseAgreements/EULA.txt",
-        "LicenseAgreements/Telerik_UI_for_WPF_EULA.rtf",
         "LicenseAgreements/ThirdParty/AutoIt.txt",
         "LicenseAgreements/ThirdParty/Progress Telerik UI for WPF - notices.txt",
         "LicenseAgreements/ThirdParty/SpecFlow.txt",
         "images/tdp.png",
         "lib/netstandard2.0/Telerik.Zip.dll",
         "lib/netstandard2.0/Telerik.Zip.xml",
-        "telerik.zip.2020.3.1019.nupkg.sha512",
+        "telerik.zip.2021.3.909.nupkg.sha512",
         "telerik.zip.nuspec"
+      ]
+    },
+    "TiffLibrary/0.5.252": {
+      "sha512": "zTMhYzXKaQ8ipO9vbykLPVrbLgsb9YbGvzBeh7ml0MR3IVxcgYVUHA3qkuw3mnDOWR7ln0tUPiUhCZru6dJS3A==",
+      "type": "package",
+      "path": "tifflibrary/0.5.252",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net46/TiffLibrary.dll",
+        "lib/net46/TiffLibrary.xml",
+        "lib/net472/TiffLibrary.dll",
+        "lib/net472/TiffLibrary.xml",
+        "lib/netcoreapp2.1/TiffLibrary.dll",
+        "lib/netcoreapp2.1/TiffLibrary.xml",
+        "lib/netcoreapp3.0/TiffLibrary.dll",
+        "lib/netcoreapp3.0/TiffLibrary.xml",
+        "lib/netstandard1.3/TiffLibrary.dll",
+        "lib/netstandard1.3/TiffLibrary.xml",
+        "lib/netstandard2.0/TiffLibrary.dll",
+        "lib/netstandard2.0/TiffLibrary.xml",
+        "lib/netstandard2.1/TiffLibrary.dll",
+        "lib/netstandard2.1/TiffLibrary.xml",
+        "tifflibrary.0.5.252.nupkg.sha512",
+        "tifflibrary.nuspec"
+      ]
+    },
+    "TiffLibrary.ImageSharpAdapter/0.5.252": {
+      "sha512": "fj2wSj2KPhXxCCRBtQdrC7vEeBnsO/j2xBsaN8LE04zscKMGV9V0zGrHAUqbVqGero/j5dhVimvAE4jqdwQkjQ==",
+      "type": "package",
+      "path": "tifflibrary.imagesharpadapter/0.5.252",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/TiffLibrary.ImageSharpAdapter.dll",
+        "lib/net472/TiffLibrary.ImageSharpAdapter.xml",
+        "lib/netcoreapp2.1/TiffLibrary.ImageSharpAdapter.dll",
+        "lib/netcoreapp2.1/TiffLibrary.ImageSharpAdapter.xml",
+        "lib/netstandard1.3/TiffLibrary.ImageSharpAdapter.dll",
+        "lib/netstandard1.3/TiffLibrary.ImageSharpAdapter.xml",
+        "lib/netstandard2.0/TiffLibrary.ImageSharpAdapter.dll",
+        "lib/netstandard2.0/TiffLibrary.ImageSharpAdapter.xml",
+        "lib/netstandard2.1/TiffLibrary.ImageSharpAdapter.dll",
+        "lib/netstandard2.1/TiffLibrary.ImageSharpAdapter.xml",
+        "tifflibrary.imagesharpadapter.0.5.252.nupkg.sha512",
+        "tifflibrary.imagesharpadapter.nuspec"
       ]
     }
   },
@@ -14104,27 +13744,28 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore >= 7.0.5",
       "Microsoft.Extensions.Identity.Core >= 7.0.5",
-      "Microsoft.TypeScript.MSBuild >= 5.0.4",
+      "Microsoft.TypeScript.MSBuild >= 5.1.3",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.6",
       "System.Data.SqlClient >= 4.8.5",
       "System.Drawing.Common >= 7.0.0",
       "System.Linq.Dynamic.Core >= 1.3.2",
       "System.Windows.Extensions >= 7.0.0",
-      "Telerik.DataSource >= 2.0.5",
-      "Telerik.Documents.CMapUtils >= 2020.3.1019",
-      "Telerik.Documents.Core >= 2020.3.1019",
-      "Telerik.Documents.Fixed >= 2020.3.1019",
-      "Telerik.Documents.Flow >= 2020.3.1019",
-      "Telerik.Documents.Flow.FormatProviders.Pdf >= 2020.3.1019",
-      "Telerik.Documents.ImageUtils >= 2020.3.1019",
-      "Telerik.Documents.Spreadsheet >= 2020.3.1019",
-      "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml >= 2020.3.1019",
-      "Telerik.Documents.Spreadsheet.FormatProviders.Pdf >= 2020.3.1019",
-      "Telerik.Documents.Spreadsheet.FormatProviders.Xls >= 2020.3.1019",
-      "Telerik.Documents.SpreadsheetStreaming >= 2020.3.1019",
+      "Telerik.DataSource >= 2.0.11",
+      "Telerik.Documents.CMapUtils >= 2021.3.909",
+      "Telerik.Documents.Core >= 2021.3.909",
+      "Telerik.Documents.Fixed >= 2021.3.909",
+      "Telerik.Documents.Flow >= 2021.3.909",
+      "Telerik.Documents.Flow.FormatProviders.Doc >= 2021.3.909",
+      "Telerik.Documents.Flow.FormatProviders.Pdf >= 2021.3.909",
+      "Telerik.Documents.ImageUtils >= 2021.3.909",
+      "Telerik.Documents.Spreadsheet >= 2021.3.909",
+      "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml >= 2021.3.909",
+      "Telerik.Documents.Spreadsheet.FormatProviders.Pdf >= 2021.3.909",
+      "Telerik.Documents.Spreadsheet.FormatProviders.Xls >= 2021.3.909",
+      "Telerik.Documents.SpreadsheetStreaming >= 2021.3.909",
       "Telerik.Recurrence >= 0.1.0",
-      "Telerik.UI.for.Blazor >= 2.18.0",
-      "Telerik.Zip >= 2020.3.1019"
+      "Telerik.UI.for.Blazor >= 2.28.0",
+      "Telerik.Zip >= 2021.3.909"
     ]
   },
   "packageFolders": {
@@ -14153,8 +13794,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files (x86)\\Progress\\Telerik UI for Blazor 2.18.0\\dpl": {},
-        "C:\\Program Files (x86)\\Progress\\Telerik UI for Blazor 2.18.0\\packages": {},
+        "C:\\Program Files (x86)\\Progress\\Telerik UI for Blazor 2.28.0\\dpl": {},
+        "C:\\Program Files (x86)\\Progress\\Telerik UI for Blazor 2.28.0\\packages": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
@@ -14229,7 +13870,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[5.0.4, )"
+            "version": "[5.1.3, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
@@ -14253,51 +13894,55 @@
           },
           "Telerik.DataSource": {
             "target": "Package",
-            "version": "[2.0.5, )"
+            "version": "[2.0.11, )"
           },
           "Telerik.Documents.CMapUtils": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Core": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Fixed": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Flow": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
+          },
+          "Telerik.Documents.Flow.FormatProviders.Doc": {
+            "target": "Package",
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Flow.FormatProviders.Pdf": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.ImageUtils": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Spreadsheet": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Spreadsheet.FormatProviders.Pdf": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.Spreadsheet.FormatProviders.Xls": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Documents.SpreadsheetStreaming": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           },
           "Telerik.Recurrence": {
             "target": "Package",
@@ -14305,11 +13950,11 @@
           },
           "Telerik.UI.for.Blazor": {
             "target": "Package",
-            "version": "[2.18.0, )"
+            "version": "[2.28.0, )"
           },
           "Telerik.Zip": {
             "target": "Package",
-            "version": "[2020.3.1019, )"
+            "version": "[2021.3.909, )"
           }
         },
         "imports": [

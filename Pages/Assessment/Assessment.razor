@@ -27,10 +27,15 @@
 @inject IAssessmentFSData _dbAssessmentFSData
 @inject IAssessmentSCData _dbAssessmentSCData
 @inject IAssessmentSSData _dbAssessmentSSData
+@inject IAssessmentFPEData _dbAssessmentFPEData
+@inject IAssessmentSPEData _dbAssessmentSPEData
 @inject IINAssessmentFCData _dbINAssessmentFC
 @inject IINAssessmentFSData _dbINAssessmentFS
 @inject IINAssessmentSCData _dbINAssessmentSC
 @inject IINAssessmentSSData _dbINAssessmentSS
+@inject IINAssessmentSPEData _dbINAssessmentSPE
+@inject IINAssessmentFPEData _dbINAssessmentFPE
+
 @inject IProjectsData _dbProjectsData
 @inject IJSRuntime JsRuntime
 @inject NavigationManager NavigationManager
@@ -702,8 +707,7 @@
 @code {
 
     GridSelectionMode selectionMode { get; set; } = GridSelectionMode.Multiple;
-    bool ShowSelectAll
-    => selectionMode == GridSelectionMode.Multiple;
+    bool ShowSelectAll=> selectionMode == GridSelectionMode.Multiple;
     public bool DeleteConfirm { get; set; }
     public bool isVisible { get; set; }
     public bool isVisible2 { get; set; }

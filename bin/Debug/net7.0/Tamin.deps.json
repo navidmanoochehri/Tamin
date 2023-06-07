@@ -20,27 +20,28 @@
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
           "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore": "7.0.5",
           "Microsoft.Extensions.Identity.Core": "7.0.5",
-          "Microsoft.TypeScript.MSBuild": "5.0.4",
+          "Microsoft.TypeScript.MSBuild": "5.1.3",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "7.0.6",
           "System.Data.SqlClient": "4.8.5",
           "System.Drawing.Common": "7.0.0",
           "System.Linq.Dynamic.Core": "1.3.2",
           "System.Windows.Extensions": "7.0.0",
-          "Telerik.DataSource": "2.0.5",
-          "Telerik.Documents.CMapUtils": "2020.3.1019",
-          "Telerik.Documents.Core": "2020.3.1019",
-          "Telerik.Documents.Fixed": "2020.3.1019",
-          "Telerik.Documents.Flow": "2020.3.1019",
-          "Telerik.Documents.Flow.FormatProviders.Pdf": "2020.3.1019",
-          "Telerik.Documents.ImageUtils": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet.FormatProviders.Pdf": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet.FormatProviders.Xls": "2020.3.1019",
-          "Telerik.Documents.SpreadsheetStreaming": "2020.3.1019",
+          "Telerik.DataSource": "2.0.11",
+          "Telerik.Documents.CMapUtils": "2021.3.909",
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Documents.Fixed": "2021.3.909",
+          "Telerik.Documents.Flow": "2021.3.909",
+          "Telerik.Documents.Flow.FormatProviders.Doc": "2021.3.909",
+          "Telerik.Documents.Flow.FormatProviders.Pdf": "2021.3.909",
+          "Telerik.Documents.ImageUtils": "2021.3.909",
+          "Telerik.Documents.Spreadsheet": "2021.3.909",
+          "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": "2021.3.909",
+          "Telerik.Documents.Spreadsheet.FormatProviders.Pdf": "2021.3.909",
+          "Telerik.Documents.Spreadsheet.FormatProviders.Xls": "2021.3.909",
+          "Telerik.Documents.SpreadsheetStreaming": "2021.3.909",
           "Telerik.Recurrence": "0.1.0",
-          "Telerik.UI.for.Blazor": "2.18.0",
-          "Telerik.Zip": "2020.3.1019"
+          "Telerik.UI.for.Blazor": "2.28.0",
+          "Telerik.Zip": "2021.3.909"
         },
         "runtime": {
           "Tamin.dll": {}
@@ -96,33 +97,11 @@
           }
         }
       },
-      "Magick.NET-Q16-AnyCPU/7.15.5": {
+      "JpegLibrary/0.3.26": {
         "runtime": {
-          "lib/netstandard20/Magick.NET-Q16-AnyCPU.dll": {
-            "assemblyVersion": "7.15.5.0",
-            "fileVersion": "7.15.5.0"
-          }
-        },
-        "runtimeTargets": {
-          "runtimes/linux-x64/native/Magick.Native-Q16-x64.dll.so": {
-            "rid": "linux-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/osx-x64/native/Magick.Native-Q16-x64.dll.dylib": {
-            "rid": "osx-x64",
-            "assetType": "native",
-            "fileVersion": "0.0.0.0"
-          },
-          "runtimes/win-x64/native/Magick.Native-Q16-x64.dll": {
-            "rid": "win-x64",
-            "assetType": "native",
-            "fileVersion": "7.0.10.2"
-          },
-          "runtimes/win-x86/native/Magick.Native-Q16-x86.dll": {
-            "rid": "win-x86",
-            "assetType": "native",
-            "fileVersion": "7.0.10.2"
+          "lib/netcoreapp3.0/JpegLibrary.dll": {
+            "assemblyVersion": "0.3.0.0",
+            "fileVersion": "0.3.26.54157"
           }
         }
       },
@@ -156,9 +135,9 @@
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0"
         }
       },
-      "Microsoft.AspNetCore.Authorization/3.1.6": {
+      "Microsoft.AspNetCore.Authorization/3.1.13": {
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "3.1.6",
+          "Microsoft.AspNetCore.Metadata": "3.1.13",
           "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
           "Microsoft.Extensions.Options": "7.0.1"
         }
@@ -166,47 +145,30 @@
       "Microsoft.AspNetCore.Authorization.Policy/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.2.0",
-          "Microsoft.AspNetCore.Authorization": "3.1.6"
+          "Microsoft.AspNetCore.Authorization": "3.1.13"
         }
       },
-      "Microsoft.AspNetCore.Components/3.1.6": {
+      "Microsoft.AspNetCore.Components/3.1.13": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "3.1.6",
-          "Microsoft.AspNetCore.Components.Analyzers": "3.1.6",
-          "Microsoft.JSInterop": "3.1.6"
+          "Microsoft.AspNetCore.Authorization": "3.1.13",
+          "Microsoft.AspNetCore.Components.Analyzers": "3.1.13",
+          "Microsoft.JSInterop": "3.1.13"
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/3.1.6": {},
-      "Microsoft.AspNetCore.Components.Forms/3.1.6": {
+      "Microsoft.AspNetCore.Components.Analyzers/3.1.13": {},
+      "Microsoft.AspNetCore.Components.Forms/3.1.13": {
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.1.6"
+          "Microsoft.AspNetCore.Components": "3.1.13"
         }
       },
-      "Microsoft.AspNetCore.Components.Web/3.1.6": {
+      "Microsoft.AspNetCore.Components.Web/3.1.13": {
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "3.1.6",
-          "Microsoft.AspNetCore.Components.Forms": "3.1.6",
+          "Microsoft.AspNetCore.Components": "3.1.13",
+          "Microsoft.AspNetCore.Components.Forms": "3.1.13",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
-          "Microsoft.JSInterop": "3.1.6"
+          "Microsoft.JSInterop": "3.1.13"
         }
       },
-      "Microsoft.AspNetCore.Components.WebAssembly/3.2.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "3.1.6",
-          "Microsoft.AspNetCore.Components.WebAssembly.HttpHandler": "3.2.0",
-          "Microsoft.Extensions.Configuration.Json": "3.1.6",
-          "Microsoft.Extensions.Logging": "7.0.0",
-          "Microsoft.JSInterop.WebAssembly": "3.2.1"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.AspNetCore.Components.WebAssembly.dll": {
-            "assemblyVersion": "3.2.1.0",
-            "fileVersion": "3.200.120.31714"
-          }
-        }
-      },
-      "Microsoft.AspNetCore.Components.WebAssembly.DevServer/3.2.1": {},
-      "Microsoft.AspNetCore.Components.WebAssembly.HttpHandler/3.2.0": {},
       "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "2.2.0",
@@ -349,7 +311,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Metadata/3.1.6": {},
+      "Microsoft.AspNetCore.Metadata/3.1.13": {},
       "Microsoft.AspNetCore.Razor.Language/6.0.11": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
@@ -388,7 +350,7 @@
       },
       "Microsoft.AspNetCore.SignalR.Core/1.1.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "3.1.6",
+          "Microsoft.AspNetCore.Authorization": "3.1.13",
           "Microsoft.AspNetCore.SignalR.Common": "1.1.0",
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "1.1.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
@@ -1332,26 +1294,9 @@
           "Microsoft.Extensions.Primitives": "7.0.0"
         }
       },
-      "Microsoft.Extensions.Configuration/3.1.6": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
-        }
-      },
       "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
-        }
-      },
-      "Microsoft.Extensions.Configuration.FileExtensions/3.1.6": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "3.1.6",
-          "Microsoft.Extensions.FileProviders.Physical": "3.1.6"
-        }
-      },
-      "Microsoft.Extensions.Configuration.Json/3.1.6": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "3.1.6",
-          "Microsoft.Extensions.Configuration.FileExtensions": "3.1.6"
         }
       },
       "Microsoft.Extensions.DependencyInjection/7.0.0": {
@@ -1423,13 +1368,6 @@
           }
         }
       },
-      "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
-        "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "7.0.0",
-          "Microsoft.Extensions.FileSystemGlobbing": "3.1.6"
-        }
-      },
-      "Microsoft.Extensions.FileSystemGlobbing/3.1.6": {},
       "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
@@ -1583,18 +1521,7 @@
           }
         }
       },
-      "Microsoft.JSInterop/3.1.6": {},
-      "Microsoft.JSInterop.WebAssembly/3.2.1": {
-        "dependencies": {
-          "Microsoft.JSInterop": "3.1.6"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.dll": {
-            "assemblyVersion": "3.2.1.0",
-            "fileVersion": "3.200.120.31714"
-          }
-        }
-      },
+      "Microsoft.JSInterop/3.1.13": {},
       "Microsoft.Net.Http.Headers/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0",
@@ -1623,7 +1550,7 @@
           }
         }
       },
-      "Microsoft.TypeScript.MSBuild/5.0.4": {},
+      "Microsoft.TypeScript.MSBuild/5.1.3": {},
       "Microsoft.VisualStudio.Web.CodeGeneration/7.0.6": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
@@ -2017,6 +1944,14 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "4.6.25512.1"
+          }
+        }
+      },
+      "SixLabors.ImageSharp/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -2873,10 +2808,9 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Telerik.DataSource/2.0.5": {
+      "Telerik.DataSource/2.0.11": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "13.0.1",
           "System.Data.Common": "4.3.0",
           "System.Linq.Queryable": "4.3.0",
           "System.Runtime.Loader": "4.3.0",
@@ -2884,136 +2818,155 @@
         },
         "runtime": {
           "lib/netstandard2.1/Telerik.DataSource.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+            "assemblyVersion": "2.0.11.0",
+            "fileVersion": "2.0.11.0"
           }
         }
       },
-      "Telerik.Documents.CMapUtils/2020.3.1019": {
+      "Telerik.Documents.CMapUtils/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Fixed": "2020.3.1019",
-          "Telerik.Zip": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Documents.Fixed": "2021.3.909",
+          "Telerik.Zip": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.CMapUtils.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Core/2020.3.1019": {
+      "Telerik.Documents.Core/2021.3.909": {
+        "dependencies": {
+          "Telerik.Zip": "2021.3.909"
+        },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Core.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Fixed/2020.3.1019": {
+      "Telerik.Documents.Fixed/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Core": "2020.3.1019",
-          "Telerik.Zip": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Zip": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Fixed.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Flow/2020.3.1019": {
+      "Telerik.Documents.Flow/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Core": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Flow.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Flow.FormatProviders.Pdf/2020.3.1019": {
+      "Telerik.Documents.Flow.FormatProviders.Doc/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Core": "2020.3.1019",
-          "Telerik.Documents.Fixed": "2020.3.1019",
-          "Telerik.Documents.Flow": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Documents.Flow": "2021.3.909",
+          "Telerik.Zip": "2021.3.909"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Doc.dll": {
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
+          }
+        }
+      },
+      "Telerik.Documents.Flow.FormatProviders.Pdf/2021.3.909": {
+        "dependencies": {
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Documents.Fixed": "2021.3.909",
+          "Telerik.Documents.Flow": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Flow.FormatProviders.Pdf.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.ImageUtils/2020.3.1019": {
+      "Telerik.Documents.ImageUtils/2021.3.909": {
         "dependencies": {
-          "Magick.NET-Q16-AnyCPU": "7.15.5",
-          "Telerik.Documents.Fixed": "2020.3.1019"
+          "SixLabors.ImageSharp": "1.0.0",
+          "Telerik.Documents.Fixed": "2021.3.909",
+          "TiffLibrary.ImageSharpAdapter": "0.5.252"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.ImageUtils.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Spreadsheet/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Core": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Core": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Documents.Spreadsheet": "2021.3.909",
+          "Telerik.Zip": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.OpenXml.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Core": "2020.3.1019",
-          "Telerik.Documents.Fixed": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet": "2020.3.1019"
+          "Telerik.Documents.Core": "2021.3.909",
+          "Telerik.Documents.Fixed": "2021.3.909",
+          "Telerik.Documents.Spreadsheet": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Pdf.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2020.3.1019": {
+      "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2021.3.909": {
         "dependencies": {
-          "Telerik.Documents.Spreadsheet": "2020.3.1019",
-          "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": "2020.3.1019",
-          "Telerik.Zip": "2020.3.1019"
+          "Telerik.Documents.Spreadsheet": "2021.3.909",
+          "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml": "2021.3.909",
+          "Telerik.Zip": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.Spreadsheet.FormatProviders.Xls.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
-      "Telerik.Documents.SpreadsheetStreaming/2020.3.1019": {
+      "Telerik.Documents.SpreadsheetStreaming/2021.3.909": {
         "dependencies": {
-          "Telerik.Zip": "2020.3.1019"
+          "Telerik.Zip": "2021.3.909"
         },
         "runtime": {
           "lib/netstandard2.0/Telerik.Documents.SpreadsheetStreaming.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
           }
         }
       },
@@ -3025,28 +2978,51 @@
           }
         }
       },
-      "Telerik.UI.for.Blazor/2.18.0": {
+      "Telerik.UI.for.Blazor/2.28.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "3.2.1",
-          "Microsoft.AspNetCore.Components.WebAssembly.DevServer": "3.2.1",
+          "Microsoft.AspNetCore.Components.Web": "3.1.13",
           "System.Data.Common": "4.3.0",
           "System.Linq.Queryable": "4.3.0",
-          "Telerik.DataSource": "2.0.5",
-          "Telerik.Documents.SpreadsheetStreaming": "2020.3.1019",
+          "Telerik.DataSource": "2.0.11",
+          "Telerik.Documents.SpreadsheetStreaming": "2021.3.909",
           "Telerik.Recurrence": "0.1.0"
         },
         "runtime": {
           "lib/netstandard2.1/Telerik.Blazor.dll": {
-            "assemblyVersion": "2.18.0.0",
-            "fileVersion": "2.18.0.0"
+            "assemblyVersion": "2.28.0.0",
+            "fileVersion": "2.28.0.0"
           }
         }
       },
-      "Telerik.Zip/2020.3.1019": {
+      "Telerik.Zip/2021.3.909": {
         "runtime": {
           "lib/netstandard2.0/Telerik.Zip.dll": {
-            "assemblyVersion": "2020.3.1019.20",
-            "fileVersion": "2020.3.1019.20"
+            "assemblyVersion": "2021.3.909.20",
+            "fileVersion": "2021.3.909.20"
+          }
+        }
+      },
+      "TiffLibrary/0.5.252": {
+        "dependencies": {
+          "JpegLibrary": "0.3.26"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/TiffLibrary.dll": {
+            "assemblyVersion": "0.5.0.0",
+            "fileVersion": "0.5.252.4721"
+          }
+        }
+      },
+      "TiffLibrary.ImageSharpAdapter/0.5.252": {
+        "dependencies": {
+          "SixLabors.ImageSharp": "1.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
+          "TiffLibrary": "0.5.252"
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/TiffLibrary.ImageSharpAdapter.dll": {
+            "assemblyVersion": "0.5.0.0",
+            "fileVersion": "0.5.252.4721"
           }
         }
       }
@@ -3086,12 +3062,12 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-    "Magick.NET-Q16-AnyCPU/7.15.5": {
+    "JpegLibrary/0.3.26": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5fpHQYFPbWqCJhlF+eBSm4Nv5dCq87Eq4wLTS2P4xESzgt921ymq2y6OCVqOX/QHMQNMDyZaGDddK5t+pRZuSQ==",
-      "path": "magick.net-q16-anycpu/7.15.5",
-      "hashPath": "magick.net-q16-anycpu.7.15.5.nupkg.sha512"
+      "sha512": "sha512-oARtI6d4Gb0i/0hNt163iBLG83bWsL0eSiDNQ87JVwmv0qdH41eDeTlTvluGm3cTCT6XgkU7ULGhkIcbeeGlGQ==",
+      "path": "jpeglibrary/0.3.26",
+      "hashPath": "jpeglibrary.0.3.26.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",
@@ -3121,12 +3097,12 @@
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authorization/3.1.6": {
+    "Microsoft.AspNetCore.Authorization/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-n0EC0W8jRpM2o1sKKYQpFuvE1sgW7juyEbhVZPcHy9VnHyZYvcIBHVJ6aPCtwqf/16KyqIB1XDVjPnPgyui47Q==",
-      "path": "microsoft.aspnetcore.authorization/3.1.6",
-      "hashPath": "microsoft.aspnetcore.authorization.3.1.6.nupkg.sha512"
+      "sha512": "sha512-YwUQdgpq+o91hx3vzGZjPQrY6hTPB9mTLSAuGvLDZ0sRSQpDjiHPDPxZieoaiWplHlk3pM2NFJKNFDEDrYsKZA==",
+      "path": "microsoft.aspnetcore.authorization/3.1.13",
+      "hashPath": "microsoft.aspnetcore.authorization.3.1.13.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization.Policy/2.2.0": {
       "type": "package",
@@ -3135,54 +3111,33 @@
       "path": "microsoft.aspnetcore.authorization.policy/2.2.0",
       "hashPath": "microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components/3.1.6": {
+    "Microsoft.AspNetCore.Components/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mNBFDx5rbm5IHpMymGuDo9iGf9L4JWwE0Ho4wXQOdJRKhk7DhuebbIgWFcshsEmDqZPuaX1B4PkifJNDq/3KCw==",
-      "path": "microsoft.aspnetcore.components/3.1.6",
-      "hashPath": "microsoft.aspnetcore.components.3.1.6.nupkg.sha512"
+      "sha512": "sha512-gz3YfjOU1gzqYtBHeyCqnsvMlfhCDl2W+FHzUxZeG0urCETSpWCuPxMO+64gibOUm8BLMx7laWG+4OTT6XnJ7Q==",
+      "path": "microsoft.aspnetcore.components/3.1.13",
+      "hashPath": "microsoft.aspnetcore.components.3.1.13.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Analyzers/3.1.6": {
+    "Microsoft.AspNetCore.Components.Analyzers/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uX+Dl3uPqlGmKBmQRn9QKfx0cgXXyfr9JF8aaBKgi+mexwyGEYFTMXleb9AHK9aofwwMivwfUHi/OmxgcB4YYw==",
-      "path": "microsoft.aspnetcore.components.analyzers/3.1.6",
-      "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.6.nupkg.sha512"
+      "sha512": "sha512-mPU1TQCheviUPMwpzHEDL1JkgxDulxCtOCDiQkSSyYp6L2ZufLj1R5k1waHsyhA47zcJU0sJD8XT05wMyLS8UA==",
+      "path": "microsoft.aspnetcore.components.analyzers/3.1.13",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.3.1.13.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Forms/3.1.6": {
+    "Microsoft.AspNetCore.Components.Forms/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ypqYTvv478N19dRTXsELjluHyW+/aASauBdLvVL4zbmA5BMMdQy69LKTcXXfgqhzC1N/KYusPoMPCasD1F7Fwg==",
-      "path": "microsoft.aspnetcore.components.forms/3.1.6",
-      "hashPath": "microsoft.aspnetcore.components.forms.3.1.6.nupkg.sha512"
+      "sha512": "sha512-3lspdiWwGS+WgNCS/SuW057Wju3jVwVSZEo2Dz6UcwwhUzrS/Tcz2F1lEimfip7YBBo+yLUlSzJzVaP59kNd/g==",
+      "path": "microsoft.aspnetcore.components.forms/3.1.13",
+      "hashPath": "microsoft.aspnetcore.components.forms.3.1.13.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Web/3.1.6": {
+    "Microsoft.AspNetCore.Components.Web/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-u6xnpxIHf20aiJ+B2iyZKzsisc2aMkKV2JI/wRWov0M/6FLqLwtOsjRidtOAd5g3eJLYxE6fxOOC8KQqbYNjog==",
-      "path": "microsoft.aspnetcore.components.web/3.1.6",
-      "hashPath": "microsoft.aspnetcore.components.web.3.1.6.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Components.WebAssembly/3.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SHM3OGZc2PlH0FI9O1yGOj9pqiWqSkfxYD5sz+ZMz1MhHlI0mTQsDfe0AjoYjKA+ZfheJe40yd1ilImsJyvGkg==",
-      "path": "microsoft.aspnetcore.components.webassembly/3.2.1",
-      "hashPath": "microsoft.aspnetcore.components.webassembly.3.2.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Components.WebAssembly.DevServer/3.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5chtIRcUNELh/kPe6guhz1uopyt+200ELFGrJefGRP6JCYirvERau8vMFfWe8b1cU5qd8VafqA5gNWmkDsN7Ig==",
-      "path": "microsoft.aspnetcore.components.webassembly.devserver/3.2.1",
-      "hashPath": "microsoft.aspnetcore.components.webassembly.devserver.3.2.1.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Components.WebAssembly.HttpHandler/3.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-9J250RxLT+WX8Eu/ocLr+8/pS7+ISDRw+c9Y6sBeprTVwEU2EwXYZGCjEmbB3lHnHQUp53wUScjI1FWQd7jwkQ==",
-      "path": "microsoft.aspnetcore.components.webassembly.httphandler/3.2.0",
-      "hashPath": "microsoft.aspnetcore.components.webassembly.httphandler.3.2.0.nupkg.sha512"
+      "sha512": "sha512-3l93wAovg400ejyUKlwESrj8gljnBoAxSD8LZTVwudbYvXrKPDNZRwMV0JJuloPwLAf9cF4ITcY22IbPa3i9qQ==",
+      "path": "microsoft.aspnetcore.components.web/3.1.13",
+      "hashPath": "microsoft.aspnetcore.components.web.3.1.13.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Connections.Abstractions/2.2.0": {
       "type": "package",
@@ -3303,12 +3258,12 @@
       "path": "microsoft.aspnetcore.identity.ui/7.0.5",
       "hashPath": "microsoft.aspnetcore.identity.ui.7.0.5.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Metadata/3.1.6": {
+    "Microsoft.AspNetCore.Metadata/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CPD6ukxTPpvtm5GfAlgRbUPF7D+eo8K7rMVgL/kLrz4aTT6gb/c0uet2ISRIO615zIS2N52ZZwLcX9hmeQhVGg==",
-      "path": "microsoft.aspnetcore.metadata/3.1.6",
-      "hashPath": "microsoft.aspnetcore.metadata.3.1.6.nupkg.sha512"
+      "sha512": "sha512-Fvgyo2ZAeNHMccnzk49vNC6Zoby8YLSgGs5VUF06F93OrP1SSU716bQUVD9pnfRuwIwq/lqywC2N4f82PCXPxQ==",
+      "path": "microsoft.aspnetcore.metadata/3.1.13",
+      "hashPath": "microsoft.aspnetcore.metadata.3.1.13.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.11": {
       "type": "package",
@@ -3604,33 +3559,12 @@
       "path": "microsoft.extensions.caching.memory/7.0.0",
       "hashPath": "microsoft.extensions.caching.memory.7.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Configuration/3.1.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-gphCAywKC+ye1XdL+8Nv2Pd5b1Fn2yx7DekB4GQPCKaPyK94T9Tb+Sfk/iNdaDKtDl4vwidMI0w2AnoXtvofsw==",
-      "path": "microsoft.extensions.configuration/3.1.6",
-      "hashPath": "microsoft.extensions.configuration.3.1.6.nupkg.sha512"
-    },
     "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-f34u2eaqIjNO9YLHBz8rozVZ+TcFiFs0F3r7nUJd7FRkVSxk8u4OpoK226mi49MwexHOR2ibP9MFvRUaLilcQQ==",
       "path": "microsoft.extensions.configuration.abstractions/7.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Configuration.FileExtensions/3.1.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-XPxBt0rtj66Z5rcVzykgTw+PCXPCWXpOCookSvJXBG+v55zYa//nLayLbrDpGMEJH/nyOTdtRh6zlkmGeLk/7w==",
-      "path": "microsoft.extensions.configuration.fileextensions/3.1.6",
-      "hashPath": "microsoft.extensions.configuration.fileextensions.3.1.6.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Configuration.Json/3.1.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lvAoaNuiHDNo8dicd15JXle5pgp/N0RTTa7ozJD+s0NQONFAjS25g8kjjFe3XZaM8XiZyYVYCFaQE8Q+M20IXg==",
-      "path": "microsoft.extensions.configuration.json/3.1.6",
-      "hashPath": "microsoft.extensions.configuration.json.3.1.6.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/7.0.0": {
       "type": "package",
@@ -3687,20 +3621,6 @@
       "sha512": "sha512-E6enL5sLbxKjAWyUxthcOxlDYR6OT+wUBj42EpTR3j/cKI+UOkGCW7cSm8F9yQi9KxeM4Iq8dKZd13gMwYE+6Q==",
       "path": "microsoft.extensions.fileproviders.embedded/7.0.5",
       "hashPath": "microsoft.extensions.fileproviders.embedded.7.0.5.nupkg.sha512"
-    },
-    "Microsoft.Extensions.FileProviders.Physical/3.1.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rwngFMfwi2TBkAy/2SSIwR6ajl3cIEOkOlPlmG1j5cGGvJfNA1ujQNOr8rotI1z6keFi7zXRLLhm9gmaoMVDOA==",
-      "path": "microsoft.extensions.fileproviders.physical/3.1.6",
-      "hashPath": "microsoft.extensions.fileproviders.physical.3.1.6.nupkg.sha512"
-    },
-    "Microsoft.Extensions.FileSystemGlobbing/3.1.6": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-QMyvTl195jfGHEH7edeNsQWEVkwex3CoYs/hfzwy1rXIVTfnGLp6SIhL7JfokKa1xM4UamPEggmxFTH/VN4Jrg==",
-      "path": "microsoft.extensions.filesystemglobbing/3.1.6",
-      "hashPath": "microsoft.extensions.filesystemglobbing.3.1.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Hosting.Abstractions/7.0.0": {
       "type": "package",
@@ -3821,19 +3741,12 @@
       "path": "microsoft.identitymodel.tokens/6.21.0",
       "hashPath": "microsoft.identitymodel.tokens.6.21.0.nupkg.sha512"
     },
-    "Microsoft.JSInterop/3.1.6": {
+    "Microsoft.JSInterop/3.1.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k/AaZDugrwLO4gkLrPkFiWIzjC0BxPGF2yds6P6PYXNG4Jw/od3UZJrVSRLakQPDsnXLMDiyg7uGWtDI17FtSQ==",
-      "path": "microsoft.jsinterop/3.1.6",
-      "hashPath": "microsoft.jsinterop.3.1.6.nupkg.sha512"
-    },
-    "Microsoft.JSInterop.WebAssembly/3.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-wYKx4YeBTnv1bzKZtdsWH0O9OmmYm7zq56QkKCUdl1hDg4Gn0lmCDfYBC0r1k5/Wh64IveuWwpkyTWjqCmp4pg==",
-      "path": "microsoft.jsinterop.webassembly/3.2.1",
-      "hashPath": "microsoft.jsinterop.webassembly.3.2.1.nupkg.sha512"
+      "sha512": "sha512-/BhHm6lEApLncXQuwOYRnQsgz1es8mCOUzUhDzNxAN247n+YmeOpc8gxopPokljgoAs/I4NrFSiKhpwCSzx4qg==",
+      "path": "microsoft.jsinterop/3.1.13",
+      "hashPath": "microsoft.jsinterop.3.1.13.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",
@@ -3870,12 +3783,12 @@
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
     },
-    "Microsoft.TypeScript.MSBuild/5.0.4": {
+    "Microsoft.TypeScript.MSBuild/5.1.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fXuMICTqQZKbYyL8Hf1ZypgBSF2U1ZRYss3CL3nWSVLzUku9lESFgEFYgSNFLsO34i1tlkeWjXQ2q1ri3gkDiQ==",
-      "path": "microsoft.typescript.msbuild/5.0.4",
-      "hashPath": "microsoft.typescript.msbuild.5.0.4.nupkg.sha512"
+      "sha512": "sha512-OPa+RTgbh9r1NWxrboDPbCXn6HCuRIjhZGlcooJCZr5WkgkKfjTT+Mju//9GcsAr9cIi44ry1HsL9y6h8/xRXA==",
+      "path": "microsoft.typescript.msbuild/5.1.3",
+      "hashPath": "microsoft.typescript.msbuild.5.1.3.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/7.0.6": {
       "type": "package",
@@ -4170,6 +4083,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8amvsk8NXnCxZV0lvJppAZJknViWgBOO/2V59IGR6DVoD13mSmG+/Z9eg5IwrHQuRHp5RD9lfXBXDZyk8rTKDg==",
+      "path": "sixlabors.imagesharp/1.0.0",
+      "hashPath": "sixlabors.imagesharp.1.0.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
@@ -4822,89 +4742,96 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "Telerik.DataSource/2.0.5": {
+    "Telerik.DataSource/2.0.11": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jge7V96uFYP7D/ax0l7rFPd/pYu0wPQJ9whxN7YOgwT4CL85evYDJLhdXAg9yGZBTIbLO9pUwhUsDfUJG4PfVw==",
-      "path": "telerik.datasource/2.0.5",
-      "hashPath": "telerik.datasource.2.0.5.nupkg.sha512"
+      "sha512": "sha512-Z0h9Xm03Wkjq45kVoKvLJTnWsVxfc208u2xMddaiz9gOrjLv6R7nO8dQ2Fhdpy4BYlbkiafdhHfFvykz6ZE7QA==",
+      "path": "telerik.datasource/2.0.11",
+      "hashPath": "telerik.datasource.2.0.11.nupkg.sha512"
     },
-    "Telerik.Documents.CMapUtils/2020.3.1019": {
+    "Telerik.Documents.CMapUtils/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TUxTH+gdOpag2bPvPl9auLYsPEurZjqBtj17dRYFZ6qB6ovM0Z4CTLjtuWEFzJDwThzOhZOc6HgY7gjsq38++w==",
-      "path": "telerik.documents.cmaputils/2020.3.1019",
-      "hashPath": "telerik.documents.cmaputils.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-vvVozU42ClLKtVb//Zy1l8HtWhIEUZ6gQlxX+7K4GbNdmQpr7wl/YB3+yFtbYTGPPvlnjZ3iRrlO0K5XGafDHg==",
+      "path": "telerik.documents.cmaputils/2021.3.909",
+      "hashPath": "telerik.documents.cmaputils.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Core/2020.3.1019": {
+    "Telerik.Documents.Core/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mrOiQr8Wlt9Txp3mnuAvUyFKKd4d/YvutvkD9EpOyW5hSER8Xk2ZFrZnIflVGARNwewEVD+TCWFvVW2p3A4f8w==",
-      "path": "telerik.documents.core/2020.3.1019",
-      "hashPath": "telerik.documents.core.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-y4s90qhanJ+5r5cJMaJvJdlCK5HuyWim45lI/sMja2eRaBuzFk+zlgIOiaxLH7LagCoDMj2IwnBJPaqxSF8I+A==",
+      "path": "telerik.documents.core/2021.3.909",
+      "hashPath": "telerik.documents.core.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Fixed/2020.3.1019": {
+    "Telerik.Documents.Fixed/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tqhnuzfJDEWh/dHu+geQp3odbfSaM0LtDD3KItjYvSgvn+IQNYpA+UbE3ExRZqCsX1sa+6/RsXfiFbJxqO4cGw==",
-      "path": "telerik.documents.fixed/2020.3.1019",
-      "hashPath": "telerik.documents.fixed.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-ISApNJjgheF/jGMAYsrkHF2a/qx+yuw8mvp2Qz6oSFMgpsAlV/TAu//uuBY43mRxdXv0NcCX8gaaFdCHktWHhg==",
+      "path": "telerik.documents.fixed/2021.3.909",
+      "hashPath": "telerik.documents.fixed.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Flow/2020.3.1019": {
+    "Telerik.Documents.Flow/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+Rg3KUJPoBYz4GGqxbIw/y5npprcksQ4+vldaCbKA66LGYs7uY0BtpneVk0eIAsKS6RN82HOmR1r9w7c2tqPUA==",
-      "path": "telerik.documents.flow/2020.3.1019",
-      "hashPath": "telerik.documents.flow.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-L+SgWRicl2IBDBNPX/yW7adtYZnMARbaZ7gyoapmbNx/KfZNg5m929ZCw8HfrgjsrQGTh2yanoI1fQS/vvNQdw==",
+      "path": "telerik.documents.flow/2021.3.909",
+      "hashPath": "telerik.documents.flow.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Flow.FormatProviders.Pdf/2020.3.1019": {
+    "Telerik.Documents.Flow.FormatProviders.Doc/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-62p4ZovJugqM/jzkXAYP2LzAp6QOy8RWpsy6+hU6DTXvUJYDfTaYpaixm4up1v78mxI1kQtPBPm6D5Yd98Nf0Q==",
-      "path": "telerik.documents.flow.formatproviders.pdf/2020.3.1019",
-      "hashPath": "telerik.documents.flow.formatproviders.pdf.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-mbqMmF1cBm2Cf4pwiceNSzZyESc3T+qOmls/Z1C6ntI7mZbFRYJoatL70Q9OIOVv43X9tTyWrM4xF2/c2WyQYA==",
+      "path": "telerik.documents.flow.formatproviders.doc/2021.3.909",
+      "hashPath": "telerik.documents.flow.formatproviders.doc.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.ImageUtils/2020.3.1019": {
+    "Telerik.Documents.Flow.FormatProviders.Pdf/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XpY91pjUk7XEb/bOdAv9n6vjvApwCEZJx0By2Mut5sVneg6n1yhgQHfq/5WzWiqC1Md3bHCQEnq88QtPMjqBfw==",
-      "path": "telerik.documents.imageutils/2020.3.1019",
-      "hashPath": "telerik.documents.imageutils.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-UQzeVfH5cR1VoksfZcNh21B0kuKojVV0n7V8focWopGcjqePo6nmirPFyyQjwhdXApb3VqURisWB7Ghs0E2Vog==",
+      "path": "telerik.documents.flow.formatproviders.pdf/2021.3.909",
+      "hashPath": "telerik.documents.flow.formatproviders.pdf.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Spreadsheet/2020.3.1019": {
+    "Telerik.Documents.ImageUtils/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8+0jyYecRDb25RvbdYw+WHxKkuhtDGW7prZ7GhP1a/NPxnDw9T1HYKn1a7AB6Pc+3mueU3THfaSx3/6AiD+6iw==",
-      "path": "telerik.documents.spreadsheet/2020.3.1019",
-      "hashPath": "telerik.documents.spreadsheet.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-nXYRF5iYggjjGouSdPS/rg/VsuPDfISlDw2RTxmADe5CyNOoJkM3HO1EIwm1dUhAt2Mq2f5BkLkUtF17AISGIg==",
+      "path": "telerik.documents.imageutils/2021.3.909",
+      "hashPath": "telerik.documents.imageutils.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2020.3.1019": {
+    "Telerik.Documents.Spreadsheet/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ZcOcFQzMs3RsFKcFyJNPLMWSB8o2ygpdVe6F+Svg/cCQVaOrbPKR2rcj2DxtvKr4MqjxrW17+KK1Ivf8Cf96MA==",
-      "path": "telerik.documents.spreadsheet.formatproviders.openxml/2020.3.1019",
-      "hashPath": "telerik.documents.spreadsheet.formatproviders.openxml.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-WoTX7fzMZ7BTHTpQYvmhN1SYuCIwzaOeK+fuep9CN/GGZ2ZdbMeZIogRDVCgoGkrfKkI0sYy8xZumtmIXh8NxA==",
+      "path": "telerik.documents.spreadsheet/2021.3.909",
+      "hashPath": "telerik.documents.spreadsheet.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2020.3.1019": {
+    "Telerik.Documents.Spreadsheet.FormatProviders.OpenXml/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3thmrXQd8GoNFY7D57CNDUbHmISIClbIwVIBGpru8gl+YdvGyXVXneYsm5n0hqLPcoTmKsENTuMS/5+HtxjYPg==",
-      "path": "telerik.documents.spreadsheet.formatproviders.pdf/2020.3.1019",
-      "hashPath": "telerik.documents.spreadsheet.formatproviders.pdf.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-ynNMgismm9r1kE1cxsekQHkUlxuz9FhPIuxT9wv6rgIauZ0D7+8rFir3GEdv1hjXI/sCvABiWJI5SznRNiGcdQ==",
+      "path": "telerik.documents.spreadsheet.formatproviders.openxml/2021.3.909",
+      "hashPath": "telerik.documents.spreadsheet.formatproviders.openxml.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2020.3.1019": {
+    "Telerik.Documents.Spreadsheet.FormatProviders.Pdf/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+BQ0y6bKUoZz0EYUaStnDHvrMhI3ipGEnOzVur9mn+y2ijcijQLGo7wc2S9NRo1ZlUL34jxHCGez83AVeZ+AUQ==",
-      "path": "telerik.documents.spreadsheet.formatproviders.xls/2020.3.1019",
-      "hashPath": "telerik.documents.spreadsheet.formatproviders.xls.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-VGll48OSyH9wr+qvi1MunWe5vIK9Eygv5MeLdz+JYoZ2BHJD72rA9L+BvB7nojRDe3luNNlHQkYsIMxXo1ZcBQ==",
+      "path": "telerik.documents.spreadsheet.formatproviders.pdf/2021.3.909",
+      "hashPath": "telerik.documents.spreadsheet.formatproviders.pdf.2021.3.909.nupkg.sha512"
     },
-    "Telerik.Documents.SpreadsheetStreaming/2020.3.1019": {
+    "Telerik.Documents.Spreadsheet.FormatProviders.Xls/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OhCPiJ3PSyYN4I7KZsTM5F/7MXoaU82/1UNCFrY774tfOzLR6G2+336rRyp1pSBu6/iOf5BT0+O4kDeJlkcuUA==",
-      "path": "telerik.documents.spreadsheetstreaming/2020.3.1019",
-      "hashPath": "telerik.documents.spreadsheetstreaming.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-v9X7F7D1kUf9QnbyeQ9o2JU5D2AeAmDpzPVAqnKT38ktOcnYlhz3opSfXk+UPjfWszeW+cwtYGPIr0Rk25lJ2Q==",
+      "path": "telerik.documents.spreadsheet.formatproviders.xls/2021.3.909",
+      "hashPath": "telerik.documents.spreadsheet.formatproviders.xls.2021.3.909.nupkg.sha512"
+    },
+    "Telerik.Documents.SpreadsheetStreaming/2021.3.909": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jUzHnGG1P9JKAFvtRGBq2OYsWpsOiuMGoeW0jmMKTOmSIBMDHUb465DKfv1bGOFDgEINy89UJYeOGRnU//mPCA==",
+      "path": "telerik.documents.spreadsheetstreaming/2021.3.909",
+      "hashPath": "telerik.documents.spreadsheetstreaming.2021.3.909.nupkg.sha512"
     },
     "Telerik.Recurrence/0.1.0": {
       "type": "package",
@@ -4913,19 +4840,33 @@
       "path": "telerik.recurrence/0.1.0",
       "hashPath": "telerik.recurrence.0.1.0.nupkg.sha512"
     },
-    "Telerik.UI.for.Blazor/2.18.0": {
+    "Telerik.UI.for.Blazor/2.28.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TEgHczLvRQug0HfQ19H7gLi+kS6thTh9w+3sak+0M9ltJ+mSOa/L/vJv8Qg7yBZRrxBFQkyf6XTGJwmrL6aRzQ==",
-      "path": "telerik.ui.for.blazor/2.18.0",
-      "hashPath": "telerik.ui.for.blazor.2.18.0.nupkg.sha512"
+      "sha512": "sha512-dIrV9Q+yeLP9fbzIszFrW2xadCrMTmdeydikG9NRgwMo2FPTjDGPuGfnRwXoB4xcFYtLoqwaMg8C4IEuH7pr4g==",
+      "path": "telerik.ui.for.blazor/2.28.0",
+      "hashPath": "telerik.ui.for.blazor.2.28.0.nupkg.sha512"
     },
-    "Telerik.Zip/2020.3.1019": {
+    "Telerik.Zip/2021.3.909": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0hAOiG4uy1kYHcCCy7UHpzpPle7sP7790eDGnavJIQplLjXe2QCfMpwRDTRXdKOcW22g0dF3540IkU6NCEj9cg==",
-      "path": "telerik.zip/2020.3.1019",
-      "hashPath": "telerik.zip.2020.3.1019.nupkg.sha512"
+      "sha512": "sha512-pmLTH/NKuM9kmW3HnyOPGOSHFgUaPhV9VTQY0ZQHGxKzuqCuUtaRCadftG7EcqJmcBsQtejbrridom3QJu405g==",
+      "path": "telerik.zip/2021.3.909",
+      "hashPath": "telerik.zip.2021.3.909.nupkg.sha512"
+    },
+    "TiffLibrary/0.5.252": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zTMhYzXKaQ8ipO9vbykLPVrbLgsb9YbGvzBeh7ml0MR3IVxcgYVUHA3qkuw3mnDOWR7ln0tUPiUhCZru6dJS3A==",
+      "path": "tifflibrary/0.5.252",
+      "hashPath": "tifflibrary.0.5.252.nupkg.sha512"
+    },
+    "TiffLibrary.ImageSharpAdapter/0.5.252": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fj2wSj2KPhXxCCRBtQdrC7vEeBnsO/j2xBsaN8LE04zscKMGV9V0zGrHAUqbVqGero/j5dhVimvAE4jqdwQkjQ==",
+      "path": "tifflibrary.imagesharpadapter/0.5.252",
+      "hashPath": "tifflibrary.imagesharpadapter.0.5.252.nupkg.sha512"
     }
   }
 }

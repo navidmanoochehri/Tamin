@@ -17,6 +17,8 @@
 @inject IAssessmentFSData _dbAssessmentFSData
 @inject IAssessmentSCData _dbAssessmentSCData
 @inject IAssessmentSSData _dbAssessmentSSData
+@inject IAssessmentFPEData _dbAssessmentFPEData
+@inject IAssessmentSPEData _dbAssessmentSPEData
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JsInterop
@@ -521,7 +523,7 @@
             }
             else if (newVendor.Groups == "خدماتی")
             {
-                AssessmentSC vId = new AssessmentSC
+                AssessmentFS vId = new AssessmentFS
                 {
                     Id = LastId
                 };
@@ -529,10 +531,23 @@
                 {
                     Id = LastId
                 };
-                await _dbAssessmentSCData.InsertAssessmentSC(vId);
+                await _dbAssessmentFSData.InsertAssessmentFS(vId);
                 await _dbAssessmentSSData.InsertAssessmentSS(vId2);
             }
-            else
+            else if (newVendor.Groups == "پیمانکار اجرایی")
+            {
+                AssessmentFPE vId = new AssessmentFPE
+                    {
+                        Id = LastId
+                    };
+                AssessmentSPE vId2 = new AssessmentSPE
+                    {
+                        Id = LastId
+                    };
+                await _dbAssessmentFPEData.InsertAssessmentFPE(vId);
+                await _dbAssessmentSPEData.InsertAssessmentSPE(vId2);
+            }
+            else if (newVendor.Groups == "کالایی و خدماتی")
             {
                 AssessmentFC vId = new AssessmentFC
                 {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RLz6HXl7FGPhD1xZqt/S7BGVr5CD6T+z5E6Fl7naFUo=",
+  "Hash": "0rIaSpvBoG+mRv0MHewydLikZRR448XO3wZ2qjplHoU=",
   "Source": "Tamin",
   "BasePath": "_content/Tamin",
   "Mode": "Default",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.5\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\css\\kendo-theme-bootstrap\\all.css",
+      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\css\\kendo-theme-bootstrap\\all.css",
       "SourceId": "Telerik.UI.for.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\",
       "BasePath": "_content/Telerik.UI.for.Blazor",
       "RelativePath": "css/kendo-theme-bootstrap/all.css",
       "AssetKind": "All",
@@ -1051,13 +1051,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\css\\kendo-theme-bootstrap\\all.css"
+      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\css\\kendo-theme-bootstrap\\all.css"
     },
     {
-      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\css\\kendo-theme-default\\all.css",
+      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\css\\kendo-theme-default\\all.css",
       "SourceId": "Telerik.UI.for.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\",
       "BasePath": "_content/Telerik.UI.for.Blazor",
       "RelativePath": "css/kendo-theme-default/all.css",
       "AssetKind": "All",
@@ -1068,13 +1068,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\css\\kendo-theme-default\\all.css"
+      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\css\\kendo-theme-default\\all.css"
     },
     {
-      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\css\\kendo-theme-material\\all.css",
+      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\css\\kendo-theme-material\\all.css",
       "SourceId": "Telerik.UI.for.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\",
       "BasePath": "_content/Telerik.UI.for.Blazor",
       "RelativePath": "css/kendo-theme-material/all.css",
       "AssetKind": "All",
@@ -1085,13 +1085,30 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\css\\kendo-theme-material\\all.css"
+      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\css\\kendo-theme-material\\all.css"
     },
     {
-      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\js\\telerik-blazor.js",
+      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\images\\blazor.png",
       "SourceId": "Telerik.UI.for.Blazor",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\",
+      "BasePath": "_content/Telerik.UI.for.Blazor",
+      "RelativePath": "images/blazor.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\images\\blazor.png"
+    },
+    {
+      "Identity": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\js\\telerik-blazor.js",
+      "SourceId": "Telerik.UI.for.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\",
       "BasePath": "_content/Telerik.UI.for.Blazor",
       "RelativePath": "js/telerik-blazor.js",
       "AssetKind": "All",
@@ -1102,7 +1119,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.18.0\\staticwebassets\\js\\telerik-blazor.js"
+      "OriginalItemSpec": "C:\\Users\\n.manoochehri\\.nuget\\packages\\telerik.ui.for.blazor\\2.28.0\\staticwebassets\\js\\telerik-blazor.js"
     },
     {
       "Identity": "D:\\Programming\\Tamin-New\\wwwroot\\css\\bootstrap.css",
