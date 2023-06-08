@@ -17,8 +17,10 @@
 @using Tamin.DocumentProcessing;
 @using Telerik.DataSource;
 @using Telerik.DataSource.Extensions;
+@using Telerik.Blazor;
 @using Tamin.Data;
 @using Tamin.Data.Models;
+
 
 @inject IVendorData _dbVendorData
 @inject IActivityData _dbActivityData
@@ -46,10 +48,18 @@
     .k-filter-menu-container .k-widget.k-dropdown:first-of-type {
         display: block;
     }
-
+     .k-window .k-form {
+        column-count: 2;
+    }
+    .k-window-content {
+        max-height: 700px;
+        max-width: 700px;
+        /* you can also use relative units, e.g. 60% of the viewport height: */
+        /* max-height: 60vh; */
+    }
     .k-window .k-edit-form-container {
         
-        height: 700px;
+        height: 600px;
         width: 600px;
         overflow: auto;
         overflow-x: hidden;
@@ -99,7 +109,7 @@
 
     <TelerikGrid Data="@GridData" Width="100%" EditMode="@GridEditMode.Popup" TItem="VendorInPut" Pageable="true" Resizable="true" PageSize="20" Reorderable="true" FilterMode="Telerik.Blazor.GridFilterMode.FilterMenu" Sortable="true"
                  SelectionMode="@GridSelectionMode.Multiple" @bind-SelectedItems="vendorselected" OnUpdate="@UpdateHandler" OnEdit="EditHandler" OnCreate="@CreateHandler" OnDelete="@DeleteHandler" OnCancel="@CancelHandler"
-                 OnStateInit="@((GridStateEventArgs<VendorInPut> args) => OnStateInitHandler(args))">
+                 OnStateInit="@((GridStateEventArgs<VendorInPut> args) => OnStateInitHandler(args))"> 
 
         <GridExport>
             <GridExcelExport FileName="Vendors" AllPages="true" />
