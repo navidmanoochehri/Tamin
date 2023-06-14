@@ -222,7 +222,7 @@
                         <GridColumn Field="@nameof(VendorInPut.EconomicCode)" Title="کد اقتصادی" Editable="true" Width="0"></GridColumn>
                         <GridColumn Field="@nameof(VendorInPut.EMail)" Title="رایانامه" Editable="true"></GridColumn>
                         <GridColumn Field="@nameof(VendorInPut.Phone)" Title="شماره تماس" Editable="true"></GridColumn>
-                        <GridColumn Field="@nameof(VendorInPut.Name)" Title="نام شرکت" Editable="true"></GridColumn>
+                        <GridColumn Field="@nameof(VendorInPut.Name)" Title="نام پیمانکار/ نام شرکت" Editable="true"></GridColumn>
                         <GridColumn Field="@nameof(VendorInPut.Id)" Title="ID" Editable="false" Width="80px"></GridColumn>
 
                     </GridColumns>
@@ -340,7 +340,6 @@
                         </TelerikGrid>
                     }
 
-
                     if (G.ElementAtOrDefault(0) == "خدماتی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
                     {
                         <br />
@@ -428,6 +427,7 @@
                     }
 
                     if (G.ElementAtOrDefault(0) == "کالایی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
+
                     {
                         <br />
                         <br />
@@ -537,6 +537,7 @@
                             </GridColumns>
                         </TelerikGrid>
                     }
+                    
                     if (G.ElementAtOrDefault(0) == "خدماتی" || G.ElementAtOrDefault(0) == "کالایی و خدماتی")
                     {
                         <br />
@@ -645,6 +646,221 @@
                         </TelerikGrid>
                     }
 
+                    if (G.ElementAtOrDefault(0) == "پیمانکار اجرایی")
+                    {
+                        <br />
+                        <br />
+                        <div><h4> جدول امتیاز ارزیابی اولیه پیمانکار اجرایی</h4></div>
+
+                        var TFPE = GridINFPE.Select(t => t.Title).ToList();
+                        var NFPE = GridINSPE.Select(n => n.Score).ToList();
+                        var vendorID = SelectedItems.Select(v => v.Id).FirstOrDefault();
+
+
+                        <TelerikGrid Data="@GridFPE.Where(t => (t.Id==vendorID))" Height="300px" Resizable="true"
+                                     OnUpdate="@UpdateHandlerFPE" OnEdit="@EditHandlerFPE" OnDelete="@DeleteHandlerFPE" OnCreate="@CreateHandlerFPE" OnCancel="@CancelHandlerFPE">
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                                @{
+                                    var g = GridFPE.Where(t => (t.Id == vendorID)).Select(s => s.Grade).Max();
+                                    var d = GridFPE.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+                                    if (g == "A")
+                                    {
+                                        <img src="/images/icons8_1st_place_medal_64px.png" />
+                                    }
+                                    else if (g == "B")
+                                    {
+                                        <img src="/images/icons8_2nd_place_medal_64px.png" />
+                                    }
+                                    else if (g == "C")
+                                    {
+                                        <img src="/images/icons8_3rd_place_medal_64px.png" />
+                                    }
+
+                                    if (d!=null)
+                                    {
+
+                                     if (d.CompareTo(datedisable)>=0)
+                                          {
+
+                                            <h3> وضعیت: فعال</h3>
+
+                                    } else
+                                          {
+
+                                            <h3>وضعیت :غیر فعال</h3>
+                                    }
+
+                                    }
+                                }
+                            </GridToolBar>
+                            <GridColumns>
+
+                                <GridColumn Field=@nameof(AssessmentFPE.Image) Title="مدال">
+
+                                    <Template>
+                                        @{
+                                                    var G = (context as AssessmentFPE).Grade;
+
+                                                    if (G == "A")
+                                                    {
+                                                        <img src="/images/icons8_1st_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "B")
+                                                    {
+                                                        <img src="/images/icons8_2nd_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "C")
+                                                    {
+                                                        <img src="/images/icons8_3rd_place_medal_32px.png" />
+                                                    }
+                                        }
+                                    </Template>
+
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentFPE.Grade) Title="رتبه" />
+                                <GridColumn Field=@nameof(AssessmentFPE.Sum) Title="امتیاز کل %" />
+                                <GridColumn Field=@nameof(AssessmentFPE.MDate) Title="تاریخ ارزیابی" />
+                                <GridColumn Field=@nameof(AssessmentFPE.Comment) Title="توضیحات" />
+                                <GridColumn Field=@nameof(AssessmentFPE.Project) Title="(پروژه(ها">
+                                    <EditorTemplate>
+                                        @{
+
+                                            <TelerikMultiSelect @bind-Value="@project"
+                                                                Data="@GridPJ.Select(a => a.Title).ToList()"
+                                                                Placeholder="پروژه ها"
+                                                                Width="200px" />
+                                        }
+                                    </EditorTemplate>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentFPE.Resume) Editable="true" Title=@string.Concat(TFPE.ElementAtOrDefault(0)," ( ",NFPE.ElementAtOrDefault(0)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFPE.Price) Editable="true" Title=@string.Concat(TFPE.ElementAtOrDefault(1)," ( ",NFPE.ElementAtOrDefault(1)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFPE.Customer) Editable="true" Title=@string.Concat(TFPE.ElementAtOrDefault(2)," ( ",NFPE.ElementAtOrDefault(2)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFPE.Financial) Editable="true" Title=@string.Concat(TFPE.ElementAtOrDefault(3)," ( ",NFPE.ElementAtOrDefault(3)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFPE.Technical) Editable="true" Title=@string.Concat(TFPE.ElementAtOrDefault(4)," ( ",NFPE.ElementAtOrDefault(4)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentFPE.Professionalism) Editable="true" Title=@string.Concat(TFPE.ElementAtOrDefault(5)," ( ",NFPE.ElementAtOrDefault(5)," ) ") />
+                        
+                                <GridCommandColumn Width="200px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true"></GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit"></GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete"></GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+
+                                </GridCommandColumn>
+
+                            </GridColumns>
+                        </TelerikGrid>
+                    }
+
+                    if (G.ElementAtOrDefault(0) == "پیمانکار اجرایی")
+                    {
+                        <br />
+                        <br />
+                        <div><h4> جدول امتیاز ارزیابی دوره ای پیمانکار اجرایی</h4></div>
+
+                        var TSPE = GridINSPE.Select(t => t.Title).ToList();
+                        var NSPE = GridINSPE.Select(n => n.Score).ToList();
+                        var vendorID = SelectedItems.Select(v => v.Id).FirstOrDefault();
+
+
+                        <TelerikGrid Data="@GridSPE.Where(t => (t.Id==vendorID))" Height="300px" Resizable="true"
+                                     OnUpdate="@UpdateHandlerSPE" OnEdit="@EditHandlerSPE" OnDelete="@DeleteHandlerSPE" OnCreate="@CreateHandlerSPE" OnCancel="@CancelHandlerSPE">
+                            <GridToolBar>
+                                <GridCommandButton Command="Add" Primary="true" Icon="add">جدید</GridCommandButton>
+                                @{
+                                    var g = GridFPE.Where(t => (t.Id == vendorID)).Select(s => s.Grade).Max();
+                                    var d = GridFPE.Where(x => (x.Id == vendorID)).Select(s => s.MDate).Max();
+                                    if (g == "A")
+                                    {
+                                        <img src="/images/icons8_1st_place_medal_64px.png" />
+                                    }
+                                    else if (g == "B")
+                                    {
+                                        <img src="/images/icons8_2nd_place_medal_64px.png" />
+                                    }
+                                    else if (g == "C")
+                                    {
+                                        <img src="/images/icons8_3rd_place_medal_64px.png" />
+                                    }
+
+                                    if (d!=null)
+                                    {
+
+                                     if (d.CompareTo(datedisable)>=0)
+                                          {
+
+                                            <h3> وضعیت: فعال</h3>
+
+                                    } else
+                                          {
+
+                                            <h3>وضعیت :غیر فعال</h3>
+                                    }
+
+                                    }
+                                }
+                            </GridToolBar>
+                            <GridColumns>
+
+                                <GridColumn Field=@nameof(AssessmentSPE.Image) Title="مدال">
+
+                                    <Template>
+                                        @{
+                                                    var G = (context as AssessmentSPE).Grade;
+
+                                                    if (G == "A")
+                                                    {
+                                                        <img src="/images/icons8_1st_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "B")
+                                                    {
+                                                        <img src="/images/icons8_2nd_place_medal_32px.png" />
+                                                    }
+                                                    else if (G == "C")
+                                                    {
+                                                        <img src="/images/icons8_3rd_place_medal_32px.png" />
+                                                    }
+                                        }
+                                    </Template>
+
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentSPE.Grade) Title="رتبه" />
+                                <GridColumn Field=@nameof(AssessmentSPE.Sum) Title="امتیاز کل %" />
+                                <GridColumn Field=@nameof(AssessmentSPE.MDate) Title="تاریخ ارزیابی" />
+                                <GridColumn Field=@nameof(AssessmentSPE.Comment) Title="توضیحات" />
+                                <GridColumn Field=@nameof(AssessmentSPE.Project) Title="(پروژه(ها">
+                                    <EditorTemplate>
+                                        @{
+
+                                            <TelerikMultiSelect @bind-Value="@project"
+                                                                Data="@GridPJ.Select(a => a.Title).ToList()"
+                                                                Placeholder="پروژه ها"
+                                                                Width="200px" />
+                                        }
+                                    </EditorTemplate>
+                                </GridColumn>
+                                <GridColumn Field=@nameof(AssessmentSPE.Correct_use) Editable="true" Title=@string.Concat(TSPE.ElementAtOrDefault(0)," ( ",NSPE.ElementAtOrDefault(0)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSPE.Equipment_protection) Editable="true" Title=@string.Concat(TSPE.ElementAtOrDefault(1)," ( ",NSPE.ElementAtOrDefault(1)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSPE.Customer) Editable="true" Title=@string.Concat(TSPE.ElementAtOrDefault(2)," ( ",NSPE.ElementAtOrDefault(2)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSPE.Financial) Editable="true" Title=@string.Concat(TSPE.ElementAtOrDefault(3)," ( ",NSPE.ElementAtOrDefault(3)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSPE.Technical) Editable="true" Title=@string.Concat(TSPE.ElementAtOrDefault(4)," ( ",NSPE.ElementAtOrDefault(4)," ) ") />
+                                <GridColumn Field=@nameof(AssessmentSPE.Professionalism) Editable="true" Title=@string.Concat(TSPE.ElementAtOrDefault(5)," ( ",NSPE.ElementAtOrDefault(5)," ) ") />
+                        
+                                <GridCommandColumn Width="200px">
+
+                                    <GridCommandButton Command="Save" Primary="true" Icon="save" ShowInEdit="true"></GridCommandButton>
+                                    <GridCommandButton Command="Edit" Primary="true" Icon="edit"></GridCommandButton>
+                                    <GridCommandButton Command="Delete" Primary="true" Icon="delete"></GridCommandButton>
+                                    <GridCommandButton Command="Cancel" Primary="true" Icon="cancel" ShowInEdit="true"></GridCommandButton>
+
+                                </GridCommandColumn>
+
+                            </GridColumns>
+                        </TelerikGrid>
+                    }
+
+
                 }
                 <TelerikWindow Width="300px" Height="150px" Centered="true" @bind-Visible="@isVisible" Modal="true">
                     <WindowTitle>
@@ -718,12 +934,16 @@
     public IEnumerable<VendorInPut> GridData = new List<VendorInPut>();
     public IEnumerable<AssessmentFC> GridFC = new List<AssessmentFC>();
     public IEnumerable<AssessmentFS> GridFS = new List<AssessmentFS>();
+    public IEnumerable<AssessmentFPE> GridFPE = new List<AssessmentFPE>();
     public IEnumerable<AssessmentSC> GridSC = new List<AssessmentSC>();
     public IEnumerable<AssessmentSS> GridSS = new List<AssessmentSS>();
+    public IEnumerable<AssessmentSPE> GridSPE = new List<AssessmentSPE>();
     public IList<INAssessmentFC> GridINFC = new List<INAssessmentFC>();
-    public IList<INAssessmentFS> GridINFS = new List<INAssessmentFS>();
+    public IList<INAssessmentFS> GridINFS = new List<INAssessmentFS>();  
+    public IList<INAssessmentFPE> GridINFPE = new List<INAssessmentFPE>();
     public IList<INAssessmentSC> GridINSC = new List<INAssessmentSC>();
     public IList<INAssessmentSS> GridINSS = new List<INAssessmentSS>();
+    public IList<INAssessmentSPE> GridINSPE = new List<INAssessmentSPE>();
     public List<Projects> GridPJ = new List<Projects>();
     public List<string> project = new List<string>();
     public IEnumerable<VendorInPut> SelectedItems { get; set; } = new List<VendorInPut>();
@@ -751,18 +971,24 @@
     {
         GridINFC = await _dbINAssessmentFC.GetINAssessmentFC();
         GridINFS = await _dbINAssessmentFS.GetINAssessmentFS();
+        GridINFPE = await _dbINAssessmentFPE.GetINAssessmentFPE();
         GridINSC = await _dbINAssessmentSC.GetINAssessmentSC();
         GridINSS = await _dbINAssessmentSS.GetINAssessmentSS();
+        GridINSPE = await _dbINAssessmentSPE.GetINAssessmentSPE();
         var vendors = await _dbVendorData.GetVendors();
         GridData = new ObservableCollection<VendorInPut>(vendors);
         var FC = await _dbAssessmentFCData.GetAssessmentFC();
         GridFC = new ObservableCollection<AssessmentFC>(FC);
         var FS = await _dbAssessmentFSData.GetAssessmentFS();
         GridFS = new ObservableCollection<AssessmentFS>(FS);
+        var FPE = await _dbAssessmentFPEData.GetAssessmentFPE();
+        GridFPE = new ObservableCollection<AssessmentFPE>(FPE);
         var SC = await _dbAssessmentSCData.GetAssessmentSC();
         GridSC = new ObservableCollection<AssessmentSC>(SC);
         var SS = await _dbAssessmentSSData.GetAssessmentSS();
         GridSS = new ObservableCollection<AssessmentSS>(SS);
+        var SPE = await _dbAssessmentSPEData.GetAssessmentSPE();
+        GridSPE = new ObservableCollection<AssessmentSPE>(SPE);
         GridPJ = await _dbProjectsData.GetProjects();
     }
     async Task OnStateInitHandler(GridStateEventArgs<VendorInPut> args)
